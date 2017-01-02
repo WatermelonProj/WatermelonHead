@@ -1,0 +1,124 @@
+@charset 'utf-8';
+
+@import 'settings';
+@import 'foundation';
+@import 'motion-ui';
+
+@include foundation-global-styles;
+@include foundation-grid;
+// @include foundation-flex-grid;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-forms;
+// @include foundation-range-input;
+@include foundation-accordion;
+@include foundation-accordion-menu;
+@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-button-group;
+@include foundation-callout;
+@include foundation-close-button;
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-drilldown-menu;
+@include foundation-dropdown;
+@include foundation-dropdown-menu;
+@include foundation-flex-video;
+@include foundation-label;
+@include foundation-media-object;
+@include foundation-off-canvas;
+@include foundation-orbit;
+@include foundation-pagination;
+@include foundation-progress-bar;
+// @include foundation-progress-element;
+// @include foundation-meter-element;
+@include foundation-slider;
+@include foundation-sticky;
+@include foundation-reveal;
+@include foundation-switch;
+@include foundation-table;
+@include foundation-tabs;
+@include foundation-thumbnail;
+@include foundation-title-bar;
+@include foundation-tooltip;
+@include foundation-top-bar;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+// @include foundation-flex-classes;
+
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+.textCenter{
+  text-align: center;
+}
+
+.textRight{
+  text-align: right;
+}
+
+.li-floatRight li{
+  float: right;
+}
+
+.displayNone{
+  display: none;
+}
+
+input, button, .button{
+  border-radius: 5px !important;
+}
+
+
+
+header{
+  background: rgb(0, 129, 83);
+  .menu > li > a{
+    @include breakpoint(medium){
+      line-height: 45px !important;
+    }
+    color: #fff;
+    transition: all 0.5s;
+  }
+  .menu > li > a:hover{
+    color: rgb(0, 129, 83);
+    background: #fff;
+  }
+  #logo{
+    @include breakpoint(medium){
+      line-height: 64px;
+      img{
+        width: 100%;
+      }
+    }
+    @include breakpoint(small only){
+      img{
+        max-height: 60px;
+        width: 100%;
+      }
+    }
+  }
+
+  @include breakpoint(small only){
+    .menu{
+      li{
+        float: left;
+        width: 100%;
+        a{
+          text-align: center;
+        }
+      }
+    }
+    #smallMenu{
+      a{
+        i{
+          font-size: 2.32rem;
+        }
+      }
+    }
+  }
+}
+
+#modalLogin i{
+  font-size: 27px;
+}

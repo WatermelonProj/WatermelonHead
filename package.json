@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "scripts": {
+    "prod": "gulp --production",
+    "dev": "gulp watch"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-sass": "^2.1.0",
+    "gulp-sftp": "^0.1.5"
+  },
+  "scripts": {
+    "start": "gulp",
+    "build": "gulp sass"
+  }
+}
