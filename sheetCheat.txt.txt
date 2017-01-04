@@ -1,0 +1,1 @@
+-- Router.php mantém as rotas para elementos prégerados pelo sistema.... Removido o Register

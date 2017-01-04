@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Vendor\Laravel\Framework\src\Illuminate\Auth;
 
 class HomeController extends Controller
 {
@@ -14,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -24,7 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        print_r(\Auth::user());
-        return view('default.home');
+        return view('home');
     }
 }
