@@ -10,11 +10,12 @@ class Alimento extends Model
     protected $primaryKey = 'idAlimento';
     public $timestamps = false;
 
-    public alimentoMedidaCaseira() {
-      return $this->hasMany("App\AlimentoMedidaCaseira", "idAlimento", "idAlimento");
+    public function grupoAlimentar() {
+        return $this->hasOne('App\GrupoAlimentar', 'idGAlimentar', 'idGAlimentar');
     }
 
-    public alimentoReceita() {
-      return $this->hasMany("App\AlimentoReceita", "idAlimento", "idAlimento");
+    public function grupoPiramide() {
+        return $this->hasOne('App\GrupoPiramide', 'idGPiramide', 'idGPiramide');
     }
+
 }

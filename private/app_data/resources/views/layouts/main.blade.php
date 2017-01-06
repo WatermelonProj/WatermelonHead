@@ -8,6 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/datepicker3.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <link href="css/bootstrap-table.css" rel="stylesheet">
 
     <link rel="stylesheet" href="css/font-awesome.min.css">
 
@@ -58,11 +59,12 @@
                     <i class="fa fa-apple fa-2x" aria-hidden="true"></i>
                     Alimentos
                     <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </span>
             </a>
             <ul class="children collapse" id="sub-item-2">
                 <li>
                     <a class="" href="#">
-                        Perfil
+                        Lista
                     </a>
                 </li>
                 <li>
@@ -117,9 +119,10 @@
             <li class="active">Icons</li>
         </ol>
     </div><!--/.row-->
+
+    @yield('content')
 </div>
 
-@yield('content');
 
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -128,6 +131,7 @@
 <script src="js/easypiechart.js"></script>
 <script src="js/easypiechart-data.js"></script>
 <script src="js/bootstrap-datepicker.js"></script>
+<script src="js/bootstrap-table.js"></script>
 <script>
     $('#calendar').datepicker({
     });

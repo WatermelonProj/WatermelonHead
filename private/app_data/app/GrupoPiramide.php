@@ -10,5 +10,7 @@ class GrupoPiramide extends Model
     protected $primaryKey = 'idGPiramide';
     public $timestamps = false;
 
-
+    public function alimento() {
+        return $this->belongsToMany('App\Alimento');
+    }
 }

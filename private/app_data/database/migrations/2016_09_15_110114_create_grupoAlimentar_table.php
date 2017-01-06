@@ -17,6 +17,7 @@ class CreateGrupoAlimentarTable extends Migration
             $table->increments('idGAlimentar');
             $table->string('descricaoGA');
         });
+
     }
 
     /**

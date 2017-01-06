@@ -13,4 +13,6 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/alimentos', 'Alimento\AlimentoController@index');
+
+Route::get('/', 'HomeController@index');
