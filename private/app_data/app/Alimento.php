@@ -8,6 +8,8 @@ class Alimento extends Model
 {
     protected $table = 'alimento';
     protected $primaryKey = 'idAlimento';
+    protected  $fillable = ['idGAlimentar', 'idGPiramide', 'descricaoAlimento', 'idTACO',
+        'idGAlimentar', 'idGPiramide'];
     public $timestamps = false;
 
     public function grupoAlimentar() {

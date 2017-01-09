@@ -11,6 +11,6 @@ class GrupoAlimentar extends Model
     public $timestamps = false;
 
     public function alimento() {
-        return $this->belongsToMany('App\Alimento');
+        return $this->belongsTo('App\Alimento', 'idGAlimentar', 'idGAlimentar');
     }
 }

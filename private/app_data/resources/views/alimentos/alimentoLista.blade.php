@@ -37,7 +37,9 @@
                             <td>{{ $alimento->descricaoAlimento }}</td>
                             <td>
                                 <button class="btn btn-info btn-sm" >Informções</button>
-                                <button class="btn btn-danger btn-sm" >Excluir</button>
+                                <a href="{{ route('alimentos.destroy', ['id'=>$alimento->idAlimento]) }}">
+                                    <button class="btn btn-danger btn-sm" >Deletar</button>
+                                </a>
                             </td>
                         </tr>
                     @endforeach

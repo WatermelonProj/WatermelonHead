@@ -11,6 +11,6 @@ class GrupoPiramide extends Model
     public $timestamps = false;
 
     public function alimento() {
-        return $this->belongsToMany('App\Alimento');
+        return $this->belongsToMany('App\Alimento', 'idGPiramide', 'idGPiramide');
     }
 }

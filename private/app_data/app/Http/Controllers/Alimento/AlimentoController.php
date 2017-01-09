@@ -26,7 +26,7 @@ class AlimentoController extends Controller
      */
     public function create()
     {
-        //
+        return view('alimentos.alimentoForm');
     }
 
     /**
@@ -82,6 +82,7 @@ class AlimentoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Alimento::find($id)->delete();
+        return redirect()->route('alimentos')->with('status', 'Alimento removido com sucesso!');
     }
 }

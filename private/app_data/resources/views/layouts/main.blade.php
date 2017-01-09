@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Melancia - Dashboard</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/datepicker3.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
-    <link href="css/bootstrap-table.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/datepicker3.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-table.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}">
 
     <!--Icons-->
-    <script src="js/lumino.glyphs.js"></script>
+    <script src="{{ asset('js/lumino.glyphs.js') }}"></script>
 
     <!--[if lt IE 9]>
-    <script src="js/html5shiv.js"></script>
-    <script src="js/respond.min.js"></script>
+    <script src="{{ asset('js/html5shiv.js') }}"></script>
+    <script src="{{ asset('js/respond.min.js') }}"></script>
     <![endif]-->
 
     <!-- CSRF Token -->
@@ -39,7 +39,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand " href="#"><span>Melan</span>Cia</a>
+            <img class="img-responsive pull-left" src="{{ asset('img/icone.png') }}" alt="melancia" style="max-width: 41px; margin-right: 10px;">
+            <a class="navbar-brand" href="#" >
+                <span>Melan</span>Cia
+            </a>
+            {{--<a class="navbar-brand " href="#"><span>Melan</span>Cia</a>--}}
         </div>
     </div><!-- /.container-fluid -->
 </nav>
@@ -89,6 +93,7 @@
                     <span data-toggle="collapse" href="#sub-item-1">
                         <i class="fa fa-user-o fa-2x" aria-hidden="true"></i> {{ Auth::user()->name }}
                         <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </span>
                 </a>
                 <ul class="children collapse" id="sub-item-1">
                     <li>
@@ -124,14 +129,14 @@
 </div>
 
 
-<script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/chart.min.js"></script>
-<script src="js/chart-data.js"></script>
-<script src="js/easypiechart.js"></script>
-<script src="js/easypiechart-data.js"></script>
-<script src="js/bootstrap-datepicker.js"></script>
-<script src="js/bootstrap-table.js"></script>
+<script src="{{ asset('js/jquery-1.11.1.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('js/chart.min.js') }}"></script>
+<script src="{{ asset('js/chart-data.js') }}"></script>
+<script src="{{ asset('js/easypiechart.js') }}"></script>
+<script src="{{ asset('js/easypiechart-data.js') }}"></script>
+<script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+<script src="{{ asset('js/bootstrap-table.js') }}"></script>
 <script>
     $('#calendar').datepicker({
     });
