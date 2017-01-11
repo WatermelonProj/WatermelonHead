@@ -37,7 +37,8 @@ class AlimentoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Alimento::create($request->all());
+        return redirect()->route('alimentos')->with('status', 'Alimento adicionado com sucesso!');
     }
 
     /**

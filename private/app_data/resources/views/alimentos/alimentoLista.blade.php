@@ -7,11 +7,24 @@
     </div>
 </div>
 
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
+
 {{--Tabela--}}
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
-            <div class="panel-heading">Lista de Alimentos</div>
+
+            <div class="panel-heading">
+                Lista de Alimentos
+                <a href="{{ route('alimentos.create') }}">
+                    <button class="btn btn-primary pull-right">Adicionar</button>
+                </a>
+            </div>
+
             <div class="panel-body">
                 <table data-toggle="table"  data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
                     <thead>
@@ -30,15 +43,23 @@
                             @if(empty($alimento->idGAlimentar))
                                 <td>Não Classificado</td>
                             @else
-                                <td>{{ $alimento->idGAlimentar }}</td>
+                                <td>{{ $alimento->grupoAlimentar['descricaoGA'] }}</td>
                             @endif
                             <td>{{ $alimento->grupoPiramide['descricaoGP']}}</td>
                             <td>{{ $alimento->idTACO }}</td>
                             <td>{{ $alimento->descricaoAlimento }}</td>
                             <td>
-                                <button class="btn btn-info btn-sm" >Informções</button>
+                                <a href="{{ route('alimentos.edit', ['id'=>$alimento->idAlimento]) }}">
+                                    <button class="btn btn-info btn-sm" >
+                                        Informações
+                                        <i class="fa fa-info" aria-hidden="true"></i>
+                                    </button>
+                                </a>
                                 <a href="{{ route('alimentos.destroy', ['id'=>$alimento->idAlimento]) }}">
-                                    <button class="btn btn-danger btn-sm" >Deletar</button>
+                                    <button class="btn btn-danger btn-sm" >
+                                        Deletar
+                                        <i class="fa fa-trash" aria-hidden="true"></i>
+                                    </button>
                                 </a>
                             </td>
                         </tr>

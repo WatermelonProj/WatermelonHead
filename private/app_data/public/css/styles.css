@@ -17,7 +17,7 @@ p {
 }
 
 a, a:hover, a:focus {
-	color: #30a5ff;
+	color: rgb(38, 84, 19);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -95,7 +95,7 @@ h3, h4 {
 }
 
 .navbar-header .navbar-brand span {
-	color: #30a5ff;
+	color: rgb(38, 84, 19);
 }
 
 /*Buttons*/
@@ -588,7 +588,7 @@ a.bg-danger:hover {
 .sidebar ul.nav ul.children li a {
 	height: 40px;
 	background: #f9f9f9;
-	color: #30a5ff!important;
+	color: rgb(38, 84, 19)!important;
 }
 
 .sidebar ul.nav li.current a {
@@ -929,6 +929,10 @@ h1.page-header {
 	overflow: scroll;
 }
 
+.col-centered{
+	float: none;
+	margin: 0 auto;
+}
 
 
 

@@ -67,17 +67,8 @@
             </a>
             <ul class="children collapse" id="sub-item-2">
                 <li>
-                    <a class="" href="#">
+                    <a class="" href="{{ route('alimentos') }}">
                         Lista
-                    </a>
-                </li>
-                <li>
-                    <a class="" href="{{url('/logout')}}"
-                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="fa fa-sign-out" aria-hidden="true"></i> Deslogar
-                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
                     </a>
                 </li>
             </ul>

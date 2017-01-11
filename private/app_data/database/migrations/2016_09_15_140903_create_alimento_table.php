@@ -19,15 +19,16 @@ class CreateAlimentoTable extends Migration
             $table->integer('idGPiramide')->unsigned()->nullable();
             $table->string('descricaoAlimento');
             $table->integer('idTACO');
-            $table->foreign('idGAlimentar')->references('idGAlimentar')->on('grupoAlimentar')->onDelete('cascade');
-            $table->foreign('idGPiramide')->references('idGPiramide')->on('grupoPiramide')->onDelete('cascade');
+
+            $table->foreign('idGAlimentar')->references('idGAlimentar')->on('grupoAlimentar');
+            $table->foreign('idGPiramide')->references('idGPiramide')->on('grupoPiramide');
         });
 
         DB::table('alimento')->insert(array(
         	'idAlimento'=> 1,
         	'idTACO'=> 1,
         	'descricaoAlimento' => 'Arroz, integral, cozido',
-          'idGPiramide' => 1
+            'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
         	'idAlimento'=> 2,
