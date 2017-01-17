@@ -12,11 +12,15 @@ class Alimento extends Model
     public $timestamps = false;
 
     public function grupoAlimentar() {
-        return $this->hasOne('App\GrupoAlimentar', 'idGAlimentar', 'idGAlimentar');
+        return $this->belongsTo('App\GrupoAlimentar', 'idGAlimentar');
     }
 
     public function grupoPiramide() {
-        return $this->hasOne('App\GrupoPiramide', 'idGPiramide', 'idGPiramide');
+        return $this->belongsTo('App\GrupoPiramide', 'idGPiramide');
+    }
+
+    public function nutrienteAlimento() {
+        return $this->hasMany('App\NutrienteAlimento', 'idAlimento');
     }
 
 }

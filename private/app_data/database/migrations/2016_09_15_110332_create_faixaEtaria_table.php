@@ -27,6 +27,6 @@ class CreateFaixaEtariaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faixaEtaria');
+//        Schema::dropIfExists('faixaEtaria');
     }
 }

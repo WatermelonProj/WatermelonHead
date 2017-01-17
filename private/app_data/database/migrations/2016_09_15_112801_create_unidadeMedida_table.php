@@ -113,6 +113,6 @@ class CreateUnidadeMedidaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('unidadeMedida');
+//        Schema::dropIfExists('unidadeMedida');
     }
 }

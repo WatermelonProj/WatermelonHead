@@ -49,7 +49,8 @@ class AlimentoController extends Controller
      */
     public function show($id)
     {
-        //
+        $alimento = Alimento::find($id);
+        return view('alimentos.alimentoComponentes', compact('alimento'));
     }
 
     /**

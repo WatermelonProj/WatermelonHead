@@ -18,8 +18,8 @@ class CreateNutrienteAlimentoTable extends Migration
           $table->integer('idAlimento')->unsigned();
           $table->string('qtde');
           $table->index(['idNutriente','idAlimento']);
-          $table->foreign('idNutriente')->references('idNutriente')->on('nutriente');
-          $table->foreign('idAlimento')->references('idAlimento')->on('alimento');
+          $table->foreign('idNutriente')->references('idNutriente')->on('nutriente')->onDelete('cascade');
+          $table->foreign('idAlimento')->references('idAlimento')->on('alimento')->onDelete('cascade');
         });
 
         DB::table('nutrienteAlimento')->insert(array('idNutriente'=> 1, 'idAlimento'=> 1, 'qtde' => '124'));

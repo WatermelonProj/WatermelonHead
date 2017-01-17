@@ -17,6 +17,7 @@ Route::group(['prefix' => 'alimentos'], function() {
     Route::get('', 'Alimento\AlimentoController@index')->name('alimentos');
     Route::get('/create', 'Alimento\AlimentoController@create')->name('alimentos.create');
     Route::post('/store', 'Alimento\AlimentoController@store')->name('alimentos.store');
+    Route::get('/show/{id}', 'Alimento\AlimentoController@show')->name('alimentos.show');
     Route::get('/edit/{id}', 'Alimento\AlimentoController@edit')->name('alimentos.edit');
     Route::get('/destroy/{id}', 'Alimento\AlimentoController@destroy')->name('alimentos.destroy');
 });

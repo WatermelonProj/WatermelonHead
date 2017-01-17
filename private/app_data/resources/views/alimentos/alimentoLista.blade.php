@@ -49,7 +49,7 @@
                             <td>{{ $alimento->idTACO }}</td>
                             <td>{{ $alimento->descricaoAlimento }}</td>
                             <td>
-                                <a href="{{ route('alimentos.edit', ['id'=>$alimento->idAlimento]) }}">
+                                <a href="{{ route('alimentos.show', ['id'=>$alimento->idAlimento]) }}">
                                     <button class="btn btn-info btn-sm" >
                                         Informações
                                         <i class="fa fa-info" aria-hidden="true"></i>
