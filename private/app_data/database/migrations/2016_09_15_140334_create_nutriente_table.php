@@ -18,7 +18,7 @@ class CreateNutrienteTable extends Migration
             $table->string('nomeNutriente');
             $table->string('cientificoNutriente')->nullable();
             $table->integer('unidadeNutriente')->unsigned();
-            $table->foreign("unidadeNutriente")->references("idUnidade")->on("unidadeMedida");
+            $table->foreign("unidadeNutriente")->references("idUnidade")->on("unidadeMedida")->onDelete('cascade');
         });
 
         DB::table('nutriente')->insert(array(

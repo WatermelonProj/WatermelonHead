@@ -17,8 +17,8 @@ class CreateReceitaRefeicaoTable extends Migration
             $table->integer('idReceita')->unsigned();
             $table->integer('idCardapioRefeicao')->unsigned();
             $table->index(['idReceita','idCardapioRefeicao']);
-            $table->foreign('idReceita')->references('idReceita')->on('receita');
-            $table->foreign('idCardapioRefeicao')->references('idCardapioRefeicao')->on('cardapio_refeicao');
+            $table->foreign('idReceita')->references('idReceita')->on('receita')->onDelete('cascade');
+            $table->foreign('idCardapioRefeicao')->references('idCardapioRefeicao')->on('cardapio_refeicao')->onDelete('cascade');
             $table->timestamps();
         });
     }

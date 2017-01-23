@@ -19,11 +19,6 @@ class CreateGrupoAlimentarTable extends Migration
         });
 
         DB::table('grupoAlimentar')->insert(array(
-            'idGAlimentar'=> 0,
-            'descricaoGA' => 'NA'
-        ));
-
-        DB::table('grupoAlimentar')->insert(array(
             'idGAlimentar'=> 1,
             'descricaoGA' => 'Alimentos Infantis'
         ));

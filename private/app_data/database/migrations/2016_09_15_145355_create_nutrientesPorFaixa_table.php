@@ -19,8 +19,8 @@ class CreateNutrientesPorFaixaTable extends Migration
             $table->float('qtdeMin');
             $table->float('qdteMax')->nullable();
             $table->index(['idFEtaria','idNutriente']);
-            $table->foreign('idFEtaria')->references('idFEtaria')->on('faixaEtaria');
-            $table->foreign('idNutriente')->references('idNutriente')->on('nutriente');
+            $table->foreign('idFEtaria')->references('idFEtaria')->on('faixaEtaria')->onDelete('cascade');
+            $table->foreign('idNutriente')->references('idNutriente')->on('nutriente')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -19,9 +19,9 @@ class CreateAlimentoReceitaTable extends Migration
             $table->integer('unidadeMedida')->unsigned();
             $table->float('qtde');
             $table->index(['idAlimento', 'idReceita', 'unidadeMedida']);
-            $table->foreign('idAlimento')->references('idAlimento')->on('alimento');
-            $table->foreign('idReceita')->references('idReceita')->on('receita');
-            $table->foreign('unidadeMedida')->references('idUnidade')->on('unidadeMedida');
+            $table->foreign('idAlimento')->references('idAlimento')->on('alimento')->onDelete('cascade');
+            $table->foreign('idReceita')->references('idReceita')->on('receita')->onDelete('cascade');
+            $table->foreign('unidadeMedida')->references('idUnidade')->on('unidadeMedida')->onDelete('cascade');
         });
     }
 

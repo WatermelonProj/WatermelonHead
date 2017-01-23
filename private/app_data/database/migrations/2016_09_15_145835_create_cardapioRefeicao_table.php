@@ -18,8 +18,8 @@ class CreateCardapioRefeicaoTable extends Migration
             $table->integer('idCardapio')->unsigned();
             $table->integer('idRefeicao')->unsigned();
             $table->index(['idCardapio','idRefeicao']);
-            $table->foreign('idCardapio')->references('idCardapio')->on('cardapio');
-            $table->foreign('idRefeicao')->references('idRefeicao')->on('refeicao');
+            $table->foreign('idCardapio')->references('idCardapio')->on('cardapio')->onDelete('cascade');
+            $table->foreign('idRefeicao')->references('idRefeicao')->on('refeicao')->onDelete('cascade');
             $table->timestamps();
         });
     }

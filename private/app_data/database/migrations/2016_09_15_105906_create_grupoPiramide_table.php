@@ -19,10 +19,6 @@ class CreateGrupoPiramideTable extends Migration
         });
 
         DB::table('grupoPiramide')->insert(array(
-            'idGPiramide'=> 0,
-            'descricaoGP' => 'NA'
-        ));
-        DB::table('grupoPiramide')->insert(array(
         	'idGPiramide'=> 1,
         	'descricaoGP' => 'Cereais e derivados'
         ));
