@@ -13,4 +13,8 @@ class UnidadeMedida extends Model
     public function nutriente() {
         return $this->hasMany('App\Nutriente', 'unidadeNutriente');
     }
+
+    public function alimentoMedidaCaseira() {
+        return $this->hasMany('App\AlimentoMedidaCaseira', 'tipoUnidade');
+    }
 }

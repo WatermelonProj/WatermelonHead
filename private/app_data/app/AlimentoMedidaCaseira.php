@@ -11,10 +11,15 @@ class AlimentoMedidaCaseira extends Model
     public $timestamps = false;
 
     public function alimento() {
-      return $this->belongsTo("App\Alimento", "idAlimento", "idAlimento");
+      return $this->belongsTo("App\Alimento", "idAlimento");
     }
 
-    public function medidaCaseira() {
+    public function tipoMedidaCaseira() {
       return $this->belongsTo('App\TipoMedidaCaseira', 'idTMCaseira', 'idTMCaseira');
     }
+
+    public function unidadeMedida(){
+        return $this->belongsTo('App\UnidadeMedida', 'tipoUnidade');
+    }
+
 }

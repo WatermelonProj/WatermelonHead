@@ -23,4 +23,8 @@ class Alimento extends Model
         return $this->hasMany('App\NutrienteAlimento', 'idAlimento');
     }
 
+    public function alimentoMedidaCaseira() {
+        return $this->hasMany('App\alimentoMedidaCaseira', 'idAlimento');
+    }
+
 }
