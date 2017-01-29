@@ -6,16 +6,18 @@
 
 @section('content')
 
-<div class="">
-    <div class="page-title">
-        <div class="title_left">
-            <h3>Alimentos <small>Lista de Alimentos referênciados da tabela TACO</small></h3>
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Alimentos
+                    <small>Lista de Alimentos referênciados da tabela TACO</small>
+                </h3>
+            </div>
         </div>
-    </div>
 
-    <div class="clearfix"></div>
+        <div class="clearfix"></div>
 
-    <div class="row">
+        <div class="row">
 
             <div class="">
                 <div class="x_panel">
@@ -35,7 +37,6 @@
                             </tr>
                             </thead>
 
-
                             <tbody>
                             @foreach($alimentos as $alimento)
                                 <tr>
@@ -54,7 +55,8 @@
                                             <a href="{{ route('alimentos.show', ['id'=>$alimento->idAlimento]) }}">
                                                 <button class="btn btn-info btn-sm">
                                                     <i class="fa fa-info" aria-hidden="true"></i> Detalhes
-                                                </button></a>
+                                                </button>
+                                            </a>
                                             <a href="{{ route('alimentos.destroy', ['id'=>$alimento->idAlimento]) }}">
                                                 <button class="btn btn-danger btn-sm">
                                                     <i class="fa fa-trash" aria-hidden="true"></i> Remover
@@ -63,17 +65,18 @@
                                         </div>
                                     </td>
                                 </tr>
-                                @endforeach
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-    </div>
+        </div>
 
-</div>
+    </div>
 @endsection
 
 @section('scripts')
+    @include('imports.datatables_script')
     @include('imports.morris_graphs')
 @endsection

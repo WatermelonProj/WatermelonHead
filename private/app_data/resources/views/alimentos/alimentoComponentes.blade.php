@@ -1,7 +1,5 @@
 @extends('layouts.app')
 
-{{ Helpers::teste() }}
-
 @section('content')
     <div class="row">
         <div class="col-md-8 col-sm-8 col-xs-12">
@@ -17,7 +15,6 @@
                             <th>Componente</th>
                             <th>Unidade</th>
                             <th>Quantidade</th>
-                            <th>Nome Cientifíco</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -26,7 +23,6 @@
                                 <td>{{ $nutrienteAlm->nutriente->nomeNutriente }}</td>
                                 <td>{{ $nutrienteAlm->nutriente->unidadeMedida->siglaUnidade }}</td>
                                 <td>{{ $nutrienteAlm->qtde }}</td>
-                                <td>{{ $nutrienteAlm->nutriente->cientificoNutriente }}</td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -39,12 +35,15 @@
         <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Pie Chart <small>Sessions</small></h2>
+                    <h2>Pie Chart
+                        <small>Sessions</small>
+                    </h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#">Settings 1</a>
                                 </li>
@@ -72,16 +71,10 @@
     @include('imports.morris_graphs')
 
     <script>
+        console.log({!! grafoComposicao($alimento->nutrienteAlimento) !!});
         Morris.Donut({
             element: 'graph_donut',
-            data: [
-                {label: 'Jam', value: 124},
-                {label: 'Frosted', value: 40},
-                {label: 'Custard', value: 10},
-                {label: 'Sugar', value: 70},
-                {label: 'Carb', value: 10}
-
-            ],
+            data: {!! grafoComposicao($alimento->nutrienteAlimento) !!},
             colors: shuffle(['#26B99A', '#34495E', '#ACADAC', '#3498DB', '#ff99ff', '#66ffff', '#99cc00']),
             formatter: function (y) {
                 return y + "%";
