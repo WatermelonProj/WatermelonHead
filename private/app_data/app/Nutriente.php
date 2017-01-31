@@ -18,4 +18,9 @@ class Nutriente extends Model
         return $this->belongsTo('App\unidadeMedida', 'unidadeNutriente');
     }
 
+    public function nutrientesPorFaixa()
+    {
+        return $this->hasMany('App\NutrientesPorFaixa', 'idNutriente');
+    }
+
 }

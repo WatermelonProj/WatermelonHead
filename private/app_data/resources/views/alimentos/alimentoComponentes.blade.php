@@ -5,25 +5,27 @@
         <div class="col-md-8 col-sm-8 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>{{$alimento->idAlimento ."-". $alimento->descricaoAlimento }} </h2>
+                    <h2><strong>{{ $alimento->idAlimento}}</strong> {{$alimento->descricaoAlimento }} </h2>
+
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                     <div class="form-group col-md-4 col-sm-12 col-xs-12 pull-right">
                         <label class="control-label ">Medida Caseira</label>
+
                         <div class="form-group">
                             <div class="input-group">
                                 <select class="form-control">
-                                    <option class="medida" value="100g">100g</option>
+                                    <option class="medida" value="100">100g</option>
                                     @foreach($alimento->alimentoMedidaCaseira as $medidaCaseira)
-                                        <option class="medida" value="{{ $medidaCaseira->tipoMedidaCaseira->classeTMC }}">
+                                        <option class="medida"
+                                                value="{{ $medidaCaseira->qtde }}">
                                             {{ $medidaCaseira->tipoMedidaCaseira->nomeTMC}}
                                         </option>
                                     @endforeach
                                 </select>
                                 <span class="input-group-btn">
                                     <button id="atualizaNutr" type="button" class="btn btn-primary">Go!</button>
-
                                 </span>
                             </div>
                         </div>
@@ -39,11 +41,11 @@
                         </thead>
                         <tbody>
                         @foreach($alimento->nutrienteAlimento as $nutrienteAlm)
-                            @if($nutrienteAlm->qtde != "NA")
+                            @if($nutrienteAlm->qtde != "NA" && $nutrienteAlm->qtde != "Tr")
                                 <tr>
                                     <td>{{ $nutrienteAlm->nutriente->nomeNutriente }}</td>
                                     <td>{{ $nutrienteAlm->nutriente->unidadeMedida->siglaUnidade }}</td>
-                                    <td>{{ $nutrienteAlm->qtde }}</td>
+                                    <td class="qtd">{{ $nutrienteAlm->qtde }}</td>
                                 </tr>
                             @endif
                         @endforeach
@@ -80,6 +82,13 @@
     @include('imports.morris_graphs')
 
     <script>
+        var qtd = $('.qtd');
+        $.each(qtd, function(i, key) {
+            if(key.text != 'NA' && key.text != "Tr") {
+                console.log($(key).text());
+            }
+        });
+
         function chart() {
             Morris.Donut({
                 element: 'graph_donut',

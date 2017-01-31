@@ -10,7 +10,14 @@ class FaixaEtaria extends Model
     protected $primaryKey = 'idFEtaria';
     public $timestamps = false;
 
-    public function cardapio() {
-      return $this->hasMany("App\Cardapio","idFEtaria", "idFEtaria");
+    public function cardapio()
+    {
+        return $this->hasMany('App\Cardapio', 'idFEtaria', 'idFEtaria');
     }
+
+    public function faixaEtaria()
+    {
+        return $this->hasMany('App\NutrientePorFaixa', 'idFEtaria');
+    }
+
 }

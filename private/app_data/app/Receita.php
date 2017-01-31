@@ -10,11 +10,18 @@ class Receita extends Model
     protected $primaryKey = 'idReceita';
     public $timestamps = true;
 
-    public function alimentoReceita(){
-      return $this->hasMany("App\AlimentoReceita", "idReceita", "idReceita");
+    public function alimentoReceita()
+    {
+        return $this->hasMany('App\AlimentoReceita', 'idReceita', 'idReceita');
     }
 
-    public function usuario(){
-      return $this->belongsTo('App\Usuario', 'idUsuario', 'id');
+    public function user()
+    {
+        return $this->belongsTo('App\User', 'idUsuario', 'id');
+    }
+
+    public function receitaRefeicao()
+    {
+        return $this->hasMany('\App\ReceitaRefeicao', 'idReceita');
     }
 }

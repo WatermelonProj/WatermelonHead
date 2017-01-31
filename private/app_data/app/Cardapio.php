@@ -11,14 +11,14 @@ class Cardapio extends Model
     public $timestamps = true;
 
     public function cardapioReceicao() {
-      return $this->hasMany("App\CardapioReceicao", "idCardapio", "idCardapio");
+      return $this->hasMany('App\CardapioReceicao', 'idCardapio', 'idCardapio');
     }
 
     public function faixaEtaria() {
-      return $this->belongsTo("App\FaixaEtaria", "idFEtaria", "idFEtaria");
+      return $this->belongsTo('App\FaixaEtaria', 'idFEtaria', 'idFEtaria');
     }
 
     public function usuario(){
-      return $this->belongsTo("App\Usuario", "idUsuario", "id");
+      return $this->belongsTo('App\User', 'idUsuario', 'id');
     }
 }

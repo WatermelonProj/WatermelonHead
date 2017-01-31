@@ -10,11 +10,18 @@ class CardapioRefeicao extends Model
     protected $primaryKey = 'idCardapioRefeicao';
     public $timestamps = false;
 
-    public function cardapio () {
-      return $this->belongsTo("App\Cardapio", "idCardapio", "idCardapio");
+    public function cardapio()
+    {
+        return $this->belongsTo("App\Cardapio", "idCardapio", "idCardapio");
     }
 
-    public function refeicao () {
-      return $this->belongsTo("App\Refeicao", "idRefeicao", "idRefeicao");
+    public function refeicao()
+    {
+        return $this->belongsTo("App\Refeicao", "idRefeicao", "idRefeicao");
+    }
+
+    public function receitaRefeicao()
+    {
+        return $this->hasMany('App\ReceitaRefeicao', 'idCardapioRefeicao');
     }
 }

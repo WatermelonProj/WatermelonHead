@@ -11,10 +11,15 @@ class AlimentoReceita extends Model
     public $timestamps = false;
 
     public function alimento() {
-      return $this->belongsTo("App\Alimento", "idAlimento", "idAlimento");
+      return $this->belongsTo('App\Alimento', 'idAlimento', 'idAlimento');
     }
 
     public function receita() {
-      return $this->belongsTo("App\Receita", "idReceita", "idReceita");
+      return $this->belongsTo('App\Receita', 'idReceita', 'idReceita');
+    }
+
+    public function undidadeMedida()
+    {
+        return $this->belongsTo('App\UnidadeMedida', 'unidadeMedida');
     }
 }

@@ -10,11 +10,18 @@ class UnidadeMedida extends Model
     protected $primaryKey = 'idUnidade';
     public $timestamps = false;
 
-    public function nutriente() {
+    public function nutriente()
+    {
         return $this->hasMany('App\Nutriente', 'unidadeNutriente');
     }
 
-    public function alimentoMedidaCaseira() {
+    public function alimentoMedidaCaseira()
+    {
         return $this->hasMany('App\AlimentoMedidaCaseira', 'tipoUnidade');
+    }
+
+    public function alimentoReceita()
+    {
+        return $this->hasMany('App\AlimentoReceita', 'unidadeMedida');
     }
 }
