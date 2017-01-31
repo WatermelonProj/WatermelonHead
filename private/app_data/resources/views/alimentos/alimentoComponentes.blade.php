@@ -5,10 +5,30 @@
         <div class="col-md-8 col-sm-8 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>{{ $alimento->descricaoAlimento }} </h2>
+                    <h2>{{$alimento->idAlimento ."-". $alimento->descricaoAlimento }} </h2>
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
+                    <div class="form-group col-md-4 col-sm-12 col-xs-12 pull-right">
+                        <label class="control-label ">Medida Caseira</label>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <select class="form-control">
+                                    <option class="medida" value="100g">100g</option>
+                                    @foreach($alimento->alimentoMedidaCaseira as $medidaCaseira)
+                                        <option class="medida" value="{{ $medidaCaseira->tipoMedidaCaseira->classeTMC }}">
+                                            {{ $medidaCaseira->tipoMedidaCaseira->nomeTMC}}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <span class="input-group-btn">
+                                    <button id="atualizaNutr" type="button" class="btn btn-primary">Go!</button>
+
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
                     <table class="table table-hover jambo_table ">
                         <thead>
                         <tr>
@@ -19,11 +39,13 @@
                         </thead>
                         <tbody>
                         @foreach($alimento->nutrienteAlimento as $nutrienteAlm)
-                            <tr>
-                                <td>{{ $nutrienteAlm->nutriente->nomeNutriente }}</td>
-                                <td>{{ $nutrienteAlm->nutriente->unidadeMedida->siglaUnidade }}</td>
-                                <td>{{ $nutrienteAlm->qtde }}</td>
-                            </tr>
+                            @if($nutrienteAlm->qtde != "NA")
+                                <tr>
+                                    <td>{{ $nutrienteAlm->nutriente->nomeNutriente }}</td>
+                                    <td>{{ $nutrienteAlm->nutriente->unidadeMedida->siglaUnidade }}</td>
+                                    <td>{{ $nutrienteAlm->qtde }}</td>
+                                </tr>
+                            @endif
                         @endforeach
                         </tbody>
                     </table>
@@ -35,22 +57,9 @@
         <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Pie Chart
-                        <small>Sessions</small>
+                    <h2>Composição
                     </h2>
                     <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                               aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Settings 1</a>
-                                </li>
-                                <li><a href="#">Settings 2</a>
-                                </li>
-                            </ul>
-                        </li>
                         <li><a class="close-link"><i class="fa fa-close"></i></a>
                         </li>
                     </ul>
@@ -71,15 +80,26 @@
     @include('imports.morris_graphs')
 
     <script>
-        console.log({!! grafoComposicao($alimento->nutrienteAlimento) !!});
-        Morris.Donut({
-            element: 'graph_donut',
-            data: {!! grafoComposicao($alimento->nutrienteAlimento) !!},
-            colors: shuffle(['#26B99A', '#34495E', '#ACADAC', '#3498DB', '#ff99ff', '#66ffff', '#99cc00']),
-            formatter: function (y) {
-                return y + "%";
-            },
-            resize: true
+        function chart() {
+            Morris.Donut({
+                element: 'graph_donut',
+                data: {!! grafoComposicao($alimento->nutrienteAlimento) !!},
+                colors: shuffle(['#26B99A', '#34495E', '#ACADAC', '#3498DB', '#ff99ff', '#66ffff', '#99cc00']),
+                formatter: function (y) {
+                    return y + "%";
+                },
+                resize: true
+            });
+        }
+
+        chart();
+
+        $('#atualizaNutr').click(function () {
+
         });
+
+        function atualizaNutrientes() {
+
+        }
     </script>
 @endsection
