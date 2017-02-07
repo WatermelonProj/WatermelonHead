@@ -22,14 +22,16 @@
             <div class="">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Alimentos</h2>
+                        <button class="btn btn-primary pull-right">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                             Adicionar Alimento</button>
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                             <tr>
-                                <th>Id TACO</th>
+                                <th>Id</th>
                                 <th>Alimento</th>
                                 <th>Grupo Alimentar</th>
                                 <th>Grupo Piramide</th>
@@ -40,7 +42,7 @@
                             <tbody>
                             @foreach($alimentos as $alimento)
                                 <tr>
-                                    <td>{{ $alimento->idTACO }}</td>
+                                    <td>{{ $alimento->idAlimento }}</td>
                                     <td>{{ $alimento->descricaoAlimento }}</td>
                                     <td>
                                         @if($alimento->grupoAlimentar['descricaoGA'])

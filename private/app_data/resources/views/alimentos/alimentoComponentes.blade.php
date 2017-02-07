@@ -5,18 +5,18 @@
         <div class="col-md-8 col-sm-8 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2><strong>{{ $alimento->idAlimento}}</strong> {{$alimento->descricaoAlimento }} </h2>
+                    <h2><strong>{{ $alimento->idAlimento ." : "}}</strong> {{$alimento->descricaoAlimento }} </h2>
 
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
                     <div class="form-group col-md-4 col-sm-12 col-xs-12 pull-right">
-                        <label class="control-label ">Medida Caseira</label>
+                        <label class="control-label ">Medida</label>
 
                         <div class="form-group">
                             <div class="input-group">
-                                <select class="form-control">
-                                    <option class="medida" value="100">100g</option>
+                                <select name="selector" id="selector" class="form-control">
+                                    <option class="medida" value="100.00">100g</option>
                                     @foreach($alimento->alimentoMedidaCaseira as $medidaCaseira)
                                         <option class="medida"
                                                 value="{{ $medidaCaseira->qtde }}">
@@ -55,6 +55,28 @@
             </div>
         </div>
 
+
+        @if(File::exists("img/Alimentos/{$alimento->idAlimento}.png"))
+        <!-- Imagem do Alimento -->
+        <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Composição
+                    </h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content2">
+                    <img src="{{ asset("img/Alimentos/{$alimento->idAlimento}.png") }}" class="img-rounded"
+                         alt="Cinque Terre" style="width:100%; height:275px;">
+                </div>
+            </div>
+        </div>
+        @endif
+
         <!-- pie chart -->
         <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="x_panel">
@@ -82,13 +104,6 @@
     @include('imports.morris_graphs')
 
     <script>
-        var qtd = $('.qtd');
-        $.each(qtd, function(i, key) {
-            if(key.text != 'NA' && key.text != "Tr") {
-                console.log($(key).text());
-            }
-        });
-
         function chart() {
             Morris.Donut({
                 element: 'graph_donut',
@@ -103,12 +118,23 @@
 
         chart();
 
-        $('#atualizaNutr').click(function () {
-
-        });
+        var medidaAtual = 100;
 
         function atualizaNutrientes() {
-
+            var qtd = $('.qtd');
+            $.each(qtd, function (i, key) {
+                if (key.text != 'NA' && key.text != "Tr") {
+                    var vlr = (parseFloat($(key).text()) / medidaAtual)
+                            * parseFloat($('select[name=selector]').val());
+                    $(key).text(vlr.toFixed(2));
+                }
+            });
+            medidaAtual = parseFloat($('select[name=selector]').val());
         }
+
+        $('#atualizaNutr').click(function () {
+            //console.log($('select[name=selector]').val())
+            atualizaNutrientes();
+        });
     </script>
 @endsection

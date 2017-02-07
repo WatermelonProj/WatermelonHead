@@ -12,12 +12,12 @@ class CardapioRefeicao extends Model
 
     public function cardapio()
     {
-        return $this->belongsTo("App\Cardapio", "idCardapio", "idCardapio");
+        return $this->belongsTo('App\Cardapio', 'idCardapio', 'idCardapio');
     }
 
     public function refeicao()
     {
-        return $this->belongsTo("App\Refeicao", "idRefeicao", "idRefeicao");
+        return $this->belongsTo('App\Refeicao', 'idRefeicao', 'idRefeicao');
     }
 
     public function receitaRefeicao()
