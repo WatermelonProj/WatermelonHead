@@ -22,10 +22,12 @@
             <div class="">
                 <div class="x_panel">
                     <div class="x_title">
-                        <button class="btn btn-primary pull-right">
-                            <i class="fa fa-plus" aria-hidden="true"></i>
-                             Adicionar Alimento</button>
-                        <div class="clearfix"></div>
+                        <a href="{{ route('alimentos.create') }}">
+                            <button class="btn btn-primary pull-right">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                Adicionar Alimento</button>
+                            <div class="clearfix"></div>
+                        </a>
                     </div>
                     <div class="x_content">
                         <table id="datatable" class="table table-striped table-bordered">

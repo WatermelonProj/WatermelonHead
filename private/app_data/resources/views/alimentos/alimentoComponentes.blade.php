@@ -25,7 +25,7 @@
                                     @endforeach
                                 </select>
                                 <span class="input-group-btn">
-                                    <button id="atualizaNutr" type="button" class="btn btn-primary">Go!</button>
+                                    <button id="atualizaNutr" type="button" class="btn btn-primary">Atualizar Medida</button>
                                 </span>
                             </div>
                         </div>
@@ -61,7 +61,7 @@
         <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Composição
+                    <h2>Alimento
                     </h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="close-link"><i class="fa fa-close"></i></a>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="x_content2">
                     <img src="{{ asset("img/Alimentos/{$alimento->idAlimento}.png") }}" class="img-rounded"
-                         alt="Cinque Terre" style="width:100%; height:275px;">
+                         alt="Cinque Terre" style="width:100%; height:100%;">
                 </div>
             </div>
         </div>

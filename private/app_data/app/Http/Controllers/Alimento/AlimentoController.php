@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Alimento;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Alimento;
+use App\Nutriente;
+use App\NutrienteAlimento;
 
 class AlimentoController extends Controller
 {
@@ -26,7 +28,7 @@ class AlimentoController extends Controller
      */
     public function create()
     {
-        return view('alimentos.alimentoForm');
+        return view('alimentos.alimentosCriacao ');
     }
 
     /**
@@ -37,8 +39,14 @@ class AlimentoController extends Controller
      */
     public function store(Request $request)
     {
-        Alimento::create($request->all());
-        return redirect()->route('alimentos')->with('status', 'Alimento adicionado com sucesso!');
+//        Alimento::create($request->all());
+//        return redirect()->route('alimentos')->with('status', 'Alimento adicionado com sucesso!');
+        $alimento = new Alimento();
+        $alimento->descricaoAlimento = $request->descricaoAlimento;
+        $alimento->idGPiramide = $request->idGPiramide;
+        $alimento->idGAlimentar = $request->idGAlimentar;
+
+        dump($request);
     }
 
     /**
