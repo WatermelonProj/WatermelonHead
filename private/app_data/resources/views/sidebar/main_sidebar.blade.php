@@ -15,8 +15,8 @@
             </li>
             <li><a><i class="fa fa-cutlery"></i>Receitas <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="fixed_sidebar.html">Ver Receitas</a></li>
-                    <li><a href="fixed_footer.html">Criar Receita</a></li>
+                    <li><a href="#">Ver Receitas</a></li>
+                    <li><a href="#">Criar Receita</a></li>
                 </ul>
             </li>
         </ul>

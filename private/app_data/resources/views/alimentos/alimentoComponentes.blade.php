@@ -10,7 +10,7 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
-                    <div class="form-group col-md-4 col-sm-12 col-xs-12 pull-right">
+                    <div class="form-group col-md-6 col-sm-12 col-xs-12 pull-right">
                         <label class="control-label ">Medida</label>
 
                         <div class="form-group">

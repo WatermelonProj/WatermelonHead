@@ -22,6 +22,15 @@ Route::group(['prefix' => 'alimentos'], function() {
     Route::get('/destroy/{id}', 'Alimento\AlimentoController@destroy')->name('alimentos.destroy');
 });
 
+Route::group(['prefix' => 'receitas'], function() {
+    Route::get('', 'Receitas\ReceitasController@index')->name('receitas');
+    Route::get('/create', 'Receitas\ReceitasController@create')->name('receitas.create');
+    Route::post('/store', 'Receitas\ReceitasController@store')->name('receitas.store');
+    Route::get('/show/{id}', 'Receitas\ReceitasController@show')->name('receitas.show');
+    Route::get('/edit/{id}', 'Receitas\ReceitasController@edit')->name('receitas.edit');
+    Route::get('/destroy/{id}', 'Receitas\ReceitasController@destroy')->name('receitas.destroy');
+});
+
 Route::get('/', function() {
     return view('home');
 });
