@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Nutriente;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,11 +12,11 @@ class NutrientesPorFaixa extends Model
 
     public function nutriente()
     {
-        return $this->belongsTo('App\Nutriente', 'idNutriente');
+        return $this->belongsTo('App\Models\Nutriente\Nutriente', 'idNutriente');
     }
 
     public function faixaEtaria()
     {
-        return $this->belongsTo('App\FaixaEtaria', 'idFEtaria');
+        return $this->belongsTo('App\Models\Faixa_Etaria\FaixaEtaria', 'idFEtaria');
     }
 }

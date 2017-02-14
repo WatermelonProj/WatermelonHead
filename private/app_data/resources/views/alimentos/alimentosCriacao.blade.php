@@ -32,13 +32,13 @@
                     <div class="form-group ">
                         {!! Form::label('idGPiramide', 'Grupo Piramide', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            {!! Form::select('idGPiramide', \App\GrupoPiramide::pluck('descricaoGP', 'idGPiramide'), null, ['class'=>'form-control']) !!}
+                            {!! Form::select('idGPiramide', \App\Models\Grupo\GrupoPiramide::pluck('descricaoGP', 'idGPiramide'), null, ['class'=>'form-control']) !!}
                         </div>
                     </div>
                     <div class="form-group ">
                         {!! Form::label('idGAlimentar', 'Grupo', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            {!! Form::select('idGAlimentar', \App\GrupoAlimentar::pluck('descricaoGA', 'idGAlimentar'), null, ['class'=>'form-control']) !!}
+                            {!! Form::select('idGAlimentar', \App\Models\Grupo\GrupoAlimentar::pluck('descricaoGA', 'idGAlimentar'), null, ['class'=>'form-control']) !!}
                         </div>
                     </div>
                     {{--<div class="form-group">--}}
@@ -58,7 +58,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('energia', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '1')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '1')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -67,7 +67,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('proteina', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '3')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '3')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -77,7 +77,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('lipideos', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '4')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '4')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -87,7 +87,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('Colesterol', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '5')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '5')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -97,7 +97,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('carboidrato', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '6')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '6')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -107,7 +107,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('fibra_alimentar', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '7')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '7')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -117,7 +117,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('cinzas', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '8')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '8')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -127,7 +127,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('calcio', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '9')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '9')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -137,7 +137,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('magnesio', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '10')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '10')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -147,7 +147,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('manganes', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '11')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '11')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -157,7 +157,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('fosforo', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '12')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '12')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -167,7 +167,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('ferro', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '13')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '13')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -177,7 +177,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('sodio', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '14')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '14')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -187,7 +187,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('Potássio', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '15')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '15')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -197,7 +197,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('Cobre', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '16')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '16')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -207,7 +207,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('zinco', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '17')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '17')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -217,7 +217,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('retinol', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '18')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '18')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -227,7 +227,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('re', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '19')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '19')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -237,7 +237,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('rae', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '20')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '20')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -247,7 +247,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('tiamina', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '21')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '21')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -257,7 +257,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('riboflavina', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '22')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '22')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -267,7 +267,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('piridoxina', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '23')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '23')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -276,7 +276,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('Niacina', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '24')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '24')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
 
@@ -285,7 +285,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('vitamina_c', null, ['class'=>'form-control']) !!}
                         </div>
-                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Nutriente::Where('idNutriente', '25')->first()
+                        <p style="margin-left: 10px; margin-top: 5px;">{{ App\Models\Nutriente\Nutriente::Where('idNutriente', '25')->first()
                             ->UnidadeMedida->siglaUnidade }}</p>
                     </div>
                     <div class="clearfix"></div>

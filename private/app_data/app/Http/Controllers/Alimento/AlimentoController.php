@@ -4,9 +4,7 @@ namespace App\Http\Controllers\Alimento;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Alimento;
-use App\Nutriente;
-use App\NutrienteAlimento;
+use App\Models\Alimento\Alimento;
 
 class AlimentoController extends Controller
 {

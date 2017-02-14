@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Cardapio;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,14 +11,14 @@ class Cardapio extends Model
     public $timestamps = true;
 
     public function cardapioReceicao() {
-      return $this->hasMany('App\CardapioReceicao', 'idCardapio', 'idCardapio');
+      return $this->hasMany('App\Models\Cardapio\CardapioReceicao', 'idCardapio', 'idCardapio');
     }
 
     public function faixaEtaria() {
-      return $this->belongsTo('App\FaixaEtaria', 'idFEtaria', 'idFEtaria');
+      return $this->belongsTo('App\Models\Faixa_Etaria\FaixaEtaria', 'idFEtaria', 'idFEtaria');
     }
 
     public function usuario(){
-      return $this->belongsTo('App\User', 'idUsuario', 'id');
+      return $this->belongsTo('App\Models\User\User', 'idUsuario', 'id');
     }
 }

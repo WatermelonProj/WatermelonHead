@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Refeicao;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +11,6 @@ class Refeicao extends Model
     public $timestamps = false;
 
     public function cardapioRefeicao() {
-      return $this->hasMany('cardapioRefeicao', 'idRefeicao', 'idRefeicao');
+      return $this->hasMany('App\Models\Cardapio\cardapioRefeicao', 'idRefeicao', 'idRefeicao');
     }
 }

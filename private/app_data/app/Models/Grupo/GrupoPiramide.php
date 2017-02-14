@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Grupo;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +11,6 @@ class GrupoPiramide extends Model
     public $timestamps = false;
 
     public function alimento() {
-        return $this->hasMany('App\Alimento', 'idGPiramide', 'idGPiramide');
+        return $this->hasMany('App\Models\Alimento\Alimento', 'idGPiramide', 'idGPiramide');
     }
 }

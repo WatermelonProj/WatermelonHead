@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Grupo;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +11,6 @@ class GrupoAlimentar extends Model
     public $timestamps = false;
 
     public function alimento() {
-        return $this->hasMany('App\Alimento', 'idGAlimentar', 'idGAlimentar');
+        return $this->hasMany('App\Models\Alimento\Alimento', 'idGAlimentar', 'idGAlimentar');
     }
 }

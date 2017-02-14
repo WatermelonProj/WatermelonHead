@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Receitas;
 
-use App\Receita;
+use App\Models\Receita\Receita;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Cardapio;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,16 +12,16 @@ class CardapioRefeicao extends Model
 
     public function cardapio()
     {
-        return $this->belongsTo('App\Cardapio', 'idCardapio', 'idCardapio');
+        return $this->belongsTo('App\Models\Cardapio\Cardapio', 'idCardapio', 'idCardapio');
     }
 
     public function refeicao()
     {
-        return $this->belongsTo('App\Refeicao', 'idRefeicao', 'idRefeicao');
+        return $this->belongsTo('App\Models\Refeicao\Refeicao', 'idRefeicao', 'idRefeicao');
     }
 
     public function receitaRefeicao()
     {
-        return $this->hasMany('App\ReceitaRefeicao', 'idCardapioRefeicao');
+        return $this->hasMany('App\Models\Receita\ReceitaRefeicao', 'idCardapioRefeicao');
     }
 }

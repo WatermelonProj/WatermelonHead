@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Receita;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,16 +12,16 @@ class Receita extends Model
 
     public function alimentoReceita()
     {
-        return $this->hasMany('App\AlimentoReceita', 'idReceita', 'idReceita');
+        return $this->hasMany('App\Models\Alimento\AlimentoReceita', 'idReceita', 'idReceita');
     }
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'idUsuario', 'id');
+        return $this->belongsTo('App\Models\User\User', 'idUsuario', 'id');
     }
 
     public function receitaRefeicao()
     {
-        return $this->hasMany('\App\ReceitaRefeicao', 'idReceita');
+        return $this->hasMany('\App\Models\Receita\ReceitaRefeicao', 'idReceita');
     }
 }

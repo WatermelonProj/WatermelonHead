@@ -10,6 +10,11 @@
                     <div class="clearfix"></div>
                 </div>
                 <div class="x_content">
+                    <a href="{{ route('alimentos') }}">
+                        <button class="pull-left btn btn-primary">
+                            <i class="fa fa-angle-left"></i>
+                        </button>
+                    </a>
                     <div class="form-group col-md-6 col-sm-12 col-xs-12 pull-right">
                         <label class="control-label ">Medida</label>
 

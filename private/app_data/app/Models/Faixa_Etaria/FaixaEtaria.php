@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Faixa_Etaria;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,12 +12,12 @@ class FaixaEtaria extends Model
 
     public function cardapio()
     {
-        return $this->hasMany('App\Cardapio', 'idFEtaria', 'idFEtaria');
+        return $this->hasMany('App\Models\Cardapio\Cardapio', 'idFEtaria', 'idFEtaria');
     }
 
-    public function faixaEtaria()
+    public function nutrientesPorFaixa()
     {
-        return $this->hasMany('App\NutrientePorFaixa', 'idFEtaria');
+        return $this->hasMany('App\Models\Nutrientes\NutrientePorFaixa', 'idFEtaria');
     }
 
 }

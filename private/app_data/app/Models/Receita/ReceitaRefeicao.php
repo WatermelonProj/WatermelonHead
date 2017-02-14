@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Receita;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,11 +12,11 @@ class ReceitaRefeicao extends Model
 
     public function receita()
     {
-        return $this->belongsTo('\App\Receita', 'idReceita');
+        return $this->belongsTo('\App\Models\Receita\Receita', 'idReceita');
     }
 
     public function cardapioRefeicao()
     {
-        return $this->belongsTo('\App\CardapioRefeicao', 'idCardapioRefeicao');
+        return $this->belongsTo('\App\Models\Cardapio\CardapioRefeicao', 'idCardapioRefeicao');
     }
 }

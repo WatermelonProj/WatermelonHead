@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Alimento;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,15 +11,15 @@ class AlimentoReceita extends Model
     public $timestamps = false;
 
     public function alimento() {
-      return $this->belongsTo('App\Alimento', 'idAlimento', 'idAlimento');
+      return $this->belongsTo('App\Models\Alimento\Alimento', 'idAlimento', 'idAlimento');
     }
 
     public function receita() {
-      return $this->belongsTo('App\Receita', 'idReceita', 'idReceita');
+      return $this->belongsTo('App\Models\Receita\Receita', 'idReceita', 'idReceita');
     }
 
     public function undidadeMedida()
     {
-        return $this->belongsTo('App\UnidadeMedida', 'unidadeMedida');
+        return $this->belongsTo('App\Models\Medida\UnidadeMedida', 'unidadeMedida');
     }
 }

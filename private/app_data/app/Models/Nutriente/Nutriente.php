@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Nutriente;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,16 +11,16 @@ class Nutriente extends Model
     public $timestamps = false;
 
     public function nutrienteAlimento() {
-        return $this->hasMany('App\NutrienteAlimento', 'idNutriente');
+        return $this->hasMany('App\Models\Nutriente\NutrienteAlimento', 'idNutriente');
     }
 
     public function unidadeMedida() {
-        return $this->belongsTo('App\unidadeMedida', 'unidadeNutriente');
+        return $this->belongsTo('App\Models\Medida\unidadeMedida', 'unidadeNutriente');
     }
 
     public function nutrientesPorFaixa()
     {
-        return $this->hasMany('App\NutrientesPorFaixa', 'idNutriente');
+        return $this->hasMany('App\Models\Nutriente\NutrientesPorFaixa', 'idNutriente');
     }
 
 }

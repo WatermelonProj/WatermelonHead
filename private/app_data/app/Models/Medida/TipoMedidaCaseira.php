@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Medida;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +11,6 @@ class TipoMedidaCaseira extends Model
     public $timestamps = false;
 
     public function alimentoMedidaCaseira() {
-      return $this->hasMany("App\AlimentoMedidaCaseira", "idTMCaseira", "idTMCaseira");
+      return $this->hasMany('App\Models\Alimento\AlimentoMedidaCaseira', 'idTMCaseira', 'idTMCaseira');
     }
 }

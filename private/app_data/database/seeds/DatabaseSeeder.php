@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Medida\UnidadeMedida;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,6 +12,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(tipoMedidaCaseiraSeeder::class);
+        $this->call(GruposSeeder::class);
+        $this->call(tipoMedidaCaseiraSeeder::class);
+        $this->call(UnidadeMedidaSeeder::class);
+        $this->call(NutrientesSeeder::class);
+        $this->call(AlimentoSeeder::class);
+        $this->call(nutrienteAlimentoSeeder::class);
     }
 }

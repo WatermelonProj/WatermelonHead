@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Alimento;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,19 +12,19 @@ class Alimento extends Model
     public $timestamps = false;
 
     public function grupoAlimentar() {
-        return $this->belongsTo('App\GrupoAlimentar', 'idGAlimentar');
+        return $this->belongsTo('App\Models\Grupo\GrupoAlimentar', 'idGAlimentar');
     }
 
     public function grupoPiramide() {
-        return $this->belongsTo('App\GrupoPiramide', 'idGPiramide');
+        return $this->belongsTo('App\Models\Grupo\GrupoPiramide', 'idGPiramide');
     }
 
     public function nutrienteAlimento() {
-        return $this->hasMany('App\NutrienteAlimento', 'idAlimento');
+        return $this->hasMany('App\Models\Nutriente\NutrienteAlimento', 'idAlimento');
     }
 
     public function alimentoMedidaCaseira() {
-        return $this->hasMany('App\alimentoMedidaCaseira', 'idAlimento');
+        return $this->hasMany('App\Models\Alimento\alimentoMedidaCaseira', 'idAlimento');
     }
 
 }
