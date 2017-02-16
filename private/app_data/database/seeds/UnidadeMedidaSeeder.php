@@ -50,7 +50,7 @@ class UnidadeMedidaSeeder extends Seeder
         DB::table('unidadeMedida')->insert(array(
             'idUnidade'=> 5,
             'nomeUnidade' => 'Micrograma',
-            'siglaUnidade' => 'µg',
+            'siglaUnidade' => 'Âµg',
             'qtdePadrao' => 1,
             'isPadrao' => true,
             'grupoMedida' => 1

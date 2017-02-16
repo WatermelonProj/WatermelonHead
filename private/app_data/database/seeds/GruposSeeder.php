@@ -17,7 +17,7 @@ class GruposSeeder extends Seeder
         ));
         DB::table('grupoPiramide')->insert(array(
             'idGPiramide'=> 2,
-            'descricaoGP' => 'Verduras, hortaliças e derivados'
+            'descricaoGP' => 'Verduras, hortaliÃ§as e derivados'
         ));
         DB::table('grupoPiramide')->insert(array(
             'idGPiramide'=> 3,
@@ -45,11 +45,11 @@ class GruposSeeder extends Seeder
         ));
         DB::table('grupoPiramide')->insert(array(
             'idGPiramide'=> 9,
-            'descricaoGP' => 'Gorduras e Óleos'
+            'descricaoGP' => 'Gorduras e Ã“leos'
         ));
         DB::table('grupoPiramide')->insert(array(
             'idGPiramide'=> 10,
-            'descricaoGP' => 'Produtos açucarados'
+            'descricaoGP' => 'Produtos aÃ§ucarados'
         ));
         DB::table('grupoPiramide')->insert(array(
             'idGPiramide'=> 11,

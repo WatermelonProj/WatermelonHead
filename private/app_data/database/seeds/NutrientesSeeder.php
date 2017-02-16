@@ -25,13 +25,13 @@ class NutrientesSeeder extends Seeder
         ));
         DB::table('nutriente')->insert(array(
             'idNutriente'=> 3,
-            'nomeNutriente' => 'Proteína',
+            'nomeNutriente' => 'ProteÃ­na',
             'cientificoNutriente' => '',
             'unidadeNutriente'=> 2,
         ));
         DB::table('nutriente')->insert(array(
             'idNutriente'=> 4,
-            'nomeNutriente' => 'Lipídeos',
+            'nomeNutriente' => 'LipÃ­deos',
             'cientificoNutriente' => '',
             'unidadeNutriente'=> 2,
         ));
@@ -61,25 +61,25 @@ class NutrientesSeeder extends Seeder
         ));
         DB::table('nutriente')->insert(array(
             'idNutriente'=> 9,
-            'nomeNutriente' => 'Cálcio',
+            'nomeNutriente' => 'CÃ¡lcio',
             'cientificoNutriente' => '',
             'unidadeNutriente'=> 1,
         ));
         DB::table('nutriente')->insert(array(
             'idNutriente'=> 10,
-            'nomeNutriente' => 'Magnésio',
+            'nomeNutriente' => 'MagnÃ©sio',
             'cientificoNutriente' => '',
             'unidadeNutriente'=> 1,
         ));
         DB::table('nutriente')->insert(array(
             'idNutriente'=> 11,
-            'nomeNutriente' => 'Manganês',
+            'nomeNutriente' => 'ManganÃªs',
             'cientificoNutriente' => '',
             'unidadeNutriente'=> 1,
         ));
         DB::table('nutriente')->insert(array(
             'idNutriente'=> 12,
-            'nomeNutriente' => 'Fósforo',
+            'nomeNutriente' => 'FÃ³sforo',
             'cientificoNutriente' => '',
             'unidadeNutriente'=> 1,
         ));
@@ -91,13 +91,13 @@ class NutrientesSeeder extends Seeder
         ));
         DB::table('nutriente')->insert(array(
             'idNutriente'=> 14,
-            'nomeNutriente' => 'Sódio',
+            'nomeNutriente' => 'SÃ³dio',
             'cientificoNutriente' => '',
             'unidadeNutriente'=> 1,
         ));
         DB::table('nutriente')->insert(array(
             'idNutriente'=> 15,
-            'nomeNutriente' => 'Potássio',
+            'nomeNutriente' => 'PotÃ¡ssio',
             'cientificoNutriente' => '',
             'unidadeNutriente'=> 1,
         ));
@@ -241,13 +241,13 @@ class NutrientesSeeder extends Seeder
         ));
         DB::table('nutriente')->insert(array(
             'idNutriente'=> 39,
-            'nomeNutriente' => 'Ácido Aspártico',
+            'nomeNutriente' => 'Ãcido AspÃ¡rtico',
             'cientificoNutriente' => '',
             'unidadeNutriente'=> 2,
         ));
         DB::table('nutriente')->insert(array(
             'idNutriente'=> 40,
-            'nomeNutriente' => 'Ácido Glutâmico',
+            'nomeNutriente' => 'Ãcido GlutÃ¢mico',
             'cientificoNutriente' => '',
             'unidadeNutriente'=> 2,
         ));

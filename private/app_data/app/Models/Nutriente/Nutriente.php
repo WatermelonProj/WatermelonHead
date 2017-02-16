@@ -15,7 +15,7 @@ class Nutriente extends Model
     }
 
     public function unidadeMedida() {
-        return $this->belongsTo('App\Models\Medida\unidadeMedida', 'unidadeNutriente');
+        return $this->belongsTo('App\Models\Medida\UnidadeMedida', 'unidadeNutriente');
     }
 
     public function nutrientesPorFaixa()

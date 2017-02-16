@@ -164,19 +164,19 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 26,
             'idTACO'=> 26,
-            'descricaoAlimento' => 'Cereal matinal, milho, açúcar',
+            'descricaoAlimento' => 'Cereal matinal, milho, aÃ§Ãºcar',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 27,
             'idTACO'=> 27,
-            'descricaoAlimento' => 'Creme de arroz, pó',
+            'descricaoAlimento' => 'Creme de arroz, pÃ³',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 28,
             'idTACO'=> 28,
-            'descricaoAlimento' => 'Creme de milho, pó',
+            'descricaoAlimento' => 'Creme de milho, pÃ³',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
@@ -224,7 +224,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 36,
             'idTACO'=> 36,
-            'descricaoAlimento' => 'Farinha, láctea de cereais',
+            'descricaoAlimento' => 'Farinha, lÃ¡ctea de cereais',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
@@ -242,19 +242,19 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 39,
             'idTACO'=> 39,
-            'descricaoAlimento' => 'Macarrão, instantâneo',
+            'descricaoAlimento' => 'MacarrÃ£o, instantÃ¢neo',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 40,
             'idTACO'=> 40,
-            'descricaoAlimento' => 'Macarrão, trigo, cru',
+            'descricaoAlimento' => 'MacarrÃ£o, trigo, cru',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 41,
             'idTACO'=> 41,
-            'descricaoAlimento' => 'Macarrão, trigo, cru, com ovos',
+            'descricaoAlimento' => 'MacarrÃ£o, trigo, cru, com ovos',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
@@ -266,7 +266,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 43,
             'idTACO'=> 43,
-            'descricaoAlimento' => 'Milho, fubá, cru',
+            'descricaoAlimento' => 'Milho, fubÃ¡, cru',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
@@ -284,55 +284,55 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 46,
             'idTACO'=> 46,
-            'descricaoAlimento' => 'Mingau tradicional, pó',
+            'descricaoAlimento' => 'Mingau tradicional, pÃ³',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 47,
             'idTACO'=> 47,
-            'descricaoAlimento' => 'Pamonha, barra para cozimento, pré-cozida',
+            'descricaoAlimento' => 'Pamonha, barra para cozimento, prÃ©-cozida',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 48,
             'idTACO'=> 48,
-            'descricaoAlimento' => 'Pão, aveia, forma',
+            'descricaoAlimento' => 'PÃ£o, aveia, forma',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 49,
             'idTACO'=> 49,
-            'descricaoAlimento' => 'Pão, de soja',
+            'descricaoAlimento' => 'PÃ£o, de soja',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 50,
             'idTACO'=> 50,
-            'descricaoAlimento' => 'Pão, glúten, forma',
+            'descricaoAlimento' => 'PÃ£o, glÃºten, forma',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 51,
             'idTACO'=> 51,
-            'descricaoAlimento' => 'Pão, milho, forma',
+            'descricaoAlimento' => 'PÃ£o, milho, forma',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 52,
             'idTACO'=> 52,
-            'descricaoAlimento' => 'Pão, trigo, forma, integral',
+            'descricaoAlimento' => 'PÃ£o, trigo, forma, integral',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 53,
             'idTACO'=> 53,
-            'descricaoAlimento' => 'Pão, trigo, francês',
+            'descricaoAlimento' => 'PÃ£o, trigo, francÃªs',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 54,
             'idTACO'=> 54,
-            'descricaoAlimento' => 'Pão, trigo, sovado',
+            'descricaoAlimento' => 'PÃ£o, trigo, sovado',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
@@ -374,55 +374,55 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 61,
             'idTACO'=> 61,
-            'descricaoAlimento' => 'Pipoca, com óleo de soja, sem sal',
+            'descricaoAlimento' => 'Pipoca, com Ã³leo de soja, sem sal',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 62,
             'idTACO'=> 62,
-            'descricaoAlimento' => 'Polenta, pré-cozida',
+            'descricaoAlimento' => 'Polenta, prÃ©-cozida',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 63,
             'idTACO'=> 63,
-            'descricaoAlimento' => 'Torrada, Pão francês',
+            'descricaoAlimento' => 'Torrada, PÃ£o francÃªs',
             'idGPiramide' => 1
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 64,
             'idTACO'=> 64,
-            'descricaoAlimento' => 'Abóbora, cabotian, cozida',
+            'descricaoAlimento' => 'AbÃ³bora, cabotian, cozida',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 65,
             'idTACO'=> 65,
-            'descricaoAlimento' => 'Abóbora, cabotian, crua',
+            'descricaoAlimento' => 'AbÃ³bora, cabotian, crua',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 66,
             'idTACO'=> 66,
-            'descricaoAlimento' => 'Abóbora, menina brasileira, crua',
+            'descricaoAlimento' => 'AbÃ³bora, menina brasileira, crua',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 67,
             'idTACO'=> 67,
-            'descricaoAlimento' => 'Abóbora, moranga, crua',
+            'descricaoAlimento' => 'AbÃ³bora, moranga, crua',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 68,
             'idTACO'=> 68,
-            'descricaoAlimento' => 'Abóbora, moranga, refogada',
+            'descricaoAlimento' => 'AbÃ³bora, moranga, refogada',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 69,
             'idTACO'=> 69,
-            'descricaoAlimento' => 'Abóbora, pescoço, crua',
+            'descricaoAlimento' => 'AbÃ³bora, pescoÃ§o, crua',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
@@ -458,7 +458,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 75,
             'idTACO'=> 75,
-            'descricaoAlimento' => 'Agrião, cru',
+            'descricaoAlimento' => 'AgriÃ£o, cru',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
@@ -505,19 +505,19 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 83,
             'idTACO'=> 83,
-            'descricaoAlimento' => 'Alho-poró, cru',
+            'descricaoAlimento' => 'Alho-porÃ³, cru',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 84,
             'idTACO'=> 84,
-            'descricaoAlimento' => 'Almeirão, cru',
+            'descricaoAlimento' => 'AlmeirÃ£o, cru',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 85,
             'idTACO'=> 85,
-            'descricaoAlimento' => 'Almeirão, refogado',
+            'descricaoAlimento' => 'AlmeirÃ£o, refogado',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
@@ -571,7 +571,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 94,
             'idTACO'=> 94,
-            'descricaoAlimento' => 'Batata, inglesa, sauté',
+            'descricaoAlimento' => 'Batata, inglesa, sautÃ©',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
@@ -607,25 +607,25 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 100,
             'idTACO'=> 100,
-            'descricaoAlimento' => 'Brócolis, cozido',
+            'descricaoAlimento' => 'BrÃ³colis, cozido',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 101,
             'idTACO'=> 101,
-            'descricaoAlimento' => 'Brócolis, cru',
+            'descricaoAlimento' => 'BrÃ³colis, cru',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 102,
             'idTACO'=> 102,
-            'descricaoAlimento' => 'Cará, cozido',
+            'descricaoAlimento' => 'CarÃ¡, cozido',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 103,
             'idTACO'=> 103,
-            'descricaoAlimento' => 'Cará, cru',
+            'descricaoAlimento' => 'CarÃ¡, cru',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
@@ -673,7 +673,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 111,
             'idTACO'=> 111,
-            'descricaoAlimento' => 'Chicória, crua',
+            'descricaoAlimento' => 'ChicÃ³ria, crua',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
@@ -721,13 +721,13 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 119,
             'idTACO'=> 119,
-            'descricaoAlimento' => 'Espinafre, Nova Zelândia, cru',
+            'descricaoAlimento' => 'Espinafre, Nova ZelÃ¢ndia, cru',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 120,
             'idTACO'=> 120,
-            'descricaoAlimento' => 'Espinafre, Nova Zelândia, refogado',
+            'descricaoAlimento' => 'Espinafre, Nova ZelÃ¢ndia, refogado',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
@@ -751,13 +751,13 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 124,
             'idTACO'=> 124,
-            'descricaoAlimento' => 'FÃ©cula, de mandioca',
+            'descricaoAlimento' => 'FÃƒÂ©cula, de mandioca',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 125,
             'idTACO'=> 125,
-            'descricaoAlimento' => 'Feijão, broto, cru',
+            'descricaoAlimento' => 'FeijÃ£o, broto, cru',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
@@ -769,7 +769,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 127,
             'idTACO'=> 127,
-            'descricaoAlimento' => 'Jiló, cru',
+            'descricaoAlimento' => 'JilÃ³, cru',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
@@ -805,7 +805,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 133,
             'idTACO'=> 133,
-            'descricaoAlimento' => 'Manjericão, cru',
+            'descricaoAlimento' => 'ManjericÃ£o, cru',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
@@ -835,7 +835,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 138,
             'idTACO'=> 138,
-            'descricaoAlimento' => 'Palmito, juÃ§ara, em conserva',
+            'descricaoAlimento' => 'Palmito, juÃƒÂ§ara, em conserva',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
@@ -847,13 +847,13 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 140,
             'idTACO'=> 140,
-            'descricaoAlimento' => 'Pão, de queijo, assado',
+            'descricaoAlimento' => 'PÃ£o, de queijo, assado',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 141,
             'idTACO'=> 141,
-            'descricaoAlimento' => 'Pão, de queijo, cru',
+            'descricaoAlimento' => 'PÃ£o, de queijo, cru',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
@@ -865,19 +865,19 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 143,
             'idTACO'=> 143,
-            'descricaoAlimento' => 'Pimentão, amarelo, cru',
+            'descricaoAlimento' => 'PimentÃ£o, amarelo, cru',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 144,
             'idTACO'=> 144,
-            'descricaoAlimento' => 'Pimentão, verde, cru',
+            'descricaoAlimento' => 'PimentÃ£o, verde, cru',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 145,
             'idTACO'=> 145,
-            'descricaoAlimento' => 'Pimentão, vermelho, cru',
+            'descricaoAlimento' => 'PimentÃ£o, vermelho, cru',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
@@ -919,7 +919,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 152,
             'idTACO'=> 152,
-            'descricaoAlimento' => 'Rúcula, crua',
+            'descricaoAlimento' => 'RÃºcula, crua',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
@@ -967,7 +967,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 160,
             'idTACO'=> 160,
-            'descricaoAlimento' => 'Tomate, Purê',
+            'descricaoAlimento' => 'Tomate, PurÃª',
             'idGPiramide' => 2
         ));
         DB::table('alimento')->insert(array(
@@ -1009,13 +1009,13 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 167,
             'idTACO'=> 167,
-            'descricaoAlimento' => 'Açaí, polpa, com xarope de guaraná e glucose',
+            'descricaoAlimento' => 'AÃ§aÃ­, polpa, com xarope de guaranÃ¡ e glucose',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 168,
             'idTACO'=> 168,
-            'descricaoAlimento' => 'Açaí, polpa, congelada',
+            'descricaoAlimento' => 'AÃ§aÃ­, polpa, congelada',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
@@ -1051,7 +1051,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 174,
             'idTACO'=> 174,
-            'descricaoAlimento' => 'Atemóia, crua',
+            'descricaoAlimento' => 'AtemÃ³ia, crua',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
@@ -1075,7 +1075,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 178,
             'idTACO'=> 178,
-            'descricaoAlimento' => 'Banana, maçã, crua',
+            'descricaoAlimento' => 'Banana, maÃ§Ã£, crua',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
@@ -1111,13 +1111,13 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 184,
             'idTACO'=> 184,
-            'descricaoAlimento' => 'Cajá-Manga, cru',
+            'descricaoAlimento' => 'CajÃ¡-Manga, cru',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 185,
             'idTACO'=> 185,
-            'descricaoAlimento' => 'Cajá, polpa, congelada',
+            'descricaoAlimento' => 'CajÃ¡, polpa, congelada',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
@@ -1159,13 +1159,13 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 192,
             'idTACO'=> 192,
-            'descricaoAlimento' => 'Cupuaçu, cru',
+            'descricaoAlimento' => 'CupuaÃ§u, cru',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 193,
             'idTACO'=> 193,
-            'descricaoAlimento' => 'Cupuaçu, polpa, congelada',
+            'descricaoAlimento' => 'CupuaÃ§u, polpa, congelada',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
@@ -1183,7 +1183,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 196,
             'idTACO'=> 196,
-            'descricaoAlimento' => 'Fruta-Pão, crua',
+            'descricaoAlimento' => 'Fruta-PÃ£o, crua',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
@@ -1201,7 +1201,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 199,
             'idTACO'=> 199,
-            'descricaoAlimento' => 'Goiaba, doce, cascão',
+            'descricaoAlimento' => 'Goiaba, doce, cascÃ£o',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
@@ -1242,7 +1242,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 206,
             'idTACO'=> 206,
-            'descricaoAlimento' => 'Jamelão, cru',
+            'descricaoAlimento' => 'JamelÃ£o, cru',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
@@ -1254,13 +1254,13 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 208,
             'idTACO'=> 208,
-            'descricaoAlimento' => 'Laranja, baía, crua',
+            'descricaoAlimento' => 'Laranja, baÃ­a, crua',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 209,
             'idTACO'=> 209,
-            'descricaoAlimento' => 'Laranja, baía, suco',
+            'descricaoAlimento' => 'Laranja, baÃ­a, suco',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
@@ -1290,85 +1290,85 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 214,
             'idTACO'=> 214,
-            'descricaoAlimento' => 'Laranja, pêra, crua',
+            'descricaoAlimento' => 'Laranja, pÃªra, crua',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 215,
             'idTACO'=> 215,
-            'descricaoAlimento' => 'Laranja, pêra, suco',
+            'descricaoAlimento' => 'Laranja, pÃªra, suco',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 216,
             'idTACO'=> 216,
-            'descricaoAlimento' => 'Laranja, valência, crua',
+            'descricaoAlimento' => 'Laranja, valÃªncia, crua',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 217,
             'idTACO'=> 217,
-            'descricaoAlimento' => 'Laranja, valência, suco',
+            'descricaoAlimento' => 'Laranja, valÃªncia, suco',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 218,
             'idTACO'=> 218,
-            'descricaoAlimento' => 'Limão, cravo, suco',
+            'descricaoAlimento' => 'LimÃ£o, cravo, suco',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 219,
             'idTACO'=> 219,
-            'descricaoAlimento' => 'Limão, galego, suco',
+            'descricaoAlimento' => 'LimÃ£o, galego, suco',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 220,
             'idTACO'=> 220,
-            'descricaoAlimento' => 'Limão, tahiti, cru',
+            'descricaoAlimento' => 'LimÃ£o, tahiti, cru',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 221,
             'idTACO'=> 221,
-            'descricaoAlimento' => 'Maçã, Argentina, com casca, crua',
+            'descricaoAlimento' => 'MaÃ§Ã£, Argentina, com casca, crua',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 222,
             'idTACO'=> 222,
-            'descricaoAlimento' => 'Maçã, Fuji, com casca, crua',
+            'descricaoAlimento' => 'MaÃ§Ã£, Fuji, com casca, crua',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 223,
             'idTACO'=> 223,
-            'descricaoAlimento' => 'Macaúba, crua',
+            'descricaoAlimento' => 'MacaÃºba, crua',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 224,
             'idTACO'=> 224,
-            'descricaoAlimento' => 'Mamão, doce em calda, drenado',
+            'descricaoAlimento' => 'MamÃ£o, doce em calda, drenado',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 225,
             'idTACO'=> 225,
-            'descricaoAlimento' => 'Mamão, Formosa, cru',
+            'descricaoAlimento' => 'MamÃ£o, Formosa, cru',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 226,
             'idTACO'=> 226,
-            'descricaoAlimento' => 'Mamão, Papaia, cru',
+            'descricaoAlimento' => 'MamÃ£o, Papaia, cru',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 227,
             'idTACO'=> 227,
-            'descricaoAlimento' => 'Mamão verde, doce em calda, drenado',
+            'descricaoAlimento' => 'MamÃ£o verde, doce em calda, drenado',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
@@ -1398,19 +1398,19 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 232,
             'idTACO'=> 232,
-            'descricaoAlimento' => 'Maracujá, cru',
+            'descricaoAlimento' => 'MaracujÃ¡, cru',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 233,
             'idTACO'=> 233,
-            'descricaoAlimento' => 'Maracujá, polpa, congelada',
+            'descricaoAlimento' => 'MaracujÃ¡, polpa, congelada',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 234,
             'idTACO'=> 234,
-            'descricaoAlimento' => 'Maracujá, suco concentrado, envasado',
+            'descricaoAlimento' => 'MaracujÃ¡, suco concentrado, envasado',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
@@ -1422,7 +1422,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 236,
             'idTACO'=> 236,
-            'descricaoAlimento' => 'Melão, cru',
+            'descricaoAlimento' => 'MelÃ£o, cru',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
@@ -1446,7 +1446,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 240,
             'idTACO'=> 240,
-            'descricaoAlimento' => 'Nêspera, crua',
+            'descricaoAlimento' => 'NÃªspera, crua',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
@@ -1458,25 +1458,25 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 242,
             'idTACO'=> 242,
-            'descricaoAlimento' => 'Pêra, Park, crua',
+            'descricaoAlimento' => 'PÃªra, Park, crua',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 243,
             'idTACO'=> 243,
-            'descricaoAlimento' => 'Pêra, Williams, crua',
+            'descricaoAlimento' => 'PÃªra, Williams, crua',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 244,
             'idTACO'=> 244,
-            'descricaoAlimento' => 'Pêssego, Aurora, cru',
+            'descricaoAlimento' => 'PÃªssego, Aurora, cru',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 245,
             'idTACO'=> 245,
-            'descricaoAlimento' => 'Pêssego, enlatado, em calda',
+            'descricaoAlimento' => 'PÃªssego, enlatado, em calda',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
@@ -1500,7 +1500,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 249,
             'idTACO'=> 249,
-            'descricaoAlimento' => 'Romã, crua',
+            'descricaoAlimento' => 'RomÃ£, crua',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
@@ -1512,19 +1512,19 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 251,
             'idTACO'=> 251,
-            'descricaoAlimento' => 'Tangerina, Poncã, crua',
+            'descricaoAlimento' => 'Tangerina, PoncÃ£, crua',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 252,
             'idTACO'=> 252,
-            'descricaoAlimento' => 'Tangerina, Poncã, suco',
+            'descricaoAlimento' => 'Tangerina, PoncÃ£, suco',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 253,
             'idTACO'=> 253,
-            'descricaoAlimento' => 'Tucumã, cru',
+            'descricaoAlimento' => 'TucumÃ£, cru',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
@@ -1542,7 +1542,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 256,
             'idTACO'=> 256,
-            'descricaoAlimento' => 'Uva, Itália, crua',
+            'descricaoAlimento' => 'Uva, ItÃ¡lia, crua',
             'idGPiramide' => 3
         ));
         DB::table('alimento')->insert(array(
@@ -1560,7 +1560,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 259,
             'idTACO'=> 259,
-            'descricaoAlimento' => 'Azeite, de dendê',
+            'descricaoAlimento' => 'Azeite, de dendÃª',
             'idGPiramide'=> 9
         ));
         DB::table('alimento')->insert(array(
@@ -1584,91 +1584,91 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 263,
             'idTACO'=> 263,
-            'descricaoAlimento' => 'Margarina, com óleo hidrogenado, com sal (65% de lipídeos)',
+            'descricaoAlimento' => 'Margarina, com Ã³leo hidrogenado, com sal (65% de lipÃ­deos)',
             'idGPiramide'=> 9
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 264,
             'idTACO'=> 264,
-            'descricaoAlimento' => 'Margarina, com óleo hidrogenado, sem sal (80% de lipídeos)',
+            'descricaoAlimento' => 'Margarina, com Ã³leo hidrogenado, sem sal (80% de lipÃ­deos)',
             'idGPiramide'=> 9
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 265,
             'idTACO'=> 265,
-            'descricaoAlimento' => 'Margarina, com óleo interesterificado, com sal (65% de lipídeos)',
+            'descricaoAlimento' => 'Margarina, com Ã³leo interesterificado, com sal (65% de lipÃ­deos)',
             'idGPiramide'=> 9
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 266,
             'idTACO'=> 266,
-            'descricaoAlimento' => 'Margarina, com óleo interesterificado, sem sal (65% de lipídeos)',
+            'descricaoAlimento' => 'Margarina, com Ã³leo interesterificado, sem sal (65% de lipÃ­deos)',
             'idGPiramide'=> 9
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 267,
             'idTACO'=> 267,
-            'descricaoAlimento' => 'Óleo, de babaçú',
+            'descricaoAlimento' => 'Ã“leo, de babaÃ§Ãº',
             'idGPiramide'=> 9
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 268,
             'idTACO'=> 268,
-            'descricaoAlimento' => 'Óleo, de canola',
+            'descricaoAlimento' => 'Ã“leo, de canola',
             'idGPiramide'=> 9
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 269,
             'idTACO'=> 269,
-            'descricaoAlimento' => 'Óleo, de girassol',
+            'descricaoAlimento' => 'Ã“leo, de girassol',
             'idGPiramide'=> 9
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 270,
             'idTACO'=> 270,
-            'descricaoAlimento' => 'Óleo, de milho',
+            'descricaoAlimento' => 'Ã“leo, de milho',
             'idGPiramide'=> 9
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 271,
             'idTACO'=> 271,
-            'descricaoAlimento' => 'Óleo, de pequi',
+            'descricaoAlimento' => 'Ã“leo, de pequi',
             'idGPiramide'=> 9
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 272,
             'idTACO'=> 272,
-            'descricaoAlimento' => 'Óleo, de soja',
+            'descricaoAlimento' => 'Ã“leo, de soja',
             'idGPiramide'=> 9
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 273,
             'idTACO'=> 273,
-            'descricaoAlimento' => 'Abadejo, filé, congelado, assado',
+            'descricaoAlimento' => 'Abadejo, filÃ©, congelado, assado',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 274,
             'idTACO'=> 274,
-            'descricaoAlimento' => 'Abadejo, filé, congelado,cozido',
+            'descricaoAlimento' => 'Abadejo, filÃ©, congelado,cozido',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 275,
             'idTACO'=> 275,
-            'descricaoAlimento' => 'Abadejo, filé, congelado, cru',
+            'descricaoAlimento' => 'Abadejo, filÃ©, congelado, cru',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 276,
             'idTACO'=> 276,
-            'descricaoAlimento' => 'Abadejo, filé, congelado, grelhado',
+            'descricaoAlimento' => 'Abadejo, filÃ©, congelado, grelhado',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 277,
             'idTACO'=> 277,
-            'descricaoAlimento' => 'Atum, conserva em óleo',
+            'descricaoAlimento' => 'Atum, conserva em Ã³leo',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
@@ -1692,37 +1692,37 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 281,
             'idTACO'=> 281,
-            'descricaoAlimento' => 'Cação, posta, com farinha de trigo, frita',
+            'descricaoAlimento' => 'CaÃ§Ã£o, posta, com farinha de trigo, frita',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 282,
             'idTACO'=> 282,
-            'descricaoAlimento' => 'Cação, posta, cozida',
+            'descricaoAlimento' => 'CaÃ§Ã£o, posta, cozida',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 283,
             'idTACO'=> 283,
-            'descricaoAlimento' => 'Cação, posta, crua',
+            'descricaoAlimento' => 'CaÃ§Ã£o, posta, crua',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 284,
             'idTACO'=> 284,
-            'descricaoAlimento' => 'Camarão, Rio Grande, grande, cozido',
+            'descricaoAlimento' => 'CamarÃ£o, Rio Grande, grande, cozido',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 285,
             'idTACO'=> 285,
-            'descricaoAlimento' => 'Camarão, Rio Grande, grande, cru',
+            'descricaoAlimento' => 'CamarÃ£o, Rio Grande, grande, cru',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 286,
             'idTACO'=> 286,
-            'descricaoAlimento' => 'Camarão, Sete Barbas, sem cabeÃ§a, com casca, frito',
+            'descricaoAlimento' => 'CamarÃ£o, Sete Barbas, sem cabeÃƒÂ§a, com casca, frito',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
@@ -1740,19 +1740,19 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 289,
             'idTACO'=> 289,
-            'descricaoAlimento' => 'Corimbatá, assado',
+            'descricaoAlimento' => 'CorimbatÃ¡, assado',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 290,
             'idTACO'=> 290,
-            'descricaoAlimento' => 'Corimbatá, cozido',
+            'descricaoAlimento' => 'CorimbatÃ¡, cozido',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 291,
             'idTACO'=> 291,
-            'descricaoAlimento' => 'Corvina de água doce, crua',
+            'descricaoAlimento' => 'Corvina de Ã¡gua doce, crua',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
@@ -1776,7 +1776,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 295,
             'idTACO'=> 295,
-            'descricaoAlimento' => 'Dourada de água doce, fresca',
+            'descricaoAlimento' => 'Dourada de Ã¡gua doce, fresca',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
@@ -1809,19 +1809,19 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 301,
             'idTACO'=> 301,
-            'descricaoAlimento' => 'Merluza, filé, assado',
+            'descricaoAlimento' => 'Merluza, filÃ©, assado',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 302,
             'idTACO'=> 302,
-            'descricaoAlimento' => 'Merluza, filé, cru',
+            'descricaoAlimento' => 'Merluza, filÃ©, cru',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 303,
             'idTACO'=> 303,
-            'descricaoAlimento' => 'Merluza, filé, frito',
+            'descricaoAlimento' => 'Merluza, filÃ©, frito',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
@@ -1839,25 +1839,25 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 306,
             'idTACO'=> 306,
-            'descricaoAlimento' => 'Pescada, filé, com farinha de trigo, frito',
+            'descricaoAlimento' => 'Pescada, filÃ©, com farinha de trigo, frito',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 307,
             'idTACO'=> 307,
-            'descricaoAlimento' => 'Pescada, filé, cru',
+            'descricaoAlimento' => 'Pescada, filÃ©, cru',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 308,
             'idTACO'=> 308,
-            'descricaoAlimento' => 'Pescada, filé, frito',
+            'descricaoAlimento' => 'Pescada, filÃ©, frito',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 309,
             'idTACO'=> 309,
-            'descricaoAlimento' => 'Pescada, filé, molho escabeche',
+            'descricaoAlimento' => 'Pescada, filÃ©, molho escabeche',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
@@ -1893,19 +1893,19 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 315,
             'idTACO'=> 315,
-            'descricaoAlimento' => 'Salmão, filé, com pele, fresco, grelhado',
+            'descricaoAlimento' => 'SalmÃ£o, filÃ©, com pele, fresco, grelhado',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 316,
             'idTACO'=> 316,
-            'descricaoAlimento' => 'Salmão, sem pele, fresco, cru',
+            'descricaoAlimento' => 'SalmÃ£o, sem pele, fresco, cru',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 317,
             'idTACO'=> 317,
-            'descricaoAlimento' => 'Salmão, sem pele, fresco, grelhado',
+            'descricaoAlimento' => 'SalmÃ£o, sem pele, fresco, grelhado',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
@@ -1917,7 +1917,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 319,
             'idTACO'=> 319,
-            'descricaoAlimento' => 'Sardinha, conserva em óleo',
+            'descricaoAlimento' => 'Sardinha, conserva em Ã³leo',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
@@ -1935,7 +1935,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 322,
             'idTACO'=> 322,
-            'descricaoAlimento' => 'Tucunaré, filé, congelado, cru',
+            'descricaoAlimento' => 'TucunarÃ©, filÃ©, congelado, cru',
             'idGPiramide'=> 7
         ));
         DB::table('alimento')->insert(array(
@@ -1959,37 +1959,37 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 326,
             'idTACO'=> 326,
-            'descricaoAlimento' => 'Carne, bovina, acém, moído, cozido',
+            'descricaoAlimento' => 'Carne, bovina, acÃ©m, moÃ­do, cozido',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 327,
             'idTACO'=> 327,
-            'descricaoAlimento' => 'Carne, bovina, acém, moído, cru',
+            'descricaoAlimento' => 'Carne, bovina, acÃ©m, moÃ­do, cru',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 328,
             'idTACO'=> 328,
-            'descricaoAlimento' => 'Carne, bovina, acém, sem gordura, cozido',
+            'descricaoAlimento' => 'Carne, bovina, acÃ©m, sem gordura, cozido',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 329,
             'idTACO'=> 329,
-            'descricaoAlimento' => 'Carne, bovina, acém, sem gordura, cru',
+            'descricaoAlimento' => 'Carne, bovina, acÃ©m, sem gordura, cru',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 330,
             'idTACO'=> 330,
-            'descricaoAlimento' => 'Carne, bovina, almôndegas, cruas',
+            'descricaoAlimento' => 'Carne, bovina, almÃ´ndegas, cruas',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 331,
             'idTACO'=> 331,
-            'descricaoAlimento' => 'Carne, bovina, almôndegas, fritas',
+            'descricaoAlimento' => 'Carne, bovina, almÃ´ndegas, fritas',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
@@ -2007,25 +2007,25 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 334,
             'idTACO'=> 334,
-            'descricaoAlimento' => 'Carne, bovina, capa de contra-filé, com gordu',
+            'descricaoAlimento' => 'Carne, bovina, capa de contra-filÃ©, com gordu',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 335,
             'idTACO'=> 335,
-            'descricaoAlimento' => 'Carne, bovina, capa de contra-filé, com gordu',
+            'descricaoAlimento' => 'Carne, bovina, capa de contra-filÃ©, com gordu',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 336,
             'idTACO'=> 336,
-            'descricaoAlimento' => 'Carne, bovina, capa de contra-filé, sem gordu',
+            'descricaoAlimento' => 'Carne, bovina, capa de contra-filÃ©, sem gordu',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 337,
             'idTACO'=> 337,
-            'descricaoAlimento' => 'Carne, bovina, capa de contra-filé, sem gordu',
+            'descricaoAlimento' => 'Carne, bovina, capa de contra-filÃ©, sem gordu',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
@@ -2043,43 +2043,43 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 340,
             'idTACO'=> 340,
-            'descricaoAlimento' => 'Carne, bovina, contra-filé, à milanesa',
+            'descricaoAlimento' => 'Carne, bovina, contra-filÃ©, Ã  milanesa',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 341,
             'idTACO'=> 341,
-            'descricaoAlimento' => 'Carne, bovina, contra-filé de costela, cru',
+            'descricaoAlimento' => 'Carne, bovina, contra-filÃ© de costela, cru',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 342,
             'idTACO'=> 342,
-            'descricaoAlimento' => 'Carne, bovina, contra-filé de costela, grelha',
+            'descricaoAlimento' => 'Carne, bovina, contra-filÃ© de costela, grelha',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 343,
             'idTACO'=> 343,
-            'descricaoAlimento' => 'Carne, bovina, contra-filé, com gordura, cru',
+            'descricaoAlimento' => 'Carne, bovina, contra-filÃ©, com gordura, cru',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 344,
             'idTACO'=> 344,
-            'descricaoAlimento' => 'Carne, bovina, contra-filé, com gordura, grel',
+            'descricaoAlimento' => 'Carne, bovina, contra-filÃ©, com gordura, grel',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 345,
             'idTACO'=> 345,
-            'descricaoAlimento' => 'Carne, bovina, contra-filé, sem gordura, cru',
+            'descricaoAlimento' => 'Carne, bovina, contra-filÃ©, sem gordura, cru',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 346,
             'idTACO'=> 346,
-            'descricaoAlimento' => 'Carne, bovina, contra-filé, sem gordura, grel',
+            'descricaoAlimento' => 'Carne, bovina, contra-filÃ©, sem gordura, grel',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
@@ -2097,25 +2097,25 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 349,
             'idTACO'=> 349,
-            'descricaoAlimento' => 'Carne, bovina, coxão duro, sem gordura, cozid',
+            'descricaoAlimento' => 'Carne, bovina, coxÃ£o duro, sem gordura, cozid',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 350,
             'idTACO'=> 350,
-            'descricaoAlimento' => 'Carne, bovina, coxão duro, sem gordura, cru',
+            'descricaoAlimento' => 'Carne, bovina, coxÃ£o duro, sem gordura, cru',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 351,
             'idTACO'=> 351,
-            'descricaoAlimento' => 'Carne, bovina, coxão mole, sem gordura, cozid',
+            'descricaoAlimento' => 'Carne, bovina, coxÃ£o mole, sem gordura, cozid',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 352,
             'idTACO'=> 352,
-            'descricaoAlimento' => 'Carne, bovina, coxão mole, sem gordura, cru',
+            'descricaoAlimento' => 'Carne, bovina, coxÃ£o mole, sem gordura, cru',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
@@ -2133,25 +2133,25 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 355,
             'idTACO'=> 355,
-            'descricaoAlimento' => 'Carne, bovina, fígado, cru',
+            'descricaoAlimento' => 'Carne, bovina, fÃ­gado, cru',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 356,
             'idTACO'=> 356,
-            'descricaoAlimento' => 'Carne, bovina, fígado, grelhado',
+            'descricaoAlimento' => 'Carne, bovina, fÃ­gado, grelhado',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 357,
             'idTACO'=> 357,
-            'descricaoAlimento' => 'Carne, bovina, filé mingnon, sem gordura, cru',
+            'descricaoAlimento' => 'Carne, bovina, filÃ© mingnon, sem gordura, cru',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 358,
             'idTACO'=> 358,
-            'descricaoAlimento' => 'Carne, bovina, filé mingnon, sem gordura, gre',
+            'descricaoAlimento' => 'Carne, bovina, filÃ© mingnon, sem gordura, gre',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
@@ -2193,13 +2193,13 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 365,
             'idTACO'=> 365,
-            'descricaoAlimento' => 'Carne, bovina, língua, cozida',
+            'descricaoAlimento' => 'Carne, bovina, lÃ­ngua, cozida',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 366,
             'idTACO'=> 366,
-            'descricaoAlimento' => 'Carne, bovina, língua, crua',
+            'descricaoAlimento' => 'Carne, bovina, lÃ­ngua, crua',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
@@ -2229,13 +2229,13 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 371,
             'idTACO'=> 371,
-            'descricaoAlimento' => 'Carne, bovina, músculo, sem gordura, cozido',
+            'descricaoAlimento' => 'Carne, bovina, mÃºsculo, sem gordura, cozido',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 372,
             'idTACO'=> 372,
-            'descricaoAlimento' => 'Carne, bovina, músculo, sem gordura, cru',
+            'descricaoAlimento' => 'Carne, bovina, mÃºsculo, sem gordura, cru',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
@@ -2337,13 +2337,13 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 389,
             'idTACO'=> 389,
-            'descricaoAlimento' => 'Empada de frango, pré-cozida, assada',
+            'descricaoAlimento' => 'Empada de frango, prÃ©-cozida, assada',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 390,
             'idTACO'=> 390,
-            'descricaoAlimento' => 'Empada, de frango, pré-cozida',
+            'descricaoAlimento' => 'Empada, de frango, prÃ©-cozida',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
@@ -2367,13 +2367,13 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 394,
             'idTACO'=> 394,
-            'descricaoAlimento' => 'Frango, coração, cru',
+            'descricaoAlimento' => 'Frango, coraÃ§Ã£o, cru',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 395,
             'idTACO'=> 395,
-            'descricaoAlimento' => 'Frango, coração, grelhado',
+            'descricaoAlimento' => 'Frango, coraÃ§Ã£o, grelhado',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
@@ -2403,13 +2403,13 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 400,
             'idTACO'=> 400,
-            'descricaoAlimento' => 'Frango, fígado, cru',
+            'descricaoAlimento' => 'Frango, fÃ­gado, cru',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 401,
             'idTACO'=> 401,
-            'descricaoAlimento' => 'Frango, filé, à milanesa',
+            'descricaoAlimento' => 'Frango, filÃ©, Ã  milanesa',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
@@ -2493,55 +2493,55 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 415,
             'idTACO'=> 415,
-            'descricaoAlimento' => 'Hambúrguer, bovino, cru',
+            'descricaoAlimento' => 'HambÃºrguer, bovino, cru',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 416,
             'idTACO'=> 416,
-            'descricaoAlimento' => 'Hambúrguer, bovino, frito',
+            'descricaoAlimento' => 'HambÃºrguer, bovino, frito',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 417,
             'idTACO'=> 417,
-            'descricaoAlimento' => 'Hambúrguer, bovino, grelhado',
+            'descricaoAlimento' => 'HambÃºrguer, bovino, grelhado',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 418,
             'idTACO'=> 418,
-            'descricaoAlimento' => 'Linguíça, frango, crua',
+            'descricaoAlimento' => 'LinguÃ­Ã§a, frango, crua',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 419,
             'idTACO'=> 419,
-            'descricaoAlimento' => 'Linguíça, frango, frita',
+            'descricaoAlimento' => 'LinguÃ­Ã§a, frango, frita',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 420,
             'idTACO'=> 420,
-            'descricaoAlimento' => 'Linguíça, frango, grelhada',
+            'descricaoAlimento' => 'LinguÃ­Ã§a, frango, grelhada',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 421,
             'idTACO'=> 421,
-            'descricaoAlimento' => 'Linguíça, porco, crua',
+            'descricaoAlimento' => 'LinguÃ­Ã§a, porco, crua',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 422,
             'idTACO'=> 422,
-            'descricaoAlimento' => 'Linguíça, porco, frita',
+            'descricaoAlimento' => 'LinguÃ­Ã§a, porco, frita',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 423,
             'idTACO'=> 423,
-            'descricaoAlimento' => 'Linguíça, porco, grelhada',
+            'descricaoAlimento' => 'LinguÃ­Ã§a, porco, grelhada',
             'idGPiramide'=> 5
         ));
         DB::table('alimento')->insert(array(
@@ -2679,7 +2679,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 446,
             'idTACO'=> 446,
-            'descricaoAlimento' => 'Bebida láctea Pêssego',
+            'descricaoAlimento' => 'Bebida lÃ¡ctea PÃªssego',
             'idGPiramide'=> 4
         ));
         DB::table('alimento')->insert(array(
@@ -2715,7 +2715,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 452,
             'idTACO'=> 452,
-            'descricaoAlimento' => 'Iogurte, sabor Pêssego',
+            'descricaoAlimento' => 'Iogurte, sabor PÃªssego',
             'idGPiramide'=> 4
         ));
         DB::table('alimento')->insert(array(
@@ -2739,7 +2739,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 456,
             'idTACO'=> 456,
-            'descricaoAlimento' => 'Leite, de vaca, desnatado, pó',
+            'descricaoAlimento' => 'Leite, de vaca, desnatado, pÃ³',
             'idGPiramide'=> 4
         ));
         DB::table('alimento')->insert(array(
@@ -2757,7 +2757,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 459,
             'idTACO'=> 459,
-            'descricaoAlimento' => 'Leite, de vaca, integral, pó',
+            'descricaoAlimento' => 'Leite, de vaca, integral, pÃ³',
             'idGPiramide'=> 4
         ));
         DB::table('alimento')->insert(array(
@@ -2787,7 +2787,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 464,
             'idTACO'=> 464,
-            'descricaoAlimento' => 'Queijo, parmesão',
+            'descricaoAlimento' => 'Queijo, parmesÃ£o',
             'idGPiramide'=> 4
         ));
         DB::table('alimento')->insert(array(
@@ -2811,7 +2811,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 468,
             'idTACO'=> 468,
-            'descricaoAlimento' => 'Queijo, requeijão, cremoso',
+            'descricaoAlimento' => 'Queijo, requeijÃ£o, cremoso',
             'idGPiramide'=> 4
         ));
         DB::table('alimento')->insert(array(
@@ -2823,13 +2823,13 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 470,
             'idTACO'=> 470,
-            'descricaoAlimento' => 'Bebida isotônica, sabores variados',
+            'descricaoAlimento' => 'Bebida isotÃ´nica, sabores variados',
             'idGPiramide'=> 4
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 471,
             'idTACO'=> 471,
-            'descricaoAlimento' => 'Café, infusão 10%'
+            'descricaoAlimento' => 'CafÃ©, infusÃ£o 10%'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 472,
@@ -2849,27 +2849,27 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 475,
             'idTACO'=> 475,
-            'descricaoAlimento' => 'Chá, erva-doce, infusão 5%'
+            'descricaoAlimento' => 'ChÃ¡, erva-doce, infusÃ£o 5%'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 476,
             'idTACO'=> 476,
-            'descricaoAlimento' => 'Chá, mate, infusão 5%'
+            'descricaoAlimento' => 'ChÃ¡, mate, infusÃ£o 5%'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 477,
             'idTACO'=> 477,
-            'descricaoAlimento' => 'Chá, preto, infusão 5%'
+            'descricaoAlimento' => 'ChÃ¡, preto, infusÃ£o 5%'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 478,
             'idTACO'=> 478,
-            'descricaoAlimento' => 'Coco, água de'
+            'descricaoAlimento' => 'Coco, Ã¡gua de'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 479,
             'idTACO'=> 479,
-            'descricaoAlimento' => 'Refrigerante, tipo água tônica'
+            'descricaoAlimento' => 'Refrigerante, tipo Ã¡gua tÃ´nica'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 480,
@@ -2879,7 +2879,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 481,
             'idTACO'=> 481,
-            'descricaoAlimento' => 'Refrigerante, tipo guaraná'
+            'descricaoAlimento' => 'Refrigerante, tipo guaranÃ¡'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 482,
@@ -2889,7 +2889,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 483,
             'idTACO'=> 483,
-            'descricaoAlimento' => 'Refrigerante, tipo Limão'
+            'descricaoAlimento' => 'Refrigerante, tipo LimÃ£o'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 484,
@@ -2936,25 +2936,25 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 491,
             'idTACO'=> 491,
-            'descricaoAlimento' => 'Achocolatado, pó',
+            'descricaoAlimento' => 'Achocolatado, pÃ³',
             'idGPiramide'=> 10
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 492,
             'idTACO'=> 492,
-            'descricaoAlimento' => 'Açúcar, cristal',
+            'descricaoAlimento' => 'AÃ§Ãºcar, cristal',
             'idGPiramide'=> 10
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 493,
             'idTACO'=> 493,
-            'descricaoAlimento' => 'Açúcar, mascavo',
+            'descricaoAlimento' => 'AÃ§Ãºcar, mascavo',
             'idGPiramide'=> 10
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 494,
             'idTACO'=> 494,
-            'descricaoAlimento' => 'Açúcar, refinado',
+            'descricaoAlimento' => 'AÃ§Ãºcar, refinado',
             'idGPiramide'=> 10
         ));
         DB::table('alimento')->insert(array(
@@ -2965,12 +2965,12 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 496,
             'idTACO'=> 496,
-            'descricaoAlimento' => 'Chocolate, ao leite, com castanha do Pará'
+            'descricaoAlimento' => 'Chocolate, ao leite, com castanha do ParÃ¡'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 497,
             'idTACO'=> 497,
-            'descricaoAlimento' => 'Chocolate, ao leite, dietético',
+            'descricaoAlimento' => 'Chocolate, ao leite, dietÃ©tico',
             'idGPiramide'=> 10
         ));
         DB::table('alimento')->insert(array(
@@ -2988,7 +2988,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 500,
             'idTACO'=> 500,
-            'descricaoAlimento' => 'Doce, de Abóbora, cremoso',
+            'descricaoAlimento' => 'Doce, de AbÃ³bora, cremoso',
             'idGPiramide'=> 10
         ));
         DB::table('alimento')->insert(array(
@@ -3000,7 +3000,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 502,
             'idTACO'=> 502,
-            'descricaoAlimento' => 'Geléia, mocotó, natural',
+            'descricaoAlimento' => 'GelÃ©ia, mocotÃ³, natural',
             'idGPiramide'=> 10
         ));
         DB::table('alimento')->insert(array(
@@ -3054,32 +3054,32 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 511,
             'idTACO'=> 511,
-            'descricaoAlimento' => 'Café, pó, torrado'
+            'descricaoAlimento' => 'CafÃ©, pÃ³, torrado'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 512,
             'idTACO'=> 512,
-            'descricaoAlimento' => 'Capuccino, pó'
+            'descricaoAlimento' => 'Capuccino, pÃ³'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 513,
             'idTACO'=> 513,
-            'descricaoAlimento' => 'Fermento em pó, quÃ­mico'
+            'descricaoAlimento' => 'Fermento em pÃ³, quÃƒÂ­mico'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 514,
             'idTACO'=> 514,
-            'descricaoAlimento' => 'Fermento, biolÃ³gico, levedura, tablete'
+            'descricaoAlimento' => 'Fermento, biolÃƒÂ³gico, levedura, tablete'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 515,
             'idTACO'=> 515,
-            'descricaoAlimento' => 'Gelatina, sabores variados, pó'
+            'descricaoAlimento' => 'Gelatina, sabores variados, pÃ³'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 516,
             'idTACO'=> 516,
-            'descricaoAlimento' => 'Sal, dietético'
+            'descricaoAlimento' => 'Sal, dietÃ©tico'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 517,
@@ -3124,7 +3124,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 525,
             'idTACO'=> 525,
-            'descricaoAlimento' => 'AcarajÃ©'
+            'descricaoAlimento' => 'AcarajÃƒÂ©'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 526,
@@ -3134,7 +3134,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 527,
             'idTACO'=> 527,
-            'descricaoAlimento' => 'BaiÃ£o de dois, arroz e Feijão-de-corda'
+            'descricaoAlimento' => 'BaiÃƒÂ£o de dois, arroz e FeijÃ£o-de-corda'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 528,
@@ -3144,7 +3144,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 529,
             'idTACO'=> 529,
-            'descricaoAlimento' => 'Bife Ã  cavalo, com contra filé'
+            'descricaoAlimento' => 'Bife Ãƒ  cavalo, com contra filÃ©'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 530,
@@ -3154,7 +3154,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 531,
             'idTACO'=> 531,
-            'descricaoAlimento' => 'Camarão Ã  baiana'
+            'descricaoAlimento' => 'CamarÃ£o Ãƒ  baiana'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 532,
@@ -3174,7 +3174,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 535,
             'idTACO'=> 535,
-            'descricaoAlimento' => 'CuxÃ¡, molho'
+            'descricaoAlimento' => 'CuxÃƒÂ¡, molho'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 536,
@@ -3194,7 +3194,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 539,
             'idTACO'=> 539,
-            'descricaoAlimento' => 'Feijão tropeiro mineiro'
+            'descricaoAlimento' => 'FeijÃ£o tropeiro mineiro'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 540,
@@ -3204,17 +3204,17 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 541,
             'idTACO'=> 541,
-            'descricaoAlimento' => 'Frango, com aÃ§afrÃ£o'
+            'descricaoAlimento' => 'Frango, com aÃƒÂ§afrÃƒÂ£o'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 542,
             'idTACO'=> 542,
-            'descricaoAlimento' => 'Macarrão, molho bolognesa'
+            'descricaoAlimento' => 'MacarrÃ£o, molho bolognesa'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 543,
             'idTACO'=> 543,
-            'descricaoAlimento' => 'ManiÃ§oba'
+            'descricaoAlimento' => 'ManiÃƒÂ§oba'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 544,
@@ -3234,7 +3234,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 547,
             'idTACO'=> 547,
-            'descricaoAlimento' => 'SalpicÃ£o, de frango'
+            'descricaoAlimento' => 'SalpicÃƒÂ£o, de frango'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 548,
@@ -3249,7 +3249,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 550,
             'idTACO'=> 550,
-            'descricaoAlimento' => 'TacacÃ¡'
+            'descricaoAlimento' => 'TacacÃƒÂ¡'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 551,
@@ -3269,12 +3269,12 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 554,
             'idTACO'=> 554,
-            'descricaoAlimento' => 'VatapÃ¡'
+            'descricaoAlimento' => 'VatapÃƒÂ¡'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 555,
             'idTACO'=> 555,
-            'descricaoAlimento' => 'Virado Ã  paulista'
+            'descricaoAlimento' => 'Virado Ãƒ  paulista'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 556,
@@ -3284,7 +3284,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 557,
             'idTACO'=> 557,
-            'descricaoAlimento' => 'Amendoim, grão, cru',
+            'descricaoAlimento' => 'Amendoim, grÃ£o, cru',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
@@ -3308,91 +3308,91 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 561,
             'idTACO'=> 561,
-            'descricaoAlimento' => 'Feijão, carioca, cozido',
+            'descricaoAlimento' => 'FeijÃ£o, carioca, cozido',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 562,
             'idTACO'=> 562,
-            'descricaoAlimento' => 'Feijão, carioca, cru',
+            'descricaoAlimento' => 'FeijÃ£o, carioca, cru',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 563,
             'idTACO'=> 563,
-            'descricaoAlimento' => 'Feijão, fradinho, cozido',
+            'descricaoAlimento' => 'FeijÃ£o, fradinho, cozido',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 564,
             'idTACO'=> 564,
-            'descricaoAlimento' => 'Feijão, fradinho, cru',
+            'descricaoAlimento' => 'FeijÃ£o, fradinho, cru',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 565,
             'idTACO'=> 565,
-            'descricaoAlimento' => 'Feijão, jalo, cozido',
+            'descricaoAlimento' => 'FeijÃ£o, jalo, cozido',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 566,
             'idTACO'=> 566,
-            'descricaoAlimento' => 'Feijão, jalo, cru',
+            'descricaoAlimento' => 'FeijÃ£o, jalo, cru',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 567,
             'idTACO'=> 567,
-            'descricaoAlimento' => 'Feijão, preto, cozido',
+            'descricaoAlimento' => 'FeijÃ£o, preto, cozido',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 568,
             'idTACO'=> 568,
-            'descricaoAlimento' => 'Feijão, preto, cru',
+            'descricaoAlimento' => 'FeijÃ£o, preto, cru',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 569,
             'idTACO'=> 569,
-            'descricaoAlimento' => 'Feijão, rajado, cozido',
+            'descricaoAlimento' => 'FeijÃ£o, rajado, cozido',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 570,
             'idTACO'=> 570,
-            'descricaoAlimento' => 'Feijão, rajado, cru',
+            'descricaoAlimento' => 'FeijÃ£o, rajado, cru',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 571,
             'idTACO'=> 571,
-            'descricaoAlimento' => 'Feijão, rosinha, cozido',
+            'descricaoAlimento' => 'FeijÃ£o, rosinha, cozido',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 572,
             'idTACO'=> 572,
-            'descricaoAlimento' => 'Feijão, rosinha, cru',
+            'descricaoAlimento' => 'FeijÃ£o, rosinha, cru',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 573,
             'idTACO'=> 573,
-            'descricaoAlimento' => 'Feijão, roxo, cozido',
+            'descricaoAlimento' => 'FeijÃ£o, roxo, cozido',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 574,
             'idTACO'=> 574,
-            'descricaoAlimento' => 'Feijão, roxo, cru',
+            'descricaoAlimento' => 'FeijÃ£o, roxo, cru',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 575,
             'idTACO'=> 575,
-            'descricaoAlimento' => 'Grão-de-bico, cru',
+            'descricaoAlimento' => 'GrÃ£o-de-bico, cru',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
@@ -3416,13 +3416,13 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 579,
             'idTACO'=> 579,
-            'descricaoAlimento' => 'Paçoca, amendoim',
+            'descricaoAlimento' => 'PaÃ§oca, amendoim',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 580,
             'idTACO'=> 580,
-            'descricaoAlimento' => 'Pé-de-moleque, amendoim',
+            'descricaoAlimento' => 'PÃ©-de-moleque, amendoim',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
@@ -3434,12 +3434,12 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 582,
             'idTACO'=> 582,
-            'descricaoAlimento' => 'Soja, extrato solúvel, natural, fluido'
+            'descricaoAlimento' => 'Soja, extrato solÃºvel, natural, fluido'
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 583,
             'idTACO'=> 583,
-            'descricaoAlimento' => 'Soja, extrato solúvel, pó',
+            'descricaoAlimento' => 'Soja, extrato solÃºvel, pÃ³',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
@@ -3451,19 +3451,19 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 585,
             'idTACO'=> 585,
-            'descricaoAlimento' => 'Tremoço, cru',
+            'descricaoAlimento' => 'TremoÃ§o, cru',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 586,
             'idTACO'=> 586,
-            'descricaoAlimento' => 'Tremoço, em conserva',
+            'descricaoAlimento' => 'TremoÃ§o, em conserva',
             'idGPiramide'=> 8
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 587,
             'idTACO'=> 587,
-            'descricaoAlimento' => 'Amêndoa, torrada, salgada',
+            'descricaoAlimento' => 'AmÃªndoa, torrada, salgada',
             'idGPiramide'=> 11
         ));
         DB::table('alimento')->insert(array(
@@ -3493,7 +3493,7 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 592,
             'idTACO'=> 592,
-            'descricaoAlimento' => 'Farinha, de mesocarpo de babaçú, crua',
+            'descricaoAlimento' => 'Farinha, de mesocarpo de babaÃ§Ãº, crua',
             'idGPiramide'=> 11
         ));
         DB::table('alimento')->insert(array(
@@ -3505,13 +3505,13 @@ class AlimentoSeeder extends Seeder
         DB::table('alimento')->insert(array(
             'idAlimento'=> 594,
             'idTACO'=> 594,
-            'descricaoAlimento' => 'Linhaça, semente',
+            'descricaoAlimento' => 'LinhaÃ§a, semente',
             'idGPiramide'=> 11
         ));
         DB::table('alimento')->insert(array(
             'idAlimento'=> 595,
             'idTACO'=> 595,
-            'descricaoAlimento' => 'Pinhão, cozido',
+            'descricaoAlimento' => 'PinhÃ£o, cozido',
             'idGPiramide'=> 11
         ));
         DB::table('alimento')->insert(array(

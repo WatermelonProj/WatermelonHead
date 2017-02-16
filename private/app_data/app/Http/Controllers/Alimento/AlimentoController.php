@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers\Alimento;
 
+use App\Models\Grupo\GrupoAlimentar;
+use App\Models\Grupo\GrupoPiramide;
+use App\Models\Nutriente\Nutriente;
+use App\Models\Nutriente\NutrienteAlimento;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Alimento\Alimento;
@@ -37,14 +41,36 @@ class AlimentoController extends Controller
      */
     public function store(Request $request)
     {
-//        Alimento::create($request->all());
-//        return redirect()->route('alimentos')->with('status', 'Alimento adicionado com sucesso!');
+
+        // Criando um alimento
         $alimento = new Alimento();
         $alimento->descricaoAlimento = $request->descricaoAlimento;
-        $alimento->idGPiramide = $request->idGPiramide;
-        $alimento->idGAlimentar = $request->idGAlimentar;
+        $alimento->grupoPiramide()->associate(GrupoPiramide::find($request->idGPiramide));
+        $alimento->grupoAlimentar()->associate(GrupoAlimentar::find($request->idGAlimentar));
+        $alimento->idTACO = $request->idTACO;
+        $alimento->save();
 
-        dump($request);
+//        $nutrienteAlm = new NutrienteAlimento();
+//        $nutrienteAlm->alimento()->associate($alimento);
+//        $nutrienteAlm->nutriente()->associate(Nutriente::where('nomeNutriente', 'Energia')->first());
+//        $nutrienteAlm->qtde = ($request['Energia'] > 0 ? $request['Energia'] : 'NA');
+//        $nutrienteAlm->save();
+
+        //criando a relação do alimento para com o nutriente
+        $keys = array_keys($request->toArray());
+        for ($i = 5; $i < count($request->toArray()); $i++) {
+            $nutrienteAlm = new NutrienteAlimento();
+            $nutrienteAlm->alimento()->associate($alimento);
+            $nutriente = Nutriente::where('nomeNutriente', $keys[$i])->first();
+            $PORRA = $nutriente->idNutriente;
+            dump($PORRA);
+//            dump($nutriente);
+//            $nutrienteAlm->idNutriente = $nutriente->idNutriente;
+//            $nutrienteAlm->qtde = ($request[$keys[$i]] > 0 ? $request[$keys[$i]] : 'NA');
+//            $nutrienteAlm->save();
+//            dump($keys[$i]);
+        }
+        redirect()->route('alimentos');
     }
 
     /**
