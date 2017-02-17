@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Alimento;
 
+use App\Models\Alimento\AlimentoMedidaCaseira;
 use App\Models\Grupo\GrupoAlimentar;
 use App\Models\Grupo\GrupoPiramide;
+use App\Models\Medida\TipoMedidaCaseira;
+use App\Models\Medida\UnidadeMedida;
 use App\Models\Nutriente\Nutriente;
 use App\Models\Nutriente\NutrienteAlimento;
 use Illuminate\Http\Request;
@@ -41,7 +44,6 @@ class AlimentoController extends Controller
      */
     public function store(Request $request)
     {
-
         // Criando um alimento
         $alimento = new Alimento();
         $alimento->descricaoAlimento = $request->descricaoAlimento;
@@ -50,27 +52,30 @@ class AlimentoController extends Controller
         $alimento->idTACO = $request->idTACO;
         $alimento->save();
 
-//        $nutrienteAlm = new NutrienteAlimento();
-//        $nutrienteAlm->alimento()->associate($alimento);
-//        $nutrienteAlm->nutriente()->associate(Nutriente::where('nomeNutriente', 'Energia')->first());
-//        $nutrienteAlm->qtde = ($request['Energia'] > 0 ? $request['Energia'] : 'NA');
-//        $nutrienteAlm->save();
-
         //criando a relação do alimento para com o nutriente
         $keys = array_keys($request->toArray());
         for ($i = 5; $i < count($request->toArray()); $i++) {
             $nutrienteAlm = new NutrienteAlimento();
             $nutrienteAlm->alimento()->associate($alimento);
-            $nutriente = Nutriente::where('nomeNutriente', $keys[$i])->first();
-            $PORRA = $nutriente->idNutriente;
-            dump($PORRA);
-//            dump($nutriente);
-//            $nutrienteAlm->idNutriente = $nutriente->idNutriente;
-//            $nutrienteAlm->qtde = ($request[$keys[$i]] > 0 ? $request[$keys[$i]] : 'NA');
-//            $nutrienteAlm->save();
-//            dump($keys[$i]);
+            $nutriente = Nutriente::where('nomeNutriente', str_replace('_', ' ', $keys[$i]))->first();
+            $nutrienteAlm->nutriente()->associate($nutriente);
+            $nutrienteAlm->qtde = ($request[$keys[$i]] > 0 ? $request[$keys[$i]] : 'NA');
+            $nutrienteAlm->save();
         }
-        redirect()->route('alimentos');
+
+        //criando a relaçãop do alimento com suas respectivas medidas caseiras
+        for ($i = 0; $i < count($request->medidas_caseiras); $i++) {
+            $medidaCaseira = new AlimentoMedidaCaseira();
+            $medidaCaseira->alimento()->associate($alimento); //indexando com o alimento
+            $tipoMedida = TipoMedidaCaseira::where('idTMCaseira', $request->medidas_caseiras[$i])->first();
+            $medidaCaseira->tipoMedidaCaseira()->associate($tipoMedida);
+            $unidadeMedida = UnidadeMedida::where('idUnidade', 2);
+            $medidaCaseira->unidadeMedida()->associate($unidadeMedida);
+
+        }
+
+
+        return redirect()->route('alimentos')->with('status', 'Alimento criado com sucesso!');
     }
 
     /**

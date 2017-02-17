@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('links')
+    @include('imports.select2_links')
+@endsection
+
 @section('content')
 
     {{--Cabeçalho--}}
@@ -48,6 +52,14 @@
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        {!! Form::label('medidas_caseiras', 'Medidas Caseiras', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            {!! Form::select('medidas_caseiras[]', \App\Models\Medida\TipoMedidaCaseira::pluck('nomeTMC', 'idTMCaseira'), null,
+                            ['class'=>'form-control select2_multiple', 'multiple'=>true, 'multiple'=>'multiple']) !!}
+                        </div>
+                    </div>
+
                     {{--Nutrientes--}}
                     <div class="ln_solid"></div>
                     <div class="clearfix"></div>
@@ -79,5 +91,6 @@
 @endsection
 
 @section('scripts')
-    @include('imports.validator_script')
+    {{--@include('imports.validator_script')--}}
+    @include('imports.select2_script')
 @endsection

@@ -13,4 +13,6 @@ class TipoMedidaCaseira extends Model
     public function alimentoMedidaCaseira() {
       return $this->hasMany('App\Models\Alimento\AlimentoMedidaCaseira', 'idTMCaseira', 'idTMCaseira');
     }
+
+
 }
