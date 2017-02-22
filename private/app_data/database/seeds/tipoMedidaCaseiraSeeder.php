@@ -12,13 +12,18 @@ class tipoMedidaCaseiraSeeder extends Seeder
     public function run()
     {
         DB::table('tipomedidacaseira')->insert([
-            'nomeTMC' => 'Colher de Chá',
-            'classeTMC' => 'COL CHÁ'
+            'nomeTMC' => 'Colher',
+            'classeTMC' => 'COL'
         ]);
 
         DB::table('tipomedidacaseira')->insert([
-            'nomeTMC' => 'Colher de Arroz',
-            'classeTMC' => 'COL A'
+            'nomeTMC' => 'Xicara',
+            'classeTMC' => 'X'
+        ]);
+
+        DB::table('tipomedidacaseira')->insert([
+            'nomeTMC' => 'Copo',
+            'classeTMC' => 'Cp'
         ]);
 
     }

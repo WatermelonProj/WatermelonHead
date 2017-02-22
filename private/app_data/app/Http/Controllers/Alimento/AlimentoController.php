@@ -44,6 +44,7 @@ class AlimentoController extends Controller
      */
     public function store(Request $request)
     {
+//        dump($request);
         // Criando um alimento
         $alimento = new Alimento();
         $alimento->descricaoAlimento = $request->descricaoAlimento;
@@ -54,7 +55,7 @@ class AlimentoController extends Controller
 
         //criando a relação do alimento para com o nutriente
         $keys = array_keys($request->toArray());
-        for ($i = 5; $i < count($request->toArray()); $i++) {
+        for ($i = 6; $i < count($request->toArray()); $i++) {
             $nutrienteAlm = new NutrienteAlimento();
             $nutrienteAlm->alimento()->associate($alimento);
             $nutriente = Nutriente::where('nomeNutriente', str_replace('_', ' ', $keys[$i]))->first();
@@ -63,19 +64,56 @@ class AlimentoController extends Controller
             $nutrienteAlm->save();
         }
 
-        //criando a relaçãop do alimento com suas respectivas medidas caseiras
+        //criando a relação do alimento com suas respectivas medidas caseiras
         for ($i = 0; $i < count($request->medidas_caseiras); $i++) {
             $medidaCaseira = new AlimentoMedidaCaseira();
             $medidaCaseira->alimento()->associate($alimento); //indexando com o alimento
             $tipoMedida = TipoMedidaCaseira::where('idTMCaseira', $request->medidas_caseiras[$i])->first();
-            $medidaCaseira->tipoMedidaCaseira()->associate($tipoMedida);
-            $unidadeMedida = UnidadeMedida::where('idUnidade', 2);
-            $medidaCaseira->unidadeMedida()->associate($unidadeMedida);
-
+            $medidaCaseira->tipoMedidaCaseira()->associate($tipoMedida); //indexando com o tipo de medida caseira
+            $unidadeMedida = UnidadeMedida::where('idUnidade', 2)->first();
+            $medidaCaseira->unidadeMedida()->associate($unidadeMedida); // associando com a unidade de medida em g por padrão
+            $medidaCaseira->save();
         }
 
+        //Caso o alimento possua medidas caseiras, redireciona para a pagina de informação das mesmas
+        if (count($request->medidas_caseiras > 0)) {
+            return redirect()->route('alimentos.createMedida', ['id' => $alimento->idAlimento])
+                ->with('status', 'Alimento criado com sucesso, insira os valores das mediads caseiras');
+        } else {
+            return redirect()->route('alimentos')->with('status', 'Alimento criado com sucesso!');
+        }
 
-        return redirect()->route('alimentos')->with('status', 'Alimento criado com sucesso!');
+    }
+
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     *
+     * Retorna view para criar as medidas caseiras de um alimento
+     */
+    public function createMedidaCaseira($id)
+    {
+        // passa o alimento previamente cadastrado para que sejam inseridos suas medidas caseiras
+        $alimento = Alimento::find($id);
+        return view('alimentos.alimentoMedidaCaseira', compact('alimento'));
+    }
+
+    public function storeMedidaCaseira($id, Request $request)
+    {
+        $keys = array_keys($request->toArray());
+
+//        dump($request);
+//        dump($keys);
+        for($i = 1; $i < count($request->toArray()); $i++) {
+            // recuperar o Id do tipo da medida caseira na posição atual do request
+            $idTm = TipoMedidaCaseira::where('nomeTMC', str_replace('_', ' ', $keys[$i]))->first()->idTMCaseira;
+            $tipoMedidaCaseiraQtd = new AlimentoMedidaCaseira();
+            $tipoMedidaCaseiraQtd = AlimentoMedidaCaseira::where('idAlimento', $id)->where('idTMCaseira', $idTm)->first();
+            $tipoMedidaCaseiraQtd->qtde = $request[$keys[$i]];
+
+//            dump($request[$keys[$i]]);
+            $tipoMedidaCaseiraQtd->save();
+        }
     }
 
     /**
@@ -86,6 +124,7 @@ class AlimentoController extends Controller
      */
     public function show($id)
     {
+        // lista as medidas caseiras, as quais o alimento possui para serem preenchidas
         $alimento = Alimento::find($id);
         return view('alimentos.alimentoComponentes', compact('alimento'));
     }

@@ -17,7 +17,7 @@ class CreateAlimentoMedidaCaseiraTable extends Migration
             $table->integer('idAlimento')->unsigned();
             $table->integer('idTMCaseira')->unsigned();
             $table->integer('tipoUnidade')->unsigned();
-            $table->float('qtde');
+            $table->float('qtde')->nullable();
             $table->index(['idAlimento','idTMCaseira']);
             $table->foreign('idAlimento')->references('idAlimento')->on('alimento')->onDelete('cascade');
             $table->foreign('idTMCaseira')->references('idTMCaseira')->on('tipoMedidaCaseira')->onDelete('cascade');
