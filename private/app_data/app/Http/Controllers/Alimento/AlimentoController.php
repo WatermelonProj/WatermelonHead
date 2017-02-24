@@ -37,14 +37,14 @@ class AlimentoController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Salva as informaï¿½ï¿½es bï¿½sicas de um alimento e redireciona para a criaï¿½ï¿½o de medidas caseiras
+     * se o alimento a possuir
      *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-//        dump($request);
         // Criando um alimento
         $alimento = new Alimento();
         $alimento->descricaoAlimento = $request->descricaoAlimento;
@@ -53,7 +53,7 @@ class AlimentoController extends Controller
         $alimento->idTACO = $request->idTACO;
         $alimento->save();
 
-        //criando a relação do alimento para com o nutriente
+        //criando a relaï¿½ï¿½o do alimento para com o nutriente
         $keys = array_keys($request->toArray());
         for ($i = 6; $i < count($request->toArray()); $i++) {
             $nutrienteAlm = new NutrienteAlimento();
@@ -64,19 +64,19 @@ class AlimentoController extends Controller
             $nutrienteAlm->save();
         }
 
-        //criando a relação do alimento com suas respectivas medidas caseiras
+        //criando a relaï¿½ï¿½o do alimento com suas respectivas medidas caseiras
         for ($i = 0; $i < count($request->medidas_caseiras); $i++) {
             $medidaCaseira = new AlimentoMedidaCaseira();
             $medidaCaseira->alimento()->associate($alimento); //indexando com o alimento
             $tipoMedida = TipoMedidaCaseira::where('idTMCaseira', $request->medidas_caseiras[$i])->first();
             $medidaCaseira->tipoMedidaCaseira()->associate($tipoMedida); //indexando com o tipo de medida caseira
             $unidadeMedida = UnidadeMedida::where('idUnidade', 2)->first();
-            $medidaCaseira->unidadeMedida()->associate($unidadeMedida); // associando com a unidade de medida em g por padrão
+            $medidaCaseira->unidadeMedida()->associate($unidadeMedida); // associando com a unidade de medida em g por padrï¿½o
             $medidaCaseira->save();
         }
 
-        //Caso o alimento possua medidas caseiras, redireciona para a pagina de informação das mesmas
-        if (count($request->medidas_caseiras > 0)) {
+        //Caso o alimento possua medidas caseiras, redireciona para a pagina de informaÃ§Ãµes das mesmas
+        if (count($request->medidas_caseiras) > 0) {
             return redirect()->route('alimentos.createMedida', ['id' => $alimento->idAlimento])
                 ->with('status', 'Alimento criado com sucesso, insira os valores das mediads caseiras');
         } else {
@@ -98,22 +98,22 @@ class AlimentoController extends Controller
         return view('alimentos.alimentoMedidaCaseira', compact('alimento'));
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     *
+     * Realiza o cadastro
+     */
     public function storeMedidaCaseira($id, Request $request)
     {
-        $keys = array_keys($request->toArray());
-
-//        dump($request);
-//        dump($keys);
-        for($i = 1; $i < count($request->toArray()); $i++) {
-            // recuperar o Id do tipo da medida caseira na posição atual do request
-            $idTm = TipoMedidaCaseira::where('nomeTMC', str_replace('_', ' ', $keys[$i]))->first()->idTMCaseira;
-            $tipoMedidaCaseiraQtd = new AlimentoMedidaCaseira();
-            $tipoMedidaCaseiraQtd = AlimentoMedidaCaseira::where('idAlimento', $id)->where('idTMCaseira', $idTm)->first();
-            $tipoMedidaCaseiraQtd->qtde = $request[$keys[$i]];
-
-//            dump($request[$keys[$i]]);
-            $tipoMedidaCaseiraQtd->save();
+        // varre todas as medidas do alimento previamente cadastrado e insere seu valores
+        $medidas = Alimento::find($id)->alimentoMedidaCaseira()->get();
+        foreach($medidas as $medida) {
+            $medida->qtde = $request[str_replace(' ', '_', $medida->tipoMedidaCaseira()->first()->nomeTMC)];
+            $medida->save();
         }
+
+        return redirect()->route('alimentos')->with('status', 'Alimento criado com sucesso!');
     }
 
     /**
@@ -137,7 +137,7 @@ class AlimentoController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**

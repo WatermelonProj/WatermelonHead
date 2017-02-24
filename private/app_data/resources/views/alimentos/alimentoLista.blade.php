@@ -2,6 +2,7 @@
 
 @section('links')
     @include('imports.datatables_links')
+    @include('imports.pnotify_links')
 @endsection
 
 @section('content')
@@ -82,5 +83,24 @@
 
 @section('scripts')
     @include('imports.datatables_script')
+    @include('imports.pnotify_script')
     @include('imports.morris_graphs')
+
+    @if (session('status'))
+        <script>
+            $(document).ready(function() {
+                new PNotify({
+                    title: "Sucesso!",
+                    type: "success",
+                    text: "{!! session('status') !!}",
+                    nonblock: {
+                        nonblock: true
+                    },
+                    styling: 'bootstrap3',
+                    hide: true
+                });
+
+            });
+        </script>
+    @endif
 @endsection
