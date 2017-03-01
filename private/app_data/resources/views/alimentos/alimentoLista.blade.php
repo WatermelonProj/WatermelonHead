@@ -62,6 +62,11 @@
                                                     <i class="fa fa-info" aria-hidden="true"></i> Detalhes
                                                 </button>
                                             </a>
+                                            <a href="{{ route('alimentos.edit', ['id'=>$alimento->idAlimento]) }}">
+                                                <button class="btn btn-warning btn-sm">
+                                                    <i class="fa fa-pencil-square" aria-hidden="true"></i> Editar
+                                                </button>
+                                            </a>
                                             <a href="{{ route('alimentos.destroy', ['id'=>$alimento->idAlimento]) }}">
                                                 <button class="btn btn-danger btn-sm">
                                                     <i class="fa fa-trash" aria-hidden="true"></i> Remover

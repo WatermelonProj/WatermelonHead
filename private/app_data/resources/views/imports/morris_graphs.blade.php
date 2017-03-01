@@ -2,7 +2,7 @@
 <script src="{{ asset('theme/gentelella/vendors/raphael/raphael.min.js') }}"></script>
 <script src="{{ asset('theme/gentelella/vendors/morris.js/morris.min.js') }}"></script>
 
-{{--Método para randomizar as cores do grafo--}}
+{{--MÃ©todo para randomizar as cores do grafo--}}
 <script>
     function shuffle(array) {
         var currentIndex = array.length, temporaryValue, randomIndex;

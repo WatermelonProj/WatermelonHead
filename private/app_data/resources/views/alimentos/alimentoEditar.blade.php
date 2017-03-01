@@ -40,7 +40,7 @@
                         {!! Form::label('descricaoAlimento', 'Alimento', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::text('descricaoAlimento', null, ['class'=>'form-control col-md-7 col-xs-12',
-                             'data-parsley-required', 'data-parsley-required-message' => "Preencha este campo" ]) !!}
+                             'data-parsley-required', 'data-parsley-required-message' => "Preencha este campo", "value"=>"teste" ]) !!}
                         </div>
                     </div>
                     <div class="form-group ">
@@ -78,14 +78,14 @@
                     <?php $nutrientes = App\Models\Nutriente\Nutriente::all() ?>
                     @foreach($nutrientes as $nutriente)
                         @if($nutriente->idNutriente != 2)
-                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                            {!! Form::label( $nutriente->nomeNutriente ,  $nutriente->nomeNutriente , ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                {!! Form::number($nutriente->nomeNutriente, null, ['class'=>'form-control', 'step'=>'0.01', 'data-parsley-type'=>"number",
-                             'data-parsley-type-message' => "Preencha com um valor númerico"]) !!}
+                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                {!! Form::label( $nutriente->nomeNutriente ,  $nutriente->nomeNutriente , ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+                                <div class="col-md-3 col-sm-6 col-xs-12">
+                                    {!! Form::number($nutriente->nomeNutriente, null, ['class'=>'form-control', 'step'=>'0.01', 'data-parsley-type'=>"number",
+                                 'data-parsley-type-message' => "Preencha com um valor númerico"]) !!}
+                                </div>
+                                <p style="margin-left: 10px; margin-top: 5px;">{{ $nutriente->unidadeMedida['siglaUnidade'] }}</p>
                             </div>
-                            <p style="margin-left: 10px; margin-top: 5px;">{{ $nutriente->unidadeMedida['siglaUnidade'] }}</p>
-                        </div>
                         @endif
                     @endforeach
 

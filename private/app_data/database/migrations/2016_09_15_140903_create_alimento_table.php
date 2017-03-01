@@ -18,7 +18,7 @@ class CreateAlimentoTable extends Migration
             $table->integer('idGAlimentar')->unsigned()->nullable();
             $table->integer('idGPiramide')->unsigned()->nullable();
             $table->string('descricaoAlimento');
-            $table->integer('idTACO');
+            $table->integer('idTACO')->nullable();
 
             $table->foreign('idGAlimentar')->references('idGAlimentar')->on('grupoAlimentar')->onDelete('cascade');
             $table->foreign('idGPiramide')->references('idGPiramide')->on('grupoPiramide')->onDelete('cascade');
