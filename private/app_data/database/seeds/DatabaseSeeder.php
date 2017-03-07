@@ -12,11 +12,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-//        $this->call(GruposSeeder::class);
+        $this->call(GruposSeeder::class);
         $this->call(tipoMedidaCaseiraSeeder::class);
-//        $this->call(UnidadeMedidaSeeder::class);
-//        $this->call(NutrientesSeeder::class);
-//        $this->call(AlimentoSeeder::class);
-//        $this->call(nutrienteAlimentoSeeder::class);
+        $this->call(UnidadeMedidaSeeder::class);
+        $this->call(NutrientesSeeder::class);
+        $this->call(AlimentoSeeder::class);
+        $this->call(nutrienteAlimentoSeeder::class);
     }
 }

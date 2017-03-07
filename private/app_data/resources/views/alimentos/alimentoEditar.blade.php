@@ -14,7 +14,9 @@
             </ul>
         </div>
     @endif
+
     {{--Cabeçalho--}}
+    {{ dump($alimento) }}
     <div class="row">
         <div class="col-lg-12">
             <h1>Alimento</h1>
@@ -25,7 +27,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Cadastro
+                    <h2>Atualizar Dados
                         <small>Insira as informações conforme solicitadas</small>
                     </h2>
                     <div class="clearfix"></div>
@@ -34,38 +36,39 @@
                     <br>
 
                     {{--Form--}}
-                    {!! Form::open(['route'=>'alimentos.store', 'class'=>'form-horizontal form-label-left',
+                    {!! Form::open(['route'=>['alimentos.update', 'id' => $alimento->idAlimento], 'class'=>'form-horizontal form-label-left',
                     'id'=> 'cadastro-form', 'data-parsley-validate' ]) !!}
                     <div class="form-group item">
                         {!! Form::label('descricaoAlimento', 'Alimento', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            {!! Form::text('descricaoAlimento', null, ['class'=>'form-control col-md-7 col-xs-12',
-                             'data-parsley-required', 'data-parsley-required-message' => "Preencha este campo", "value"=>"teste" ]) !!}
+                            {!! Form::text('descricaoAlimento', $alimento->descricaoAlimento , ['class'=>'form-control col-md-7 col-xs-12',
+                             'data-parsley-required', 'data-parsley-required-message' => "Preencha este campo" ]) !!}
                         </div>
                     </div>
                     <div class="form-group ">
                         {!! Form::label('idGPiramide', 'Grupo Piramide', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            {!! Form::select('idGPiramide', \App\Models\Grupo\GrupoPiramide::pluck('descricaoGP', 'idGPiramide'), null, ['class'=>'form-control']) !!}
+                            {!! Form::select('idGPiramide', \App\Models\Grupo\GrupoPiramide::pluck('descricaoGP', 'idGPiramide'), $alimento->idGPiramide, ['class'=>'form-control']) !!}
                         </div>
                     </div>
                     <div class="form-group ">
                         {!! Form::label('idGAlimentar', 'Grupo', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            {!! Form::select('idGAlimentar', \App\Models\Grupo\GrupoAlimentar::pluck('descricaoGA', 'idGAlimentar'), null, ['class'=>'form-control']) !!}
+                            {!! Form::select('idGAlimentar', \App\Models\Grupo\GrupoAlimentar::pluck('descricaoGA', 'idGAlimentar'), $alimento->idGAlimentar, ['class'=>'form-control']) !!}
                         </div>
                     </div>
                     <div class="form-group">
                         {!! Form::label('idTACO', 'ID TACO', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            {!! Form::text('idTACO', null, ['class'=>'form-control', 'data-parsley-type'=>"number",
+                            {!! Form::text('idTACO', $alimento->idTACO, ['class'=>'form-control', 'data-parsley-type'=>"number",
                              'data-parsley-type-message' => "Preencha com um valor númerico", 'data-parsley-required', 'data-parsley-required-message' => "Preencha este campo"]) !!}
                         </div>
                     </div>
                     <div class="form-group">
                         {!! Form::label('medidas_caseiras', 'Medidas Caseiras', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            {!! Form::select('medidas_caseiras[]', \App\Models\Medida\TipoMedidaCaseira::pluck('nomeTMC', 'idTMCaseira'), null,
+                            {!! Form::select('medidas_caseiras[]', \App\Models\Medida\TipoMedidaCaseira::pluck('nomeTMC', 'idTMCaseira'),
+                             null,
                             ['class'=>'form-control select2_multiple', 'multiple'=>true, 'multiple'=>'multiple']) !!}
                         </div>
                     </div>
@@ -75,13 +78,19 @@
                     <div class="clearfix"></div>
                     <h2>Nutrientes</h2>
 
-                    <?php $nutrientes = App\Models\Nutriente\Nutriente::all() ?>
+                    <?php
+                    $nutrientes = App\Models\Nutriente\Nutriente::all();
+                    $nutrienteAlimento = New App\Models\Nutriente\NutrienteAlimento();
+                    ?>
+
                     @foreach($nutrientes as $nutriente)
                         @if($nutriente->idNutriente != 2)
                             <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                 {!! Form::label( $nutriente->nomeNutriente ,  $nutriente->nomeNutriente , ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                                 <div class="col-md-3 col-sm-6 col-xs-12">
-                                    {!! Form::number($nutriente->nomeNutriente, null, ['class'=>'form-control', 'step'=>'0.01', 'data-parsley-type'=>"number",
+                                    {!! Form::number($nutriente->nomeNutriente,
+                                    str_replace(',', '.', $nutrienteAlimento->where('idAlimento', $alimento->idAlimento)->where('idNutriente', $nutriente->idNutriente)->first()['qtde']),
+                                     ['class'=>'form-control', 'step'=>'0.01', 'data-parsley-type'=>"number",
                                  'data-parsley-type-message' => "Preencha com um valor númerico"]) !!}
                                 </div>
                                 <p style="margin-left: 10px; margin-top: 5px;">{{ $nutriente->unidadeMedida['siglaUnidade'] }}</p>
@@ -93,7 +102,7 @@
 
                     <div class="ln_solid"></div>
 
-                    {!! Form::submit('Cadastrar', ['class'=>'btn btn-primary']) !!}
+                    {!! Form::submit('Atualizar', ['class'=>'btn btn-primary']) !!}
                     {!! Form::close() !!}
                 </div>
             </div>

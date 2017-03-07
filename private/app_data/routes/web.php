@@ -23,6 +23,11 @@ Route::group(['prefix' => 'alimentos'], function () {
         ->name('alimentos.storeMedida');
     Route::get('/show/{id}', 'Alimento\AlimentoController@show')->name('alimentos.show');
     Route::get('/edit/{id}', 'Alimento\AlimentoController@edit')->name('alimentos.edit');
+    Route::post('/update/{id}', 'Alimento\AlimentoController@update')->name('alimentos.update');
+    Route::get('/editMedidaCaseira/{id}', 'Alimento\AlimentoController@editMedidaCaseira')
+        ->name('alimentos.editMedidaCaseira');
+    Route::post('/updateMedidaCaseira/{id}', 'Alimento\AlimentoController@updateMedidaCaseira')
+        ->name('alimentos.updateMedidaCaseira');
     Route::get('/destroy/{id}', 'Alimento\AlimentoController@destroy')->name('alimentos.destroy');
 });
 
