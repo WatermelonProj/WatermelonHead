@@ -18,9 +18,9 @@
                     {!! Form::open(['route'=>['alimentos.storeMedida', $alimento->idAlimento], 'class'=>'form-horizontal form-label-left' ]) !!}
                     @foreach($alimento->alimentoMedidaCaseira as $medidaCaseira)
                         <div class="form-group ">
-                            {!! Form::label($medidaCaseira->tipoMedidaCaseira['nomeTMC'], $medidaCaseira->tipoMedidaCaseira['nomeTMC'], ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+                            {!! Form::label($medidaCaseira->tipoMedidaCaseira['nomeTMC'], null, ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                {!! Form::number($medidaCaseira->tipoMedidaCaseira['nomeTMC'], null, ['class'=>'form-control col-md-7 col-xs-12', 'required'=>'required']) !!}
+                                {!! Form::number($medidaCaseira->tipoMedidaCaseira['nomeTMC'], $alimento->alimentoMedidaCaseira, ['class'=>'form-control col-md-7 col-xs-12', 'required'=>'required']) !!}
                             </div>
                             <p><strong>{{ $medidaCaseira->unidadeMedida['siglaUnidade'] }}</strong></p>
                         </div>

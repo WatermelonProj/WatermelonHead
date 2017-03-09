@@ -16,7 +16,6 @@
     @endif
 
     {{--Cabeçalho--}}
-    {{ dump($alimento) }}
     <div class="row">
         <div class="col-lg-12">
             <h1>Alimento</h1>
@@ -89,7 +88,7 @@
                                 {!! Form::label( $nutriente->nomeNutriente ,  $nutriente->nomeNutriente , ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                                 <div class="col-md-3 col-sm-6 col-xs-12">
                                     {!! Form::number($nutriente->nomeNutriente,
-                                    str_replace(',', '.', $nutrienteAlimento->where('idAlimento', $alimento->idAlimento)->where('idNutriente', $nutriente->idNutriente)->first()['qtde']),
+                                    (float)str_replace(',', '.', $nutrienteAlimento->where('idAlimento', $alimento->idAlimento)->where('idNutriente', $nutriente->idNutriente)->first()['qtde']),
                                      ['class'=>'form-control', 'step'=>'0.01', 'data-parsley-type'=>"number",
                                  'data-parsley-type-message' => "Preencha com um valor númerico"]) !!}
                                 </div>

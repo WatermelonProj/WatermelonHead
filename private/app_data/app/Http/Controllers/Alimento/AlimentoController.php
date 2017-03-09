@@ -265,22 +265,29 @@ class AlimentoController extends Controller
         $alimento->idTACO = $request->idTACO;
         $alimento->save();
 
-        //Editando os nutrientes do alimento
+        //Editando os nutrientes do alimento, atualiza na tabela alimento_medidaCaseira
+        // o alimento do id recebido com o nutriente atual
         $keys = array_keys($request->toArray());
-        for ($i = 6; $i < count($request->toArray()); $i++) {
-            $nutrienteAlm = NutrienteAlimento::find($id);
+
+        //tratando do contador caso a Request venha com as medidas caseiras
+        $i = (count($request->medidas_caseiras) > 0 ? 6 : 5);
+
+        for ($i; $i < count($request->toArray()); $i++) {
             $nutriente = Nutriente::where('nomeNutriente', str_replace('_', ' ', $keys[$i]))->first();
-            $nutrienteAlm->nutriente()->associate($nutriente);
-            $nutrienteAlm->qtde = ($request[$keys[$i]] > 0 ? $request[$keys[$i]] : 'NA');
-            $nutrienteAlm->save();
+            if (!is_null(NutrienteAlimento::where('idAlimento', $alimento->idAlimento)
+                ->where('idNutriente', $nutriente->idNutriente)->first())
+            ) {
+                $nutrienteAlm = $alimento->nutrienteAlimento()->where('idNutriente', $nutriente->idNutriente)->first();
+                $nutrienteAlm['qtde'] = $request[$keys[$i]];
+                $nutrienteAlm->save();
+            }
         }
 
-        //criando a relação do alimento com suas respectivas medidas caseiras
+        //verifica se o alimento ja possui a medida caseira, se sim alterar os valores senão adicionar
         for ($i = 0; $i < count($request->medidas_caseiras); $i++) {
-            //verifica se o alimento ja possui a medida caseira, se sim alterar os valores senão adicionar
-            if (is_null($alimento->alimentoMedidaCaseira()->where('idTMCaseira', $request->medidas_caseiras[$i])
-                ->where('idAlimento', $alimento->idAlimento))) {
-                $medidaCaseira = AlimentoMedidaCaseira();
+            //pegando o ID da medida caseira para verificar se a mesma ja esta nas relação entre alimento e medida
+            if (is_null($alimento->alimentoMedidaCaseira()->where('idTMCaseira', $request->medidas_caseiras[$i])->first())) {
+                $medidaCaseira = new AlimentoMedidaCaseira();
                 $medidaCaseira->alimento()->associate($alimento); //indexando com o alimento
                 $tipoMedida = TipoMedidaCaseira::where('idTMCaseira', $request->medidas_caseiras[$i])->first();
                 $medidaCaseira->tipoMedidaCaseira()->associate($tipoMedida); //indexando com o tipo de medida caseira
@@ -309,6 +316,7 @@ class AlimentoController extends Controller
     {
         // passa o alimento previamente cadastrado para que sejam inseridos suas medidas caseiras
         $alimento = Alimento::find($id);
+
         return view('alimentos.alimentoEditarMedidaCaseira', compact('alimento'));
     }
 
