@@ -13,10 +13,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Alimento\Alimento;
 
+/**
+ * Class AlimentoController
+ * @package App\Http\Controllers\Alimento
+ */
 class AlimentoController extends Controller
 {
     /**
-     * Lista os alimentos, junto com suas respectivas propriedades
+     * Mostra uma lista com os alimentos ja cadastrados no banco de dados, junto com as funções
      *
      * @return \Illuminate\Http\Response
      */
@@ -27,7 +31,7 @@ class AlimentoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Formulário de criação de alimentos.
      *
      * @return \Illuminate\Http\Response
      */
@@ -140,10 +144,10 @@ class AlimentoController extends Controller
     }
 
     /**
+     * Retorna view para criar as medidas caseiras de um alimento
+     *
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     *
-     * Retorna view para criar as medidas caseiras de um alimento
      */
     public function createMedidaCaseira($id)
     {
@@ -307,10 +311,11 @@ class AlimentoController extends Controller
     }
 
     /**
+     * Retorna view para criar as medidas caseiras de um alimento
+     *
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      *
-     * Retorna view para criar as medidas caseiras de um alimento
      */
     public function editMedidaCaseira($id)
     {
@@ -321,10 +326,11 @@ class AlimentoController extends Controller
     }
 
     /**
+     * Atualiza a MedidaCaseira
+     *
      * @param $id
      * @param Request $request
      *
-     * Atualiza a MedidaCaseira
      */
     public function updateMedidaCaseira($id, Request $request)
     {
@@ -339,7 +345,7 @@ class AlimentoController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Deleta um alimento
      *
      * @param  int $id
      * @return \Illuminate\Http\Response

@@ -8,14 +8,9 @@
                     <li><a href="{{ route('alimentos.create') }}">Criar Alimento</a></li>
                 </ul>
             </li>
-            <li><a><i class="fa fa-table"></i> Nutrientes <span class="fa fa-chevron-down"></span></a>
-                <ul class="nav child_menu">
-                    <li><a href="#">Chart JS</a></li>
-                </ul>
-            </li>
             <li><a><i class="fa fa-cutlery"></i>Receitas <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="#">Ver Receitas</a></li>
+                    <li><a href="{{ route('receitas') }}">Ver Receitas</a></li>
                     <li><a href="#">Criar Receita</a></li>
                 </ul>
             </li>
