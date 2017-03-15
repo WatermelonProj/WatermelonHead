@@ -33,24 +33,14 @@
 
                 <div class="clearfix"></div>
 
-                <!-- menu profile quick info -->
-                <div class="profile">
-                    <div class="profile_pic">
-                        <img src="{{ asset('img/icone.svg') }}" alt="..." class="img-circle profile_img">
-                    </div>
-                    <div class="profile_info">
-                        <span>Welcome,</span>
-
-                        <h2>{{ Auth::user()->name }}</h2>
-                    </div>
-                </div>
-                <!-- /menu profile quick info -->
-
                 <br/>
 
+                {{--Sidebar--}}
                 @section('sidebar')
                     @include('sidebar.main_sidebar')
                 @show
+                {{--Sidebar--}}
+
             </div>
         </div>
 
@@ -63,25 +53,43 @@
                     </div>
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="">
-                            <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
-                               aria-expanded="false">
-                                <img src="{{ asset('img/icone.svg') }}" alt="">John Doe
-                                <span class=" fa fa-angle-down"></span>
-                            </a>
-                            <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                <li><a href="javascript:;"> Profile</a></li>
-                                <li>
-                                    <a href="javascript:;">
-                                        <span class="badge bg-red pull-right">50%</span>
-                                        <span>Settings</span>
-                                    </a>
-                                </li>
-                                <li><a href="javascript:;">Help</a></li>
-                                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-                            </ul>
-                        </li>
-
+                        {{--Faz a verificação se o usuário está logado--}}
+                        @if(Auth::check())
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                                   aria-expanded="false">
+                                    <img src="{{ asset('img/icone.svg') }}" alt="">John Doe
+                                    <span class=" fa fa-angle-down"></span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                                    <li><a href="javascript:;"> Profile</a></li>
+                                    <li>
+                                        <a href="javascript:;">
+                                            <span class="badge bg-red pull-right">50%</span>
+                                            <span>Settings</span>
+                                        </a>
+                                    </li>
+                                    <li><a href="javascript:;">Help</a></li>
+                                    {{--<li><button href="{{ Auth::logout() }}"><i class="fa fa-sign-out pull-right"></i> Log Out</button></li>--}}
+                                    <li>
+                                        <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-power-off"></i>
+                                            Logout
+                                        </a>
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                            @else
+                            <li>
+                                <a href="{{ url('/login')}}" class="user-profile">
+                                <i class="fa fa-user " aria-hidden="true"></i>
+                                    Login
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                 </nav>
             </div>
