@@ -50,7 +50,7 @@ class ReceitasController extends Controller
     {
         $receita = Receita::find($id);
 
-        return view('receitas.receitaShow', compact('receita'));
+        return view('receitas.receitaComponentes', compact('receita'));
     }
 
     /**
