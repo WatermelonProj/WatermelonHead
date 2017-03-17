@@ -17,7 +17,7 @@ class Receita extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\Models\User\User', 'idUsuario', 'id');
+        return $this->belongsTo('App\User', 'idUsuario', 'id');
     }
 
     public function receitaRefeicao()

@@ -48,7 +48,9 @@ class ReceitasController extends Controller
      */
     public function show($id)
     {
-        //
+        $receita = Receita::find($id);
+
+        return view('receitas.receitaShow', compact('receita'));
     }
 
     /**

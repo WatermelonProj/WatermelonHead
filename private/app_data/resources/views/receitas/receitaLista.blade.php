@@ -48,7 +48,7 @@
                                     <td>{{ $receita->user["name"] }}</td>
                                     <td>
                                         <div class="btn-group">
-                                            <a href="#">
+                                            <a href="{{ route('receitas.show', ['id' => $receita->idReceita]) }}">
                                                 <button class="btn btn-info btn-sm">
                                                     <i class="fa fa-info" aria-hidden="true"></i> Detalhes
                                                 </button>
