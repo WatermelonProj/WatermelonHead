@@ -18,7 +18,7 @@ class AlimentoReceita extends Model
       return $this->belongsTo('App\Models\Receita\Receita', 'idReceita', 'idReceita');
     }
 
-    public function undidadeMedida()
+    public function unidadeMedida()
     {
         return $this->belongsTo('App\Models\Medida\UnidadeMedida', 'unidadeMedida');
     }

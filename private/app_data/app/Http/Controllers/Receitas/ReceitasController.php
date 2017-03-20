@@ -86,4 +86,11 @@ class ReceitasController extends Controller
     {
         //
     }
+
+    public function testeBlade()
+    {
+        $receitas = Receita::all();
+
+        return view('receitas.receitaLista2', compact('receitas'));
+    }
 }

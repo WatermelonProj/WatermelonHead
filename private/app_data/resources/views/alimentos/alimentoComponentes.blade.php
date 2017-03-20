@@ -30,7 +30,8 @@
                                     @endforeach
                                 </select>
                                 <span class="input-group-btn">
-                                    <button id="atualizaNutr" type="button" class="btn btn-primary">Atualizar Medida</button>
+                                    <button id="atualizaNutr" type="button" class="btn btn-primary">Atualizar Medida
+                                    </button>
                                 </span>
                             </div>
                         </div>
@@ -62,7 +63,7 @@
 
 
         @if(File::exists("img/Alimentos/{$alimento->idAlimento}.png"))
-        <!-- Imagem do Alimento -->
+                <!-- Imagem do Alimento -->
         <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
@@ -82,7 +83,7 @@
         </div>
         @endif
 
-        <!-- pie chart -->
+                <!-- pie chart -->
         <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">

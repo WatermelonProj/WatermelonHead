@@ -1,6 +1,10 @@
 @extends('layouts.dataTable')
 
-@section('page_title', 'Receitas <small> Lista de receitas disponíveis</small>')
+@section('extra_links')
+
+    @endsection
+
+@section('page_title', 'Titulo da página!')
 
 @section('table_head')
     <tr>
