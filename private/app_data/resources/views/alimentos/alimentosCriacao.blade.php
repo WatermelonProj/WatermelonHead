@@ -93,7 +93,7 @@
 
                     <div class="ln_solid"></div>
 
-                    {!! Form::submit('Cadastrar', ['class'=>'btn btn-primary']) !!}
+                    {!! Form::submit('Cadastrar', ['class'=>'btn btn-primary pull-right']) !!}
                     {!! Form::close() !!}
                 </div>
             </div>

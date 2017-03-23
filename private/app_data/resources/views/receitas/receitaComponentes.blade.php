@@ -74,12 +74,15 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                {{--para cada alimento que a receita contém soma seus nutrientes de acordo quantidade de sua medidas--}}
-                                {{ $nutrientes = array() }}
-                                @foreach($receita->alimentoReceita as $alimentoReceita)
-                                    @foreach($alimentoReceita->alimento->nutrienteAlimento as $nutrienteAlimento)
-                                        {{ $nutrientes[$nutrienteAlimento->nutriente->nomeNutriente] =  }}
-                                    @endforeach
+                                {{--nutrientes que o alimento contém--}}
+                                @foreach($nutrientes as $nutriente)
+                                    @if($nutrientesReceita[$nutriente->idNutriente] != 0)
+                                        <tr>
+                                            <td>{{ $nutriente->nomeNutriente }}</td>
+                                            <td>{{ $nutrientesReceita[$nutriente->idNutriente] }}</td>
+                                            <td>{{ $nutriente->unidadeMedida->siglaUnidade }}</td>
+                                        </tr>
+                                    @endif
                                 @endforeach
                                 </tbody>
                             </table>

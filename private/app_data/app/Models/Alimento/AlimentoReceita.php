@@ -11,7 +11,7 @@ class AlimentoReceita extends Model
     public $timestamps = false;
 
     public function alimento() {
-      return $this->belongsTo('App\Models\Alimento\Alimento', 'idAlimento', 'idAlimento');
+      return $this->belongsTo('App\Models\Alimento\Alimento', 'idAlimento');
     }
 
     public function receita() {
