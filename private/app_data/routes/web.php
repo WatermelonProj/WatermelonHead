@@ -45,4 +45,4 @@ Route::group(['prefix' => 'receitas'], function () {
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');

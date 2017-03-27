@@ -14,7 +14,7 @@
                 <ul class="nav child_menu">
                     <li><a href="{{ route('receitas') }}">Ver Receitas</a></li>
                     @if(Auth::check())
-                        <li><a href="#">Criar Receita</a></li>
+                        <li><a href="{{ route('receitas.create') }}">Criar Receita</a></li>
                     @endif
                 </ul>
             </li>
