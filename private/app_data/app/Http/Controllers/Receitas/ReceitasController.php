@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Receitas;
 
+use App\Models\Alimento\Alimento;
 use App\Models\Nutriente\Nutriente;
 use App\Models\Receita\Receita;
 use Illuminate\Http\Request;
@@ -27,7 +28,9 @@ class ReceitasController extends Controller
      */
     public function create()
     {
-        return view('receitas.receitaCriacao');
+        $alimentos = new Alimento();
+
+        return view('receitas.receitaCriacao', compact('alimentos'));
     }
 
     /**

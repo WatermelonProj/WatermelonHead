@@ -81,7 +81,8 @@
                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
                             {!! Form::label( $nutriente->nomeNutriente ,  $nutriente->nomeNutriente , ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                {!! Form::number($nutriente->nomeNutriente, null, ['class'=>'form-control', 'step'=>'0.01', 'data-parsley-type'=>"number",
+                                {!! Form::number($nutriente->nomeNutriente, null, ['class'=>'form-control', 'step'=>'0.01',
+                                 'data-parsley-type'=>"number",
                              'data-parsley-type-message' => "Preencha com um valor númerico"]) !!}
                             </div>
                             <p style="margin-left: 10px; margin-top: 5px;">{{ $nutriente->unidadeMedida['siglaUnidade'] }}</p>
