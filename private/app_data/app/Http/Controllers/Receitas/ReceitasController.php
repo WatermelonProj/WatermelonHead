@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Receitas;
 
+use App\Http\Controllers\Controller;
 use App\Models\Alimento\Alimento;
+use App\Models\Alimento\AlimentoReceita;
 use App\Models\Nutriente\Nutriente;
 use App\Models\Receita\Receita;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ReceitasController extends Controller
 {
@@ -41,7 +43,30 @@ class ReceitasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate($request, [
+            'nomeReceita' => 'required',
+        ]);
+
+        // informações básicas de uma receita
+        $receita = new Receita();
+        $receita->nomeReceita = $request->nomeReceita;
+        $receita->preparoReceita = $request->preparoReceita;
+        $receita->ativoReceita = ($request->ativoReceita ? 1 : 0);
+        $receita->idUsuario = Auth::user()->id;
+        $receita->save();
+
+        // armazenando os alimentos contidos em uma receita
+        foreach ($request->alimentos as $alimento) {
+            $alimentoReceita = new AlimentoReceita();
+            $alimentoReceita->idAlimento = $alimento;
+            $alimentoReceita->idReceita = $receita->idReceita;
+            $alimentoReceita->qtde = $request[$alimento];
+            $alimentoReceita->unidadeMedida = 2;
+            $alimentoReceita->save();
+        }
+
+        return redirect()->route('receitas')->with('status', 'Receita criada com sucesso!');
     }
 
     /**
@@ -105,14 +130,15 @@ class ReceitasController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove uma refeição do BD
      *
-     * @param  int $id
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return mixed
      */
     public function destroy($id)
     {
-        //
+        Receita::find($id)->delete();
+        return redirect()->route('receitas')->with('status', 'Receita removido com sucesso!');
     }
 }
 

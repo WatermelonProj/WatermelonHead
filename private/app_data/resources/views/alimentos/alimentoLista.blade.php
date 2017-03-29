@@ -7,7 +7,8 @@
     <a href="{{ route('alimentos.create') }}">
         <button class="btn btn-primary pull-right">
             <i class="fa fa-plus" aria-hidden="true"></i>
-            Adicionar Alimento</button>
+            Adicionar Alimento
+        </button>
         <div class="clearfix"></div>
     </a>
 
@@ -39,7 +40,7 @@
             <td>
                 <div class="btn-group">
                     <a href="{{ route('alimentos.show', ['id'=>$alimento->idAlimento]) }}">
-                        <button class="btn btn-info btn-sm">
+                        <button class="btn btn-primary btn-sm">
                             <i class="fa fa-folder" aria-hidden="true"></i> Detalhes
                         </button>
                     </a>
@@ -53,18 +54,20 @@
 
                     @if(Auth::check())
                         <a href="#">
-                            <button class="btn btn-danger btn-sm " data-toggle="modal" data-target="#alm-{{ $alimento->idAlimento }}">
+                            <button class="btn btn-danger btn-sm " data-toggle="modal"
+                                    data-target="#alm-{{ $alimento->idAlimento }}">
                                 <i class="fa fa-trash" aria-hidden="true"></i> Remover
                             </button>
-
                         </a>
 
-                        <div id="alm-{{ $alimento->idAlimento }}" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div id="alm-{{ $alimento->idAlimento }}" class="modal fade bs-example-modal-sm" tabindex="-1"
+                             role="dialog" aria-hidden="true">
                             <div class="modal-dialog modal-sm">
                                 <div class="modal-content">
 
                                     <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
                                         </button>
                                         <h4 class="modal-title" id="myModalLabel2">REMOÇÃO DE ALIMENTO</h4>
                                     </div>
@@ -75,12 +78,12 @@
                                         <p>Você deseja continuar?</p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar
+                                        </button>
                                         <a href="{{ route('alimentos.destroy', ['id'=>$alimento->idAlimento]) }}">
                                             <button type="button" class="btn btn-danger">Remover</button>
                                         </a>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -88,5 +91,5 @@
                 </div>
             </td>
         </tr>
-        @endforeach
+    @endforeach
 @endsection

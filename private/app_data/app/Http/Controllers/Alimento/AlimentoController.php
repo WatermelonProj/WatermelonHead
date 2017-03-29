@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Alimento;
 
+use App\Http\Controllers\Controller;
+use App\Models\Alimento\Alimento;
 use App\Models\Alimento\AlimentoMedidaCaseira;
 use App\Models\Grupo\GrupoAlimentar;
 use App\Models\Grupo\GrupoPiramide;
@@ -10,8 +12,7 @@ use App\Models\Medida\UnidadeMedida;
 use App\Models\Nutriente\Nutriente;
 use App\Models\Nutriente\NutrienteAlimento;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Alimento\Alimento;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class AlimentoController
@@ -57,48 +58,48 @@ class AlimentoController extends Controller
                 'idGPiramide' => 'required|numeric',
                 'idGAlimentar' => 'required|numeric',
                 'idTACO' => 'numeric',
-                "Energia" => "numeric",
-                "Proteína" => "numeric",
-                "Lipídeos" => "numeric",
-                "Colesterol" => "numeric",
-                "Carboidrato" => "numeric",
-                "Fibra_Alimentar" => "numeric",
-                "Cinzas" => "numeric",
-                "Cálcio" => "numeric",
-                "Magnésio" => "numeric",
-                "Manganês" => "numeric",
-                "Fósforo" => "numeric",
-                "Ferro" => "numeric",
-                "Sódio" => "numeric",
-                "Potássio" => "numeric",
-                "Cobre" => "numeric",
-                "Zinco" => "numeric",
-                "Retinol" => "numeric",
-                "RE" => "numeric",
-                "RAE" => "numeric",
-                "Tiamina" => "numeric",
-                "Riboflavina" => "numeric",
-                "Piridoxina" => "numeric",
-                "Niacina" => "numeric",
-                "Vitamina_C" => "numeric",
-                "Triptofano" => "numeric",
-                "Treonina" => "numeric",
-                "Isoleucina" => "numeric",
-                "Leucina" => "numeric",
-                "Lisina" => "numeric",
-                "Metionina" => "numeric",
-                "Cistina" => "numeric",
-                "Fenilalanina" => "numeric",
-                "Tirosina" => "numeric",
-                "Valina" => "numeric",
-                "Arginina" => "numeric",
-                "Histidina" => "numeric",
-                "Alanina" => "numeric",
-                "Ácido_Aspártico" => "numeric",
-                "Ácido_Glutâmico" => "numeric",
-                "Glicina" => "numeric",
-                "Prolina" => "numeric",
-                "Serina" => "numeric"
+                'Energia' => 'numeric',
+                'Proteína' => 'numeric',
+                'Lipídeos' => 'numeric',
+                'Colesterol' => 'numeric',
+                'Carboidrato' => 'numeric',
+                'Fibra_Alimentar' => 'numeric',
+                'Cinzas' => 'numeric',
+                'Cálcio' => 'numeric',
+                'Magnésio' => 'numeric',
+                'Manganês' => 'numeric',
+                'Fósforo' => 'numeric',
+                'Ferro' => 'numeric',
+                'Sódio' => 'numeric',
+                'Potássio' => 'numeric',
+                'Cobre' => 'numeric',
+                'Zinco' => 'numeric',
+                'Retinol' => 'numeric',
+                'RE' => 'numeric',
+                'RAE' => 'numeric',
+                'Tiamina' => 'numeric',
+                'Riboflavina' => 'numeric',
+                'Piridoxina' => 'numeric',
+                'Niacina' => 'numeric',
+                'Vitamina_C' => 'numeric',
+                'Triptofano' => 'numeric',
+                'Treonina' => 'numeric',
+                'Isoleucina' => 'numeric',
+                'Leucina' => 'numeric',
+                'Lisina' => 'numeric',
+                'Metionina' => 'numeric',
+                'Cistina' => 'numeric',
+                'Fenilalanina' => 'numeric',
+                'Tirosina' => 'numeric',
+                'Valina' => 'numeric',
+                'Arginina' => 'numeric',
+                'Histidina' => 'numeric',
+                'Alanina' => 'numeric',
+                'Ácido_Aspártico' => 'numeric',
+                'Ácido_Glutâmico' => 'numeric',
+                'Glicina' => 'numeric',
+                'Prolina' => 'numeric',
+                'Serina' => 'numeric'
             ]
 
         );
@@ -184,7 +185,8 @@ class AlimentoController extends Controller
     {
         // lista as medidas caseiras, as quais o alimento possui para serem preenchidas
         $alimento = Alimento::find($id);
-        return view('alimentos.alimentoComponentes', compact('alimento'));
+        $img = Storage::url('Alimentos/4.png');
+        return view('alimentos.alimentoComponentes', compact('alimento', 'img'));
     }
 
     /**
