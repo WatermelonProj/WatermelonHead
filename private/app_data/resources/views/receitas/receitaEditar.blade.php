@@ -13,7 +13,7 @@
     <div class="form-group item">
         {!! Form::label('nomeReceita', 'Nome da Receita', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
         <div class="col-md-6 col-sm-6 col-xs-12">
-            {!! Form::text('nomeReceita', null, ['class'=>'form-control col-md-7 col-xs-12',
+            {!! Form::text('nomeReceita', $receita->nomeReceita, ['class'=>'form-control col-md-7 col-xs-12',
              'data-parsley-required', 'data-parsley-required-message' => "Preencha este campo" ]) !!}
         </div>
     </div>
@@ -21,7 +21,7 @@
     <div class="form-group">
         {!! Form::label('alimentos', 'Alimentos', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
         <div class="col-md-6 col-sm-6 col-xs-12">
-            {!! Form::select('alimentos[]', $alimentos::pluck('descricaoAlimento', 'idAlimento'), null,
+            {!! Form::select('alimentos[]', $alimentos::pluck('descricaoAlimento', 'idAlimento'), [],
             [ 'id'=>'mselect' ,'class'=>'form-control select2_multiple', 'multiple'=>true, 'multiple'=>'multiple',
             'data-parsley-required', 'data-parsley-required-message' => "Insira ao menos um alimento para a receita"]) !!}
         </div>

@@ -25,6 +25,14 @@
                         </button>
                     </a>
 
+                    @if(Auth::check())
+                        <a href="{{ route('receitas.edit', ['id'=>$receita->idReceita]) }}">
+                            <button class="btn btn-warning btn-sm">
+                                <i class="fa fa-pencil-square" aria-hidden="true"></i> Editar
+                            </button>
+                        </a>
+                    @endif
+
                     @if((Auth::check()) && (Auth::user()->id === $receita->user['id']))
                         <a href="#">
                             <button class="btn btn-danger btn-sm " data-toggle="modal" data-target="#rct-{{ $receita->idReceita }}">

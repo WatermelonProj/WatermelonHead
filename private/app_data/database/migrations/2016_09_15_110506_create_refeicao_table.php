@@ -15,7 +15,7 @@ class CreateRefeicaoTable extends Migration
     {
         Schema::create('refeicao', function (Blueprint $table) {
             $table->increments('idRefeicao');
-            $table->string("nomeRefeicao");
+            $table->text("nomeRefeicao");
             $table->boolean('ativoRefeicao');
         });
     }

@@ -55,6 +55,9 @@ class ReceitasController extends Controller
         $receita->ativoReceita = ($request->ativoReceita ? 1 : 0);
         $receita->idUsuario = Auth::user()->id;
         $receita->save();
+        if($request->hasFile('image')) {
+            $request->image->storeAs('public/receitas', $receita->idReceita.".png");
+        }
 
         // armazenando os alimentos contidos em uma receita
         foreach ($request->alimentos as $alimento) {
@@ -114,7 +117,12 @@ class ReceitasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $receita = Receita::find($id);
+        $alimentos = New Alimento();
+        $alimentosReceita = AlimentoReceita::where('idReceita', $receita->idReceita)->get();
+        dump($alimentosReceita);
+        dump(array_get($alimentosReceita, 'AlimentoReceita.idAlimento'));
+//        return view('receitas.receitaEditar', compact('receita', 'alimentos', 'alimentosReceita'));
     }
 
     /**

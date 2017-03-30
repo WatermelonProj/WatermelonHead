@@ -5,6 +5,9 @@
 
     <div class="title_left">
         <h3>Receitas</h3>
+        <a href="{{ route('receitas') }}">
+            <button class="btn btn-link">Retornar as Receitas</button>
+        </a>
     </div>
 
     <div class="col-md-8 col-sm-8 col-xs-8">
@@ -96,7 +99,7 @@
     </div>
 
     {{--Verifica se existe imagem relacionada ao alimento--}}
-    @if((File::exists("img/Receitas/{$receita->idReceita}.png") xor File::exists("img/Receitas/{$receita->idReceita}.jpg")))
+    @if((File::exists("storage/receitas/{$receita->idReceita}.png") xor File::exists("storage/receitas/{$receita->idReceita}.jpg")))
         <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
@@ -109,11 +112,11 @@
                 </div>
                 <div class="x_content2">
                     {{--Verificando o formato da imagem--}}
-                    @if((File::exists("img/Receitas/{$receita->idReceita}.png")))
-                        <img src="{{ asset("img/Receitas/{$receita->idReceita}.png") }}" class="img-rounded"
+                    @if((File::exists("storage/receitas/{$receita->idReceita}.png")))
+                        <img src="{{ asset("storage/receitas/{$receita->idReceita}.png") }}" class="img-rounded"
                              alt="Alimento" style="width:100%; height:100%;">
                     @else
-                        <img src="{{ asset("img/Receitas/{$receita->idReceita}.jpg") }}" class="img-rounded"
+                        <img src="{{ asset("storage/receitas/{$receita->idReceita}.jpg") }}" class="img-rounded"
                              alt="Alimento" style="width:100%; height:100%;">
                     @endif
                 </div>

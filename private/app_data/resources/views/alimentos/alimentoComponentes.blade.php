@@ -62,25 +62,30 @@
         </div>
 
 
-        @if(File::exists("img/Alimentos/{$alimento->idAlimento}.png"))
+        @if(File::exists("storage/alimentos/{$alimento->idAlimento}.png") xor
+                File::exists("storage/alimentos/{$alimento->idAlimento}.jpg"))
                 <!-- Imagem do Alimento -->
-        <div class="col-md-4 col-sm-4 col-xs-12">
-            <div class="x_panel">
-                <div class="x_title">
-                    <h2>Alimento
-                    </h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                        <li><a class="close-link"><i class="fa fa-close"></i></a>
-                        </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content2">
-                    <img src="{{ asset("img/Alimentos/{$alimento->idAlimento}.png") }}" class="img-rounded"
-                         alt="Cinque Terre" style="width:100%; height:100%;">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Alimento</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content2">
+                        @if(File::exists("storage/alimentos/{$alimento->idAlimento}.png"))
+                            <img src="{{ asset("storage/alimentos/{$alimento->idAlimento}.png") }}" class="img-rounded"
+                                 alt="alimento" style="width:100%; height:100%;">
+                        @else
+                            <img src="{{ asset("storage/alimentos/{$alimento->idAlimento}.jpg") }}" class="img-rounded"
+                                 alt="alimento" style="width:100%; height:100%;">
+                        @endif
+                    </div>
                 </div>
             </div>
-        </div>
         @endif
 
                 <!-- pie chart -->
