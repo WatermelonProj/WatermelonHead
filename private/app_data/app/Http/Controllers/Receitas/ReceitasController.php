@@ -7,6 +7,7 @@ use App\Models\Alimento\Alimento;
 use App\Models\Alimento\AlimentoReceita;
 use App\Models\Nutriente\Nutriente;
 use App\Models\Receita\Receita;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -55,8 +56,8 @@ class ReceitasController extends Controller
         $receita->ativoReceita = ($request->ativoReceita ? 1 : 0);
         $receita->idUsuario = Auth::user()->id;
         $receita->save();
-        if($request->hasFile('image')) {
-            $request->image->storeAs('public/receitas', $receita->idReceita.".png");
+        if ($request->hasFile('image')) {
+            $request->image->storeAs('public/receitas', $receita->idReceita . ".png");
         }
 
         // armazenando os alimentos contidos em uma receita
@@ -118,11 +119,16 @@ class ReceitasController extends Controller
     public function edit($id)
     {
         $receita = Receita::find($id);
-        $alimentos = New Alimento();
-        $alimentosReceita = AlimentoReceita::where('idReceita', $receita->idReceita)->get();
-        dump($alimentosReceita);
-        dump(array_get($alimentosReceita, 'AlimentoReceita.idAlimento'));
-//        return view('receitas.receitaEditar', compact('receita', 'alimentos', 'alimentosReceita'));
+        $alimentosLista = New Alimento();
+        $alimentosReceita = $receita->alimentoReceita;
+
+        // pega todoso os alimentos que uma receita possui para passar para a view
+        $alimentosContidos = $alimentosReceita->map(function ($alm) {
+            return $alm->idAlimento;
+        });
+
+        $alimentosContidos = $alimentosContidos->toArray();
+        return view('receitas.receitaEditar', compact('receita', 'alimentosLista', 'alimentosContidos', 'alimentoReceita'));
     }
 
     /**
@@ -134,7 +140,35 @@ class ReceitasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'nomeReceita' => 'required',
+        ]);
+
+
+        $receita = Receita::find($id);
+        $receita->nomeReceita = $request->nomeReceita;
+        $receita->preparoReceita = $request->preparoReceita;
+        $receita->ativoReceita = ($request->ativoReceita ? 1 : 0);
+        $receita->save();
+        if ($request->hasFile('image')) {
+            $request->image->storeAs('public/receitas', $receita->idReceita . ".png");
+        }
+
+        //limpando dados antigos
+        DB::delete("delete FROM alimento_receita WHERE idReceita = ?",
+            [$receita->idReceita]);
+
+        // armazenando os alimentos contidos em uma receita
+        foreach ($request->alimentos as $alimento) {
+            $alimentoReceita = new AlimentoReceita();
+            $alimentoReceita->idAlimento = $alimento;
+            $alimentoReceita->idReceita = $receita->idReceita;
+            $alimentoReceita->qtde = $request[$alimento];
+            $alimentoReceita->unidadeMedida = 2;
+            $alimentoReceita->save();
+        }
+
+        return redirect()->route('receitas')->with('status', 'Receita atualizada com sucesso!');
     }
 
     /**

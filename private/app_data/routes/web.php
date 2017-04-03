@@ -40,6 +40,7 @@ Route::group(['prefix' => 'receitas'], function () {
     Route::post('/store', 'Receitas\ReceitasController@store')->name('receitas.store')->middleware('auth');
     Route::get('/show/{id}', 'Receitas\ReceitasController@show')->name('receitas.show')->where('id', '[0-9]+');
     Route::get('/edit/{id}', 'Receitas\ReceitasController@edit')->name('receitas.edit')->where('id', '[0-9]+')->middleware('auth');
+    Route::post('/update/{id}', 'Receitas\ReceitasController@update')->name('receitas.update')->where('id', '[0-9]+')->middleware('auth');
     Route::get('/destroy/{id}', 'Receitas\ReceitasController@destroy')->name('receitas.destroy')->where('id', '[0-9]+')->middleware('auth');
 });
 
