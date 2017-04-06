@@ -154,7 +154,7 @@ class ReceitasController extends Controller
             $request->image->storeAs('public/receitas', $receita->idReceita . ".png");
         }
 
-        //limpando dados antigos
+        // limpando dados antigos
         DB::delete("delete FROM alimento_receita WHERE idReceita = ?",
             [$receita->idReceita]);
 

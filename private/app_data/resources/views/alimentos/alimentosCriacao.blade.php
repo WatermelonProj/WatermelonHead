@@ -65,6 +65,13 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        {!! Form::label('nutrientes', 'Nutrientes', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            {!! Form::select('nutrientes[]', \App\Models\Nutriente\Nutriente::pluck('nomeNutriente', 'idNutriente'), null,
+                            ['class'=>'form-control select2_multiple', 'multiple'=>true, 'multiple'=>'multiple']) !!}
+                        </div>
+                    </div>
+                    <div class="form-group">
                         {!! Form::label('medidas_caseiras', 'Medidas Caseiras', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::select('medidas_caseiras[]', \App\Models\Medida\TipoMedidaCaseira::pluck('nomeTMC', 'idTMCaseira'), null,
@@ -77,20 +84,20 @@
                     <div class="clearfix"></div>
                     <h2>Nutrientes</h2>
 
-                    <?php $nutrientes = App\Models\Nutriente\Nutriente::all() ?>
-                    @foreach($nutrientes as $nutriente)
-                        @if($nutriente->idNutriente != 2)
-                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                            {!! Form::label( $nutriente->nomeNutriente ,  $nutriente->nomeNutriente , ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
-                            <div class="col-md-3 col-sm-6 col-xs-12">
-                                {!! Form::number($nutriente->nomeNutriente, null, ['class'=>'form-control', 'step'=>'0.01',
-                                 'data-parsley-type'=>"number",
-                             'data-parsley-type-message' => "Preencha com um valor númerico"]) !!}
-                            </div>
-                            <p style="margin-left: 10px; margin-top: 5px;">{{ $nutriente->unidadeMedida['siglaUnidade'] }}</p>
-                        </div>
-                        @endif
-                    @endforeach
+                    {{--@foreach($nutrientes as $nutriente)--}}
+                        {{--@if($nutriente->idNutriente != 2)--}}
+                            {{--<div class="form-group col-md-6 col-sm-6 col-xs-12">--}}
+                                {{--{!! Form::label( $nutriente->nomeNutriente ,  $nutriente->nomeNutriente , ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}--}}
+                                {{--<div class="col-md-3 col-sm-6 col-xs-12">--}}
+                                    {{--{!! Form::number($nutriente->nomeNutriente, null, ['class'=>'form-control', 'step'=>'0.01',--}}
+                                     {{--'data-parsley-type'=>"number",--}}
+                                 {{--'data-parsley-type-message' => "Preencha com um valor númerico"]) !!}--}}
+                                {{--</div>--}}
+                                {{--<p style="margin-left: 10px; margin-top: 5px;">{{ $nutriente->unidadeMedida['siglaUnidade'] }}</p>--}}
+                            {{--</div>--}}
+                        {{--@endif--}}
+                    {{--@endforeach --}}
+
 
                     <div class="clearfix"></div>
 
