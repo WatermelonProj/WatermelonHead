@@ -68,39 +68,35 @@
                         {!! Form::label('nutrientes', 'Nutrientes', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::select('nutrientes[]', \App\Models\Nutriente\Nutriente::pluck('nomeNutriente', 'idNutriente'), null,
-                            ['class'=>'form-control select2_multiple', 'multiple'=>true, 'multiple'=>'multiple']) !!}
+                            ['id'=>'nutrienteSelect', 'class'=>'form-control select2_multiple', 'multiple'=>true, 'multiple'=>'multiple']) !!}
                         </div>
                     </div>
                     <div class="form-group">
                         {!! Form::label('medidas_caseiras', 'Medidas Caseiras', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::select('medidas_caseiras[]', \App\Models\Medida\TipoMedidaCaseira::pluck('nomeTMC', 'idTMCaseira'), null,
-                            ['class'=>'form-control select2_multiple', 'multiple'=>true, 'multiple'=>'multiple']) !!}
+                            ['id'=>'medidaCaseiraSelect', 'class'=>'form-control select2_multiple', 'multiple'=>true, 'multiple'=>'multiple']) !!}
                         </div>
                     </div>
 
                     {{--Nutrientes--}}
+                    <div class="clearfix"></div>
                     <div class="ln_solid"></div>
+                    <h2>Nutrientes
+                        <small>Insira as quantidades</small>
+                    </h2>
+                    <div id="ntr"></div>
+
+
+                    {{--Medidas Caseiras--}}
                     <div class="clearfix"></div>
-                    <h2>Nutrientes</h2>
-
-                    {{--@foreach($nutrientes as $nutriente)--}}
-                        {{--@if($nutriente->idNutriente != 2)--}}
-                            {{--<div class="form-group col-md-6 col-sm-6 col-xs-12">--}}
-                                {{--{!! Form::label( $nutriente->nomeNutriente ,  $nutriente->nomeNutriente , ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}--}}
-                                {{--<div class="col-md-3 col-sm-6 col-xs-12">--}}
-                                    {{--{!! Form::number($nutriente->nomeNutriente, null, ['class'=>'form-control', 'step'=>'0.01',--}}
-                                     {{--'data-parsley-type'=>"number",--}}
-                                 {{--'data-parsley-type-message' => "Preencha com um valor númerico"]) !!}--}}
-                                {{--</div>--}}
-                                {{--<p style="margin-left: 10px; margin-top: 5px;">{{ $nutriente->unidadeMedida['siglaUnidade'] }}</p>--}}
-                            {{--</div>--}}
-                        {{--@endif--}}
-                    {{--@endforeach --}}
-
+                    <div class="ln_solid"></div>
+                    <h2>Medidas Caseiras
+                        <small>Insira as quantidades</small>
+                    </h2>
+                    <div id="mdcase"></div>
 
                     <div class="clearfix"></div>
-
                     <div class="ln_solid"></div>
 
                     {!! Form::submit('Cadastrar', ['class'=>'btn btn-primary pull-right']) !!}
@@ -115,4 +111,49 @@
     {{--@include('imports.validator_script')--}}
     @include('imports.select2_script')
     @include('imports.parsley_script')
+
+    <script>
+        $('document').ready(addNutriente);
+        $('document').ready(addMedida);
+        $('#nutrienteSelect').change(addNutriente);
+        $('#medidaCaseiraSelect').change(addMedida);
+
+        {{-- adiciona dinâmicamente o campo para valores dos nutrientes --}}
+        function addNutriente() {
+            var nutrientes = $('#nutrienteSelect').find(":selected");
+            $('#ntr').empty();
+            for (i = 0; i < nutrientes.length; i++) {
+                $('#ntr').append(
+                    "<div class='form-group col-md-6 col-sm-6 col-xs-12'>" +
+                    "<label for='alimento' class='control-label col-md-7 col-sm-3 col-xs-12'>" + nutrientes[i].text + "</label>" +
+                    "<div class='col-md-4 col-sm-4 col-xs-12'>" +
+                    "<input name=" + nutrientes[i].value + " type='number' class='form-control', step='0.01', data-parsley='number'" +
+                    "data-parsley-type-message='Preencha com um valor numérico', " +
+                    "data-parsley-required='data-parsley-required', data-parsley-required-message='Preencha este Campo!'>" +
+                    "</div>" +
+                    "<label for='alimento' class='control-label col-md-1 col-sm-3 col-xs-12 pull-left'>g</label>" +
+                    "</div>"
+                );
+            }
+        }
+
+        {{-- adiciona dinâmicamente o campo para valores dos nutrientes --}}
+        function addMedida() {
+            var nutrientes = $('#medidaCaseiraSelect').find(":selected");
+            $('#mdcase').empty();
+            for (i = 0; i < nutrientes.length; i++) {
+                $('#mdcase').append(
+                    "<div class='form-group col-md-6 col-sm-6 col-xs-12'>" +
+                    "<label for='alimento' class='control-label col-md-7 col-sm-3 col-xs-12'>" + nutrientes[i].text + "</label>" +
+                    "<div class='col-md-4 col-sm-4 col-xs-12'>" +
+                    "<input name=" + nutrientes[i].value + " type='number' class='form-control', step='0.01', data-parsley='number'" +
+                    "data-parsley-type-message='Preencha com um valor numérico', " +
+                    "data-parsley-required='data-parsley-required', data-parsley-required-message='Preencha este Campo!'>" +
+                    "</div>" +
+                    "<label for='alimento' class='control-label col-md-1 col-sm-3 col-xs-12 pull-left'>g</label>" +
+                    "</div>"
+                );
+            }
+        }
+    </script>
 @endsection

@@ -69,7 +69,7 @@
         $('document').ready(addAlm);
         $('#mselect').change(addAlm);
 
-        {{--adiciona dinâmicamente o campo para valores dos alimentos--}}
+        {{-- adiciona dinâmicamente o campo para valores dos alimentos --}}
         function addAlm() {
             var alimentos = $('#mselect').find(":selected");
             $('#alm').empty();
