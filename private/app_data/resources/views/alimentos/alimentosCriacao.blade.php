@@ -127,7 +127,7 @@
                     "<div class='form-group col-md-6 col-sm-6 col-xs-12'>" +
                     "<label for='alimento' class='control-label col-md-7 col-sm-3 col-xs-12'>" + nutrientes[i].text + "</label>" +
                     "<div class='col-md-4 col-sm-4 col-xs-12'>" +
-                    "<input name=" + nutrientes[i].value + " type='number' class='form-control', step='0.01', data-parsley='number'" +
+                    "<input name=Ntr-" + nutrientes[i].value + " type='number' class='form-control', step='0.01', data-parsley='number'" +
                     "data-parsley-type-message='Preencha com um valor numérico', " +
                     "data-parsley-required='data-parsley-required', data-parsley-required-message='Preencha este Campo!'>" +
                     "</div>" +
@@ -146,7 +146,7 @@
                     "<div class='form-group col-md-6 col-sm-6 col-xs-12'>" +
                     "<label for='alimento' class='control-label col-md-7 col-sm-3 col-xs-12'>" + nutrientes[i].text + "</label>" +
                     "<div class='col-md-4 col-sm-4 col-xs-12'>" +
-                    "<input name=" + nutrientes[i].value + " type='number' class='form-control', step='0.01', data-parsley='number'" +
+                    "<input name=Alm-" + nutrientes[i].value + " type='number' class='form-control', step='0.01', data-parsley='number'" +
                     "data-parsley-type-message='Preencha com um valor numérico', " +
                     "data-parsley-required='data-parsley-required', data-parsley-required-message='Preencha este Campo!'>" +
                     "</div>" +
