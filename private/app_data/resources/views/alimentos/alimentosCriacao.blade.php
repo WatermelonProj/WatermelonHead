@@ -37,7 +37,7 @@
 
                     {{--Form--}}
                     {!! Form::open(['route'=>'alimentos.store', 'class'=>'form-horizontal form-label-left',
-                    'id'=> 'cadastro-form', 'data-parsley-validate' ]) !!}
+                    'id'=> 'cadastro-form', 'data-parsley-validate', 'files' => 'true' ]) !!}
                     <div class="form-group item">
                         {!! Form::label('descricaoAlimento', 'Alimento', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                         <div class="col-md-6 col-sm-6 col-xs-12">
@@ -76,6 +76,12 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             {!! Form::select('medidas_caseiras[]', \App\Models\Medida\TipoMedidaCaseira::pluck('nomeTMC', 'idTMCaseira'), null,
                             ['id'=>'medidaCaseiraSelect', 'class'=>'form-control select2_multiple', 'multiple'=>true, 'multiple'=>'multiple']) !!}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('image', 'Imagem do Alimento', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            {!! Form::file('image', ['class' => 'btn btn-primary', 'accept' => 'image/*']) !!}
                         </div>
                     </div>
 

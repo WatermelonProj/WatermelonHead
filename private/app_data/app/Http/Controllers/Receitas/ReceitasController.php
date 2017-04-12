@@ -122,7 +122,7 @@ class ReceitasController extends Controller
         $alimentosLista = New Alimento();
         $alimentosReceita = $receita->alimentoReceita;
 
-        // pega todoso os alimentos que uma receita possui para passar para a view
+        // pega todos os alimentos que uma receita possui para passar para a view
         $alimentosContidos = $alimentosReceita->map(function ($alm) {
             return $alm->idAlimento;
         });
@@ -183,4 +183,3 @@ class ReceitasController extends Controller
         return redirect()->route('receitas')->with('status', 'Receita removido com sucesso!');
     }
 }
-

@@ -26,10 +26,6 @@ Route::group(['prefix' => 'alimentos'], function () {
         ->middleware('auth');
     Route::post('/update/{id}', 'Alimento\AlimentoController@update')->name('alimentos.update')->where('id', '[0-9]+')
         ->middleware('auth');
-    Route::get('/editMedidaCaseira/{id}', 'Alimento\AlimentoController@editMedidaCaseira')
-        ->name('alimentos.editMedidaCaseira')->where('id', '[0-9]+')->middleware('auth');
-    Route::post('/updateMedidaCaseira/{id}', 'Alimento\AlimentoController@updateMedidaCaseira')
-        ->name('alimentos.updateMedidaCaseira')->where('id', '[0-9]+')->middleware('auth');
     Route::get('/destroy/{id}', 'Alimento\AlimentoController@destroy')->name('alimentos.destroy')->where('id', '[0-9]+')
         ->middleware('auth');
 });

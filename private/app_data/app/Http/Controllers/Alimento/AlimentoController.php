@@ -7,12 +7,11 @@ use App\Models\Alimento\Alimento;
 use App\Models\Alimento\AlimentoMedidaCaseira;
 use App\Models\Grupo\GrupoAlimentar;
 use App\Models\Grupo\GrupoPiramide;
-use App\Models\Medida\TipoMedidaCaseira;
-use App\Models\Medida\UnidadeMedida;
-use App\Models\Nutriente\Nutriente;
 use App\Models\Nutriente\NutrienteAlimento;
+use function foo\func;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use DB;
 
 /**
  * Class AlimentoController
@@ -70,6 +69,11 @@ class AlimentoController extends Controller
         $alimento->idTACO = $request->idTACO;
         $alimento->save();
 
+        // salvando a imagem
+        if ($request->hasFile('image')) {
+            $request->image->storeAs('public/alimentos', $alimento->idAlimento . ".png");
+        }
+
         // Associando os nutrientes com o alimento criado previamente
         foreach ($request->nutrientes as $nutriente) {
             $nutrienteAlm = new NutrienteAlimento();
@@ -89,8 +93,7 @@ class AlimentoController extends Controller
             $alimentoMedidaCaseira->save();
         }
 
-            return redirect()->route('alimentos')->with('status', 'Alimento criado com sucesso!');
-
+        return redirect()->route('alimentos')->with('status', 'Alimento criado com sucesso!');
     }
 
     /**
@@ -116,7 +119,28 @@ class AlimentoController extends Controller
     public function edit($id)
     {
         $alimento = Alimento::find($id);
-        return view('alimentos.alimentoEditar', compact('alimento'));
+        $nutrientesAlimento = $alimento->nutrienteAlimento;
+        $medidasAlimento = $alimento->alimentoMedidaCaseira;
+
+
+        // pega todos os nutrientes e medidas que um alimento possui para passar para a view
+        $nutrientesContidos = $nutrientesAlimento->map(function ($ntr) {
+            return $ntr->idNutriente;
+        });
+
+        $medidasContidas = $medidasAlimento->map(function ($mdd) {
+            return $mdd->idTMCaseira;
+        });
+
+        $nutrientesContidos = $nutrientesContidos->toArray();
+        $medidasContidas = $medidasContidas->toArray();
+
+
+//        dump($nutrientesContidos);
+//        dump($medidasContidas);
+
+        return view('alimentos.alimentoEditar', compact('alimento', 'nutrientesContidos',
+            'medidasContidas'));
     }
 
     /**
@@ -135,130 +159,41 @@ class AlimentoController extends Controller
                 'idGPiramide' => 'required|numeric',
                 'idGAlimentar' => 'required|numeric',
                 'idTACO' => 'numeric',
-                "Energia" => "numeric",
-                "Proteína" => "numeric",
-                "Lipídeos" => "numeric",
-                "Colesterol" => "numeric",
-                "Carboidrato" => "numeric",
-                "Fibra_Alimentar" => "numeric",
-                "Cinzas" => "numeric",
-                "Cálcio" => "numeric",
-                "Magnésio" => "numeric",
-                "Manganês" => "numeric",
-                "Fósforo" => "numeric",
-                "Ferro" => "numeric",
-                "Sódio" => "numeric",
-                "Potássio" => "numeric",
-                "Cobre" => "numeric",
-                "Zinco" => "numeric",
-                "Retinol" => "numeric",
-                "RE" => "numeric",
-                "RAE" => "numeric",
-                "Tiamina" => "numeric",
-                "Riboflavina" => "numeric",
-                "Piridoxina" => "numeric",
-                "Niacina" => "numeric",
-                "Vitamina_C" => "numeric",
-                "Triptofano" => "numeric",
-                "Treonina" => "numeric",
-                "Isoleucina" => "numeric",
-                "Leucina" => "numeric",
-                "Lisina" => "numeric",
-                "Metionina" => "numeric",
-                "Cistina" => "numeric",
-                "Fenilalanina" => "numeric",
-                "Tirosina" => "numeric",
-                "Valina" => "numeric",
-                "Arginina" => "numeric",
-                "Histidina" => "numeric",
-                "Alanina" => "numeric",
-                "Ácido_Aspártico" => "numeric",
-                "Ácido_Glutâmico" => "numeric",
-                "Glicina" => "numeric",
-                "Prolina" => "numeric",
-                "Serina" => "numeric"
-            ]
+            ]);
 
-        );
-
-        // Editando um alimento
         $alimento = Alimento::find($id);
         $alimento->descricaoAlimento = $request->descricaoAlimento;
         $alimento->grupoPiramide()->associate(GrupoPiramide::find($request->idGPiramide));
         $alimento->grupoAlimentar()->associate(GrupoAlimentar::find($request->idGAlimentar));
         $alimento->idTACO = $request->idTACO;
         $alimento->save();
+        // salvando a imagem
+        if ($request->hasFile('image')) {
+            $request->image->storeAs('public/alimentos', $alimento->idAlimento . ".png");
+        }
 
-        //Editando os nutrientes do alimento, atualiza na tabela alimento_medidaCaseira
-        // o alimento do id recebido com o nutriente atual
-        $keys = array_keys($request->toArray());
+        // limpando dados antigos
+        DB::delete("delete FROM nutrientealimento WHERE idAlimento = ?", [$alimento->idAlimento]);
+        DB::delete("delete FROM alimento_medidacaseira WHERE idAlimento = ?", [$alimento->idAlimento]);
 
-        //tratando do contador caso a Request venha com as medidas caseiras
-        $i = (count($request->medidas_caseiras) > 0 ? 6 : 5);
+        // Editando um alimento
+        foreach ($request->nutrientes as $nutriente) {
+            $nutrienteAlm = new NutrienteAlimento();
+            $nutrienteAlm->alimento()->associate($alimento);
+            $nutrienteAlm->idNutriente = $nutriente;
+            $nutrienteAlm->qtde = $request['Ntr-' . $nutriente];
+            $nutrienteAlm->save();
+        }
 
-        for ($i; $i < count($request->toArray()); $i++) {
-            $nutriente = Nutriente::where('nomeNutriente', str_replace('_', ' ', $keys[$i]))->first();
-            if (!is_null(NutrienteAlimento::where('idAlimento', $alimento->idAlimento)
-                ->where('idNutriente', $nutriente->idNutriente)->first())
-            ) {
-                $nutrienteAlm = $alimento->nutrienteAlimento()->where('idNutriente', $nutriente->idNutriente)->first();
-                $nutrienteAlm['qtde'] = $request[$keys[$i]];
-                $nutrienteAlm->save();
+        if ($request->medidas_caseiras) {
+            foreach ($request->medidas_caseiras as $medida_caseira) {
+                $alimentoMedidaCaseira = new AlimentoMedidaCaseira();
+                $alimentoMedidaCaseira->alimento()->associate($alimento);
+                $alimentoMedidaCaseira->idTMCaseira = $medida_caseira;
+                $alimentoMedidaCaseira->qtde = $request['Alm-' . $medida_caseira];
+                $alimentoMedidaCaseira->tipoUnidade = 2;
+                $alimentoMedidaCaseira->save();
             }
-        }
-
-        //verifica se o alimento ja possui a medida caseira, se sim alterar os valores senão adicionar
-        for ($i = 0; $i < count($request->medidas_caseiras); $i++) {
-            //pegando o ID da medida caseira para verificar se a mesma ja esta nas relação entre alimento e medida
-            if (is_null($alimento->alimentoMedidaCaseira()->where('idTMCaseira', $request->medidas_caseiras[$i])->first())) {
-                $medidaCaseira = new AlimentoMedidaCaseira();
-                $medidaCaseira->alimento()->associate($alimento); //indexando com o alimento
-                $tipoMedida = TipoMedidaCaseira::where('idTMCaseira', $request->medidas_caseiras[$i])->first();
-                $medidaCaseira->tipoMedidaCaseira()->associate($tipoMedida); //indexando com o tipo de medida caseira
-                $unidadeMedida = UnidadeMedida::where('idUnidade', 2)->first();
-                $medidaCaseira->unidadeMedida()->associate($unidadeMedida); // associando com a unidade de medida em g por padrï¿½o
-                $medidaCaseira->save();
-            }
-        }
-
-        //Caso o alimento possua medidas caseiras, redireciona para a pagina de informaÃ§Ãµes das mesmas
-        if (count($request->medidas_caseiras) > 0) {
-            return redirect()->route('alimentos.editMedidaCaseira', ['id' => $alimento->idAlimento])
-                ->with('status', 'Alimento atualizado com sucesso, insira os valores das mediads caseiras');
-        } else {
-            return redirect()->route('alimentos')->with('status', 'Alimento atualizado com sucesso!');
-        }
-    }
-
-    /**
-     * Retorna view para criar as medidas caseiras de um alimento
-     *
-     * @param $id
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     *
-     */
-    public function editMedidaCaseira($id)
-    {
-        // passa o alimento previamente cadastrado para que sejam inseridos suas medidas caseiras
-        $alimento = Alimento::find($id);
-
-        return view('alimentos.alimentoEditarMedidaCaseira', compact('alimento'));
-    }
-
-    /**
-     * Atualiza a MedidaCaseira
-     *
-     * @param $id
-     * @param Request $request
-     *
-     */
-    public function updateMedidaCaseira($id, Request $request)
-    {
-        // varre todas as medidas do alimento previamente cadastrado e insere seu valores
-        $medidas = Alimento::find($id)->alimentoMedidaCaseira()->get();
-        foreach ($medidas as $medida) {
-            $medida->qtde = $request[str_replace(' ', '_', $medida->tipoMedidaCaseira()->first()->nomeTMC)];
-            $medida->save();
         }
 
         return redirect()->route('alimentos')->with('status', 'Alimento atualizado com sucesso!');
