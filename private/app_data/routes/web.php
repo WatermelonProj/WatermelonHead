@@ -38,6 +38,8 @@ Route::group(['prefix' => 'receitas'], function () {
     Route::get('/edit/{id}', 'Receitas\ReceitasController@edit')->name('receitas.edit')->where('id', '[0-9]+')->middleware('auth');
     Route::post('/update/{id}', 'Receitas\ReceitasController@update')->name('receitas.update')->where('id', '[0-9]+')->middleware('auth');
     Route::get('/destroy/{id}', 'Receitas\ReceitasController@destroy')->name('receitas.destroy')->where('id', '[0-9]+')->middleware('auth');
+    Route::get('/disable/{id}', 'Receitas\ReceitasController@disable')->name('receitas.disable')->where('id', '[0-9]+')->middleware('auth');
+    Route::get('/enable/{id}', 'Receitas\ReceitasController@enable')->name('receitas.enable')->where('id', '[0-9]+')->middleware('auth');
 });
 
 Route::get('/', function () {

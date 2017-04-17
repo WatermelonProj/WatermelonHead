@@ -7,11 +7,12 @@ use App\Models\Alimento\Alimento;
 use App\Models\Alimento\AlimentoMedidaCaseira;
 use App\Models\Grupo\GrupoAlimentar;
 use App\Models\Grupo\GrupoPiramide;
+use App\Models\Medida\TipoMedidaCaseira;
+use App\Models\Nutriente\Nutriente;
 use App\Models\Nutriente\NutrienteAlimento;
-use function foo\func;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use DB;
 
 /**
  * Class AlimentoController
@@ -119,6 +120,8 @@ class AlimentoController extends Controller
     public function edit($id)
     {
         $alimento = Alimento::find($id);
+        $nutriente = new Nutriente();
+        $medidaCaseira = new TipoMedidaCaseira();
         $nutrientesAlimento = $alimento->nutrienteAlimento;
         $medidasAlimento = $alimento->alimentoMedidaCaseira;
 
@@ -135,12 +138,8 @@ class AlimentoController extends Controller
         $nutrientesContidos = $nutrientesContidos->toArray();
         $medidasContidas = $medidasContidas->toArray();
 
-
-//        dump($nutrientesContidos);
-//        dump($medidasContidas);
-
         return view('alimentos.alimentoEditar', compact('alimento', 'nutrientesContidos',
-            'medidasContidas'));
+            'medidasContidas', 'nutrientesAlimento', 'medidasAlimento', 'nutriente', 'medidaCaseira'));
     }
 
     /**

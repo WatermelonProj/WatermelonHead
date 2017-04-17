@@ -34,35 +34,75 @@
                     @endif
 
                     @if((Auth::check()) && (Auth::user()->id === $receita->user['id']))
-                        <a href="#">
-                            <button class="btn btn-danger btn-sm " data-toggle="modal" data-target="#rct-{{ $receita->idReceita }}">
-                                <i class="fa fa-trash" aria-hidden="true"></i> Remover
-                            </button>
-                        </a>
+                        @if($receita->ativoReceita == 1)
+                            {{-- Desativa Receita --}}
+                            <a href="#">
+                                <button class="btn btn-danger btn-sm " data-toggle="modal"
+                                        data-target="#rct-{{ $receita->idReceita }}">
+                                    <i class="fa fa-minus-square" aria-hidden="true"></i> Desativar
+                                </button>
+                            </a>
 
-                        <div id="rct-{{ $receita->idReceita }}" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
-                            <div class="modal-dialog modal-sm">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span>
-                                        </button>
-                                        <h4 class="modal-title" id="myModalLabel2">REMOÇÃO DE RECEITA</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <h4>Você deseja realmente excluir esta receita?</h4>
-                                        <p>Uma vez <span style="color: red;">removida</span>, a receita
-                                            <span style="color: red;">não poderá ser restaurada</span>.</p>
-                                        <p>Você deseja continuar?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                                        <a href="{{ route('receitas.destroy', ['id' => $receita->idReceita]) }}">
-                                            <button type="button" class="btn btn-danger">Remover</button>
-                                        </a>
+                            <div id="rct-{{ $receita->idReceita }}" class="modal fade bs-example-modal-sm" tabindex="-1"
+                                 role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                            <h4 class="modal-title" id="myModalLabel2">DESABILITAR RECEITA</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h4>Você deseja desabilitar esta receita?</h4>
+                                            <p>É possível habilitar esta receita novamente por esta mesma tela.</p>
+                                            <p>Você deseja continuar?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar
+                                            </button>
+                                            <a href="{{ route('receitas.disable', ['id' => $receita->idReceita]) }}">
+                                                <button type="button" class="btn btn-danger">Desabilitar</button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @else
+                            {{-- Ativa Receita --}}
+                            <a href="#">
+                                <button class="btn btn-success btn-sm " data-toggle="modal"
+                                        data-target="#rct-{{ $receita->idReceita }}">
+                                    <i class="fa fa-plus-square" aria-hidden="true"></i> Ativar
+                                </button>
+                            </a>
+
+                            <div id="rct-{{ $receita->idReceita }}" class="modal fade bs-example-modal-sm" tabindex="-1"
+                                 role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                            <h4 class="modal-title" id="myModalLabel2">HABILITAR RECEITA</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h4>Você deseja reativar esta receita?</h4>
+                                            <p>É possível desativar esta receita novamente por esta mesma tela.</p>
+                                            <p>Você deseja continuar?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar
+                                            </button>
+                                            <a href="{{ route('receitas.enable', ['id' => $receita->idReceita]) }}">
+                                                <button type="button" class="btn btn-success">Ativar</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
                     @else
                         <a href="#">
                             <button class="btn btn-danger btn-sm disabled">

@@ -182,4 +182,34 @@ class ReceitasController extends Controller
         Receita::find($id)->delete();
         return redirect()->route('receitas')->with('status', 'Receita removido com sucesso!');
     }
+
+    /**
+     * Desabilita uma receita, deixando a mesma indisponível para acesso
+     * ao cardápio.
+     *
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function disable($id)
+    {
+        $receita = Receita::find($id);
+        $receita->ativoReceita = 0;
+        $receita->save();
+        return redirect()->route('receitas')->with('status', 'Receita desabilitada!');
+    }
+
+    /**
+     * Habilita um
+     *
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function enable($id)
+    {
+        $receita = Receita::find($id);
+        $receita->ativoReceita = 1;
+        $receita->save();
+        return redirect()->route('receitas')->with('status', 'Receita habilitada!');
+
+    }
 }

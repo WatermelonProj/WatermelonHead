@@ -91,7 +91,21 @@
                     <h2>Nutrientes
                         <small>Insira as quantidades</small>
                     </h2>
-                    <div id="ntr"></div>
+                    <div id="ntr">
+                        @foreach($nutrientesAlimento as $nutrienteAlimento)
+                            <div class='form-group col-md-6 col-sm-6 col-xs-12'>
+                                {!! Form::label('Ntr-'.$nutrienteAlimento->idNutriente, $nutriente->where('idNutriente', $nutrienteAlimento->idNutriente)->first()->nomeNutriente, ['class'=>'control-label col-md-7 col-sm-3 col-xs-12']) !!}
+                                <div class='col-md-4 col-sm-4 col-xs-12'>
+                                    {!! Form::text('Ntr-'.$nutrienteAlimento->idNutriente, $nutrienteAlimento->qtde,
+                                    ['type'=>'number', 'class'=>'form-control', 'step'=>'0.01', 'data-parsley'=>'number',
+                                     'data-parsley-type-message'=>'Preencha com um valor numérico',
+                                     'data-parsley-required'=>'data-parsley-required',
+                                     'data-parsley-required-message'=>'Preencha este Campo!']) !!}
+                                </div>
+                                {!! Form::label('nutriente', 'g',  ['class'=>'control-label col-md-1 col-sm-3 col-xs-12 pull-left']) !!}
+                            </div>
+                        @endforeach
+                    </div>
 
 
                     {{--Medidas Caseiras--}}
@@ -100,7 +114,21 @@
                     <h2>Medidas Caseiras
                         <small>Insira as quantidades</small>
                     </h2>
-                    <div id="mdcase"></div>
+                    <div id="mdcase">
+                        @foreach($medidasAlimento as $medidaAlimento)
+                            <div class='form-group col-md-6 col-sm-6 col-xs-12'>
+                                {!! Form::label('Alm-'.$medidaAlimento->idTMCaseira, $medidaCaseira->where('idTMCaseira', $medidaAlimento->idTMCaseira)->first()->nomeTMC, ['class'=>'control-label col-md-7 col-sm-3 col-xs-12']) !!}
+                                <div class='col-md-4 col-sm-4 col-xs-12'>
+                                    {!! Form::text('Alm-'.$medidaAlimento->idTMCaseira, $medidaAlimento->qtde,
+                                    ['type'=>'number', 'class'=>'form-control', 'step'=>'0.01', 'data-parsley'=>'number',
+                                     'data-parsley-type-message'=>'Preencha com um valor numérico',
+                                     'data-parsley-required'=>'data-parsley-required',
+                                     'data-parsley-required-message'=>'Preencha este Campo!']) !!}
+                                </div>
+                                {!! Form::label('medida', 'g',  ['class'=>'control-label col-md-1 col-sm-3 col-xs-12 pull-left']) !!}
+                            </div>
+                        @endforeach
+                    </div>
 
                     <div class="clearfix"></div>
                     <div class="ln_solid"></div>
@@ -119,8 +147,8 @@
     @include('imports.parsley_script')
 
     <script>
-        $('document').ready(addNutriente);
-        $('document').ready(addMedida);
+        //        $('document').ready(addNutriente);
+        //        $('document').ready(addMedida);
         $('#nutrienteSelect').change(addNutriente);
         $('#medidaCaseiraSelect').change(addMedida);
 
