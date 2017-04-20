@@ -17,7 +17,6 @@
                     </a>
                     <div class="form-group col-md-6 col-sm-12 col-xs-12 pull-right">
                         <label class="control-label ">Medida</label>
-
                         <div class="form-group">
                             <div class="input-group">
                                 <select name="selector" id="selector" class="form-control">
