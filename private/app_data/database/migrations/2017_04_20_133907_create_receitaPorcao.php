@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateReceitaPorcao extends Migration
 {
@@ -14,12 +14,12 @@ class CreateReceitaPorcao extends Migration
     public function up()
     {
         Schema::create('receita_porcao', function (Blueprint $table) {
-            $table->integer('idReceita')->unsingned()->nullable();
-            $table->integer('idTipoPorcao')->unsigned()->nullable();
-            $table->integer('qtde');
-            $table->index(['idReceita','idTipoPorcao']);
-            $table->foreign('idReceita')->references('idReceita')->on('receita')->onDelete('cascade');
+            $table->integer('idTipoPorcao')->unsigned();
+            $table->integer('idReceita')->unsigned();
+            $table->float('qtde');
+            $table->index(['idTipoPorcao', 'idReceita']);
             $table->foreign('idTipoPorcao')->references('idTipoPorcao')->on('tipo_porcao')->onDelete('cascade');
+            $table->foreign('idReceita')->references('idReceita')->on('receita')->onDelete('cascade');
         });
     }
 

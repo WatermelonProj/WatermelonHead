@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateNutrienteAlimentoTable extends Migration
 {
@@ -14,12 +14,12 @@ class CreateNutrienteAlimentoTable extends Migration
     public function up()
     {
         Schema::create('nutrienteAlimento', function (Blueprint $table) {
-          $table->integer('idNutriente')->unsigned();
-          $table->integer('idAlimento')->unsigned();
-          $table->string('qtde');
-          $table->index(['idNutriente','idAlimento']);
-          $table->foreign('idNutriente')->references('idNutriente')->on('nutriente')->onDelete('cascade');
-          $table->foreign('idAlimento')->references('idAlimento')->on('alimento')->onDelete('cascade');
+            $table->integer('idNutriente')->unsigned();
+            $table->integer('idAlimento')->unsigned();
+            $table->string('qtde');
+            $table->index(['idNutriente', 'idAlimento']);
+            $table->foreign('idNutriente')->references('idNutriente')->on('nutriente')->onDelete('cascade');
+            $table->foreign('idAlimento')->references('idAlimento')->on('alimento')->onDelete('cascade');
         });
 
     }

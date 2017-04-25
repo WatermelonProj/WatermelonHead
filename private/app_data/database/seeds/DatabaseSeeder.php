@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Medida\UnidadeMedida;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
