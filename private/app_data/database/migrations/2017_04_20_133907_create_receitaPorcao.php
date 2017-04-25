@@ -16,10 +16,12 @@ class CreateReceitaPorcao extends Migration
         Schema::create('receita_porcao', function (Blueprint $table) {
             $table->integer('idTipoPorcao')->unsigned();
             $table->integer('idReceita')->unsigned();
+            $table->integer('idFEtaria')->unsigned();
             $table->float('qtde');
             $table->index(['idTipoPorcao', 'idReceita']);
             $table->foreign('idTipoPorcao')->references('idTipoPorcao')->on('tipo_porcao')->onDelete('cascade');
             $table->foreign('idReceita')->references('idReceita')->on('receita')->onDelete('cascade');
+            $table->foreign('idFEtaria')->references('idFEtaria')->on('faixaetaria')->onDelete('cascade');
         });
     }
 

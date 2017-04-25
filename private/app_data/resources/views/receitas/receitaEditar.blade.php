@@ -76,15 +76,15 @@
             $('#alm').empty();
             for (i = 0; i < alimentos.length; i++) {
                 $('#alm').append(
-                        "<div class='form-group col-md-6 col-sm-6 col-xs-12'>" +
-                        "<label for='alimento' class='control-label col-md-7 col-sm-3 col-xs-12'>" + alimentos[i].text + "</label>" +
-                        "<div class='col-md-4 col-sm-4 col-xs-12'>" +
-                        "<input name=" + alimentos[i].value + " type='number' class='form-control', step='0.01', data-parsley='number'" +
-                        "data-parsley-type-message='Preencha com um valor numérico', " +
-                        "data-parsley-required='data-parsley-required', data-parsley-required-message='Preencha este Campo!'>" +
-                        "</div>" +
-                        "<label for='alimento' class='control-label col-md-1 col-sm-3 col-xs-12 pull-left'>g</label>" +
-                        "</div>"
+                    "<div class='form-group col-md-6 col-sm-6 col-xs-12'>" +
+                    "<label for='alimento' class='control-label col-md-3 col-sm-3 col-xs-12'>" + alimentos[i].text + "</label>" +
+                    "<div class='col-md-4 col-sm-4 col-xs-12'>" +
+                    "<input name=" + alimentos[i].value + " type='number' class='form-control', step='0.01', data-parsley='number'" +
+                    "data-parsley-type-message='Preencha com um valor numérico', " +
+                    "data-parsley-required='data-parsley-required', data-parsley-required-message='Preencha este Campo!'>" +
+                    "</div>" +
+                    "<label for='alimento' class='control-label col-md-1 col-sm-3 col-xs-12 pull-left'>g</label>" +
+                    "</div>"
                 );
             }
         }

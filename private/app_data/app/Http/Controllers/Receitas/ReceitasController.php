@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Receitas;
 use App\Http\Controllers\Controller;
 use App\Models\Alimento\Alimento;
 use App\Models\Alimento\AlimentoReceita;
+use App\Models\Faixa_Etaria\FaixaEtaria;
 use App\Models\Nutriente\Nutriente;
+use App\Models\Porcao\ReceitaPorcao;
+use App\Models\Porcao\TipoPorcao;
 use App\Models\Receita\Receita;
 use DB;
 use Illuminate\Http\Request;
@@ -32,8 +35,10 @@ class ReceitasController extends Controller
     public function create()
     {
         $alimentos = new Alimento();
+        $tiposPorcao = new TipoPorcao();
+        $faixas = FaixaEtaria::all();
 
-        return view('receitas.receitaCriacao', compact('alimentos'));
+        return view('receitas.receitaCriacao', compact('alimentos', 'tiposPorcao', 'faixas'));
     }
 
     /**
@@ -69,6 +74,11 @@ class ReceitasController extends Controller
             $alimentoReceita->unidadeMedida = 2;
             $alimentoReceita->save();
         }
+
+        // salvando as porções que uma receita possui
+        $receitaPorcao = new ReceitaPorcao();
+        $receitaPorcao->idReceita = $receita->idReceita;
+//        $receitaPorcao->idTipoPorcao = $request->
 
         return redirect()->route('receitas')->with('status', 'Receita criada com sucesso!');
     }

@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class FaixaEtaria extends Model
 {
+    public $timestamps = false;
     protected $table = 'faixaEtaria';
     protected $primaryKey = 'idFEtaria';
-    public $timestamps = false;
 
     public function cardapio()
     {
@@ -18,6 +18,11 @@ class FaixaEtaria extends Model
     public function nutrientesPorFaixa()
     {
         return $this->hasMany('App\Models\Nutrientes\NutrientePorFaixa', 'idFEtaria');
+    }
+
+    public function receitaPorcao()
+    {
+        return $this->hasMany('App\Models\Porcao\TipoPorcao', 'idFEtaria');
     }
 
 }

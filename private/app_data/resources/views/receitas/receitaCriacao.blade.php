@@ -52,6 +52,36 @@
 
     <div class="ln_solid"></div>
     <div class="clearfix"></div>
+
+    <h2>Porções
+        <small>Insira as quantidades e o tipo da porção</small>
+    </h2>
+
+    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+        {!! Form::label('alimentos', 'Tipo de Porção', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            {!! Form::select('alimentos', $tiposPorcao::pluck('nome', 'idTipoPorcao'), null,
+            [ 'id'=>'mselect' ,'class'=>'form-control',
+            'data-parsley-required', 'data-parsley-required-message' => "Insira ao menos um alimento para a receita"]) !!}
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+
+    @foreach($faixas as $faixa)
+        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+            {!! Form::label('faixa-'.$faixa->idFEtaria, $faixa->descricaoFaixa, ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                {!! Form::number('faixa-'.$faixa->idFEtaria, null, ['class'=>'form-control col-md-7 col-xs-12',
+             'data-parsley-required', 'data-parsley-required-message' => "Preencha este campo", 'min' => '0' ]) !!}
+            </div>
+        </div>
+    @endforeach
+
+    <div class="clearfix"></div>
+    <div class="ln_solid"></div>
+
     <h2>Alimentos
         <small>Insira as quantidades</small>
     </h2>
@@ -76,7 +106,7 @@
             for (i = 0; i < alimentos.length; i++) {
                 $('#alm').append(
                     "<div class='form-group col-md-6 col-sm-6 col-xs-12'>" +
-                    "<label for='alimento' class='control-label col-md-7 col-sm-3 col-xs-12'>" + alimentos[i].text + "</label>" +
+                    "<label for='alimento' class='control-label col-md-3 col-sm-3 col-xs-12'>" + alimentos[i].text + "</label>" +
                     "<div class='col-md-4 col-sm-4 col-xs-12'>" +
                     "<input name=" + alimentos[i].value + " type='number' class='form-control', step='0.01', data-parsley='number'" +
                     "data-parsley-type-message='Preencha com um valor numérico', " +
