@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ReceitaPorcao extends Model
 {
     protected $table = 'receita_porcao';
+    public $timestamps = false;
 
     public function tipoPorcao()
     {

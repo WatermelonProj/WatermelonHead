@@ -24,6 +24,8 @@ class ReceitasController extends Controller
     public function index()
     {
         $receitas = Receita::all();
+        $receita_porcao = ReceitaPorcao::all();
+
         return view('receitas.receitaLista', compact('receitas'));
     }
 
@@ -76,9 +78,16 @@ class ReceitasController extends Controller
         }
 
         // salvando as porções que uma receita possui
-        $receitaPorcao = new ReceitaPorcao();
-        $receitaPorcao->idReceita = $receita->idReceita;
-//        $receitaPorcao->idTipoPorcao = $request->
+        $faixasEtarias = FaixaEtaria::all();
+        foreach ($faixasEtarias as $index => $faixasEtaria) {
+            //salvando todas as porções adicionadas
+            $receitaPorcao = new ReceitaPorcao();
+            $receitaPorcao->idReceita = $receita->idReceita;
+            $receitaPorcao->idTipoPorcao = $request->tipoPorcao;
+            $receitaPorcao->idFEtaria = $faixasEtaria->idFEtaria;
+            $receitaPorcao->qtde = $request['faixa-' . $faixasEtaria->idFEtaria];
+            $receitaPorcao->save();
+        }
 
         return redirect()->route('receitas')->with('status', 'Receita criada com sucesso!');
     }
@@ -131,6 +140,9 @@ class ReceitasController extends Controller
         $receita = Receita::find($id);
         $alimentosLista = New Alimento();
         $alimentosReceita = $receita->alimentoReceita;
+        $tiposPorcao = new TipoPorcao();
+        $faixas = FaixaEtaria::all();
+        $receita_porcao = new ReceitaPorcao();
 
         // pega todos os alimentos que uma receita possui para passar para a view
         $alimentosContidos = $alimentosReceita->map(function ($alm) {
@@ -138,7 +150,8 @@ class ReceitasController extends Controller
         });
 
         $alimentosContidos = $alimentosContidos->toArray();
-        return view('receitas.receitaEditar', compact('receita', 'alimentosLista', 'alimentosContidos', 'alimentoReceita'));
+        return view('receitas.receitaEditar', compact('receita', 'alimentosLista', 'alimentosContidos',
+            'alimentoReceita', 'tiposPorcao', 'faixas', 'receita_porcao'));
     }
 
     /**
@@ -167,6 +180,8 @@ class ReceitasController extends Controller
         // limpando dados antigos
         DB::delete("delete FROM alimento_receita WHERE idReceita = ?",
             [$receita->idReceita]);
+        DB::delete("delete FROM receita_porcao WHERE idReceita = ?",
+            [$receita->idReceita]);
 
         // armazenando os alimentos contidos em uma receita
         foreach ($request->alimentos as $alimento) {
@@ -176,6 +191,18 @@ class ReceitasController extends Controller
             $alimentoReceita->qtde = $request[$alimento];
             $alimentoReceita->unidadeMedida = 2;
             $alimentoReceita->save();
+        }
+
+        // salvando as porções que uma receita possui
+        $faixasEtarias = FaixaEtaria::all();
+        foreach ($faixasEtarias as $index => $faixasEtaria) {
+            //salvando todas as porções adicionadas
+            $receitaPorcao = new ReceitaPorcao();
+            $receitaPorcao->idReceita = $receita->idReceita;
+            $receitaPorcao->idTipoPorcao = $request->tipoPorcao;
+            $receitaPorcao->idFEtaria = $faixasEtaria->idFEtaria;
+            $receitaPorcao->qtde = $request['faixa-' . $faixasEtaria->idFEtaria];
+            $receitaPorcao->save();
         }
 
         return redirect()->route('receitas')->with('status', 'Receita atualizada com sucesso!');

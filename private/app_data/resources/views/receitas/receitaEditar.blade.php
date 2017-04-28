@@ -6,6 +6,7 @@
     @include('imports.icheck_links')
 @endsection
 
+
 @section('form_section')
     {!! Form::open(['route' => ['receitas.update', 'id' => $receita->idReceita], 'class'=>'form-horizontal form-label-left', 'id'=> 'cadastro-form',
      'data-parsley-validate', 'files' => 'true']) !!}
@@ -53,6 +54,41 @@
 
     <div class="ln_solid"></div>
     <div class="clearfix"></div>
+
+    <h2>Porções
+        <small>Insira as quantidades e o tipo da porção</small>
+    </h2>
+
+    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+        {!! Form::label('tipoPorcao', 'Tipo de Porção', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+        <div class="col-md-6 col-sm-6 col-xs-12">
+            {!! Form::select('tipoPorcao', $tiposPorcao::pluck('nome', 'idTipoPorcao'),
+            $receita_porcao->first()->idTipoPorcao,
+            [ 'id'=>'mselect' ,'class'=>'form-control',
+            'data-parsley-required', 'data-parsley-required-message' => "Insira ao menos um alimento para a receita"]) !!}
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    @foreach($faixas as $faixa)
+
+        <?php $porcao = $receita_porcao->where('idFEtaria', $faixa->idFEtaria)->where('idReceita', $receita->idReceita)->first()['qtde'] > 0 ?
+         $receita_porcao->where('idFEtaria', $faixa->idFEtaria)->where('idReceita', $receita->idReceita)->first()['qtde'] : 0 ?>
+
+        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+            {!! Form::label('faixa-'.$faixa->idFEtaria, $faixa->descricaoFaixa, ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                {!! Form::number('faixa-'.$faixa->idFEtaria,
+                $porcao
+                , ['class'=>'form-control col-md-7 col-xs-12',
+             'data-parsley-required', 'data-parsley-required-message' => "Preencha este campo", 'min' => '0' ]) !!}
+            </div>
+        </div>
+    @endforeach
+
+    <div class="clearfix"></div>
+    <div class="ln_solid"></div>
     <h2>Alimentos
         <small>Insira as quantidades</small>
     </h2>

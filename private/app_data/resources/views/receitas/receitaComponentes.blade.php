@@ -33,7 +33,7 @@
                     <ul class="nav nav-tabs tabs-left">
                         <li class="active"><a href="#composicao" data-toggle="tab">Composição</a></li>
                         <li><a href="#preparo" data-toggle="tab">Preparo</a></li>
-                        <li><a href="#outros" data-toggle="tab">Outros</a></li>
+                        <li><a href="#outros" data-toggle="tab">Nutrientes</a></li>
                     </ul>
                 </div>
 
@@ -87,6 +87,20 @@
                                         </tr>
                                     @endif
                                 @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="tab-pane">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Faixa</th>
+                                    <th>Quantidade</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
                                 </tbody>
                             </table>
                         </div>

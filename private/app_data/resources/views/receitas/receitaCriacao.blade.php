@@ -58,9 +58,9 @@
     </h2>
 
     <div class="form-group col-md-6 col-sm-6 col-xs-12">
-        {!! Form::label('alimentos', 'Tipo de Porção', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+        {!! Form::label('tipoPorcao', 'Tipo de Porção', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
         <div class="col-md-6 col-sm-6 col-xs-12">
-            {!! Form::select('alimentos', $tiposPorcao::pluck('nome', 'idTipoPorcao'), null,
+            {!! Form::select('tipoPorcao', $tiposPorcao::pluck('nome', 'idTipoPorcao'), null,
             [ 'id'=>'mselect' ,'class'=>'form-control',
             'data-parsley-required', 'data-parsley-required-message' => "Insira ao menos um alimento para a receita"]) !!}
         </div>
@@ -68,12 +68,11 @@
 
     <div class="clearfix"></div>
 
-
     @foreach($faixas as $faixa)
         <div class="form-group col-md-6 col-sm-6 col-xs-12">
             {!! Form::label('faixa-'.$faixa->idFEtaria, $faixa->descricaoFaixa, ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
             <div class="col-md-4 col-sm-4 col-xs-12">
-                {!! Form::number('faixa-'.$faixa->idFEtaria, null, ['class'=>'form-control col-md-7 col-xs-12',
+                {!! Form::number('faixa-'.$faixa->idFEtaria, 0, ['class'=>'form-control col-md-7 col-xs-12',
              'data-parsley-required', 'data-parsley-required-message' => "Preencha este campo", 'min' => '0' ]) !!}
             </div>
         </div>
