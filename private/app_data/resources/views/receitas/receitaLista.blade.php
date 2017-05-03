@@ -2,6 +2,16 @@
 
 @section('page_title', 'Receitas <small> Lista de receitas disponíveis</small>')
 
+@section('buttons_top')
+    <a href="{{ route('receitas.create') }}">
+        <button class="btn btn-primary pull-right">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            Adicionar Receita
+        </button>
+        <div class="clearfix"></div>
+    </a>
+@endsection
+
 @section('table_head')
     <tr>
         <th>Id</th>

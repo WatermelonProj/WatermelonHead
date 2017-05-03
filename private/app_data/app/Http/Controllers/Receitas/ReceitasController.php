@@ -126,7 +126,13 @@ class ReceitasController extends Controller
             }
         }
 
-        return view('receitas.receitaComponentes', compact('receita', 'nutrientesReceita', 'nutrientes'));
+        //buscando as porções da receita e o tipo da mesma
+        $receitasPorcoes = ReceitaPorcao::where('idReceita', $id)->get();
+        $tipoPorcao = TipoPorcao::where('idTipoPorcao', $receitasPorcoes->first()->idTipoPorcao)->first()->nome;
+        $faixas = new FaixaEtaria();
+
+        return view('receitas.receitaComponentes', compact('receita', 'nutrientesReceita',
+            'nutrientes', 'receitasPorcoes', 'tipoPorcao', 'faixas'));
     }
 
     /**

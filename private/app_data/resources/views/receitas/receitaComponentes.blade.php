@@ -34,6 +34,7 @@
                         <li class="active"><a href="#composicao" data-toggle="tab">Composição</a></li>
                         <li><a href="#preparo" data-toggle="tab">Preparo</a></li>
                         <li><a href="#outros" data-toggle="tab">Nutrientes</a></li>
+                        <li><a href="#tipoPorcao" data-toggle="tab">Porções</a></li>
                     </ul>
                 </div>
 
@@ -91,16 +92,21 @@
                             </table>
                         </div>
 
-                        <div class="tab-pane">
-                            <table>
+                        <div class="tab-pane" id="tipoPorcao">
+                            <table class="table">
                                 <thead>
                                 <tr>
                                     <th>Faixa</th>
-                                    <th>Quantidade</th>
+                                    <th>{{ $tipoPorcao }}</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-
+                                @foreach($receitasPorcoes as $receitaPorcao)
+                                    <tr>
+                                        <td>{{ $faixas->where('idFEtaria', $receitaPorcao->idFEtaria)->first()->descricaoFaixa }}</td>
+                                        <td>{{ $receitaPorcao->qtde }}</td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
