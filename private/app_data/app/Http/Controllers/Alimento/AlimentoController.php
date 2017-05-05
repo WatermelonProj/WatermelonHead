@@ -107,8 +107,12 @@ class AlimentoController extends Controller
     {
         // lista as medidas caseiras, as quais o alimento possui para serem preenchidas
         $alimento = Alimento::find($id);
-        $img = Storage::url('Alimentos/4.png');
-        return view('alimentos.alimentoComponentes', compact('alimento', 'img'));
+        $img = Storage::url("Alimentos/{$id}.png");
+
+        //Energia do alimento
+        $nutrientes = NutrienteAlimento::where('idNutriente', $id)->get();
+
+        return view('alimentos.alimentoComponentes', compact('alimento', 'img', 'nutrientes'));
     }
 
     /**

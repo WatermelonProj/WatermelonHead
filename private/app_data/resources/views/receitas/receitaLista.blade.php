@@ -116,7 +116,7 @@
                     @else
                         <a href="#">
                             <button class="btn btn-danger btn-sm disabled">
-                                <i class="fa fa-trash" aria-hidden="true"></i> Remover
+                                <i class="fa fa-minus-square" aria-hidden="true"></i> Desativar
                             </button>
                         </a>
                     @endif
