@@ -109,10 +109,12 @@ class AlimentoController extends Controller
         $alimento = Alimento::find($id);
         $img = Storage::url("Alimentos/{$id}.png");
 
-        //Energia do alimento
-        $nutrientes = NutrienteAlimento::where('idNutriente', $id)->get();
+        //nutrientes
+        $nutrientes = Nutriente::all();
+        $nutrienteAlimento = NutrienteAlimento::where('idAlimento', $id)->get();
 
-        return view('alimentos.alimentoComponentes', compact('alimento', 'img', 'nutrientes'));
+        return view('alimentos.alimentoComponentes', compact('alimento', 'img', 'nutrientes',
+            'nutrienteAlimento'));
     }
 
     /**

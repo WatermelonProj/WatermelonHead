@@ -8,8 +8,50 @@
         <div class="col-md-8 col-sm-8 col-xs-12">
             <div class="jumbotron">
                 <p>
-                    ENERGIA = {{$nutrientes[0]['qtde']}} KCAL = {{$nutrientes[1]['qtde']}} KJ
+                    <i class="fa fa-flash fa-2x"></i> ENERGIA = {{$nutrientes[0]['qtde']}} KCAL
+                    = {{$nutrientes[1]['qtde']}} KJ
                 </p>
+            </div>
+        </div>
+
+        <div class="col-md-8 col-sm-8 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Macronutrientes</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li><a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Nutriente</th>
+                            <th>Quantidade</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{{$nutrientes->find(3)->nomeNutriente}}</td>
+                            <td>{{$nutrienteAlimento->where('idNutriente', 3)->first()->qtde }} g</td>
+                        </tr>
+                        <tr>
+                            <td>{{$nutrientes->find(4)->nomeNutriente}}</td>
+                            <td>{{$nutrienteAlimento->where('idNutriente', 4)->first()->qtde }} g</td>
+                        </tr>
+                        <tr>
+                            <td>{{$nutrientes->find(5)->nomeNutriente}}</td>
+                            <td>{{$nutrienteAlimento->where('idNutriente', 5)->first()->qtde }} g</td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
             </div>
         </div>
 
@@ -17,15 +59,14 @@
         <div class="col-md-4 col-sm-4 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
-                    <h2>Composição
-                    </h2>
+                    <h2>Composição</h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li><a class="close-link"><i class="fa fa-close"></i></a>
                         </li>
                     </ul>
                     <div class="clearfix"></div>
                 </div>
-                <div class="x_content2">
+                <div class="x_content">
                     <div id="graph_donut" style="width:100%; height:300px;"></div>
                 </div>
             </div>
