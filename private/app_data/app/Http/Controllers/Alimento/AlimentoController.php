@@ -8,6 +8,7 @@ use App\Models\Alimento\AlimentoMedidaCaseira;
 use App\Models\Grupo\GrupoAlimentar;
 use App\Models\Grupo\GrupoPiramide;
 use App\Models\Medida\TipoMedidaCaseira;
+use App\Models\Medida\UnidadeMedida;
 use App\Models\Nutriente\Nutriente;
 use App\Models\Nutriente\NutrienteAlimento;
 use DB;
@@ -109,12 +110,15 @@ class AlimentoController extends Controller
         $alimento = Alimento::find($id);
         $img = Storage::url("Alimentos/{$id}.png");
 
-        //nutrientes
+        // nutrientes
         $nutrientes = Nutriente::all();
         $nutrienteAlimento = NutrienteAlimento::where('idAlimento', $id)->get();
 
+        // unidade da medida
+        $unidade = UnidadeMedida::all();
+
         return view('alimentos.alimentoComponentes', compact('alimento', 'img', 'nutrientes',
-            'nutrienteAlimento'));
+            'nutrienteAlimento', 'unidade'));
     }
 
     /**
