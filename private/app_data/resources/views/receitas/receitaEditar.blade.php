@@ -22,7 +22,7 @@
     <div class="form-group">
         {!! Form::label('alimentos', 'Alimentos', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
         <div class="col-md-6 col-sm-6 col-xs-12">
-            {!! Form::select('alimentos[]', $alimentosLista::pluck('descricaoAlimento', 'idAlimento'),
+            {!! Form::select('alimentos[]', $alimentosLista,
             array_values($alimentosContidos),
             ['id'=>'mselect' ,'class'=>'form-control select2_multiple', 'multiple'=>true, 'multiple'=>'multiple',
             'data-parsley-required', 'data-parsley-required-message' => "Insira ao menos um alimento para a receita"]) !!}

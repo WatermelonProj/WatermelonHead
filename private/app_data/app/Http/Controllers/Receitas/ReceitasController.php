@@ -36,7 +36,10 @@ class ReceitasController extends Controller
      */
     public function create()
     {
-        $alimentos = new Alimento();
+        // indexando somente os alimentos que estão ativos
+        $alimentos = Alimento::where('ativoAlimento', 1)->get()->toArray();
+        $alimentos = array_pluck($alimentos, 'descricaoAlimento', 'idAlimento');
+
         $tiposPorcao = new TipoPorcao();
         $faixas = FaixaEtaria::all();
 
@@ -101,6 +104,7 @@ class ReceitasController extends Controller
     public function show($id)
     {
 
+        // encontrando Nutrientes
         $nutrientes = Nutriente::all();
 
         // encontrando a receita
@@ -144,7 +148,8 @@ class ReceitasController extends Controller
     public function edit($id)
     {
         $receita = Receita::find($id);
-        $alimentosLista = New Alimento();
+        $alimentosLista = Alimento::where('ativoAlimento', 1)->get()->toArray();
+        $alimentosLista = array_pluck($alimentosLista, 'descricaoAlimento', 'idAlimento');
         $alimentosReceita = $receita->alimentoReceita;
         $tiposPorcao = new TipoPorcao();
         $faixas = FaixaEtaria::all();

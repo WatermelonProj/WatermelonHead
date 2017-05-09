@@ -77,22 +77,27 @@ class AlimentoController extends Controller
         }
 
         // Associando os nutrientes com o alimento criado previamente
-        foreach ($request->nutrientes as $nutriente) {
-            $nutrienteAlm = new NutrienteAlimento();
-            $nutrienteAlm->alimento()->associate($alimento);
-            $nutrienteAlm->idNutriente = $nutriente;
-            $nutrienteAlm->qtde = $request['Ntr-' . $nutriente];
-            $nutrienteAlm->save();
+        if ($request->nutrientes) {
+            foreach ($request->nutrientes as $nutriente) {
+                $nutrienteAlm = new NutrienteAlimento();
+                $nutrienteAlm->alimento()->associate($alimento);
+                $nutrienteAlm->idNutriente = $nutriente;
+                $nutrienteAlm->qtde = $request['Ntr-' . $nutriente];
+                $nutrienteAlm->save();
+            }
         }
 
         // Associando Medidas Caseiras á um Alimento
-        foreach ($request->medidas_caseiras as $medida_caseira) {
-            $alimentoMedidaCaseira = new AlimentoMedidaCaseira();
-            $alimentoMedidaCaseira->alimento()->associate($alimento);
-            $alimentoMedidaCaseira->idTMCaseira = $medida_caseira;
-            $alimentoMedidaCaseira->qtde = $request['Alm-' . $medida_caseira];
-            $alimentoMedidaCaseira->tipoUnidade = 2;
-            $alimentoMedidaCaseira->save();
+
+        if ($request->medidas_caseiras) {
+            foreach ($request->medidas_caseiras as $medida_caseira) {
+                $alimentoMedidaCaseira = new AlimentoMedidaCaseira();
+                $alimentoMedidaCaseira->alimento()->associate($alimento);
+                $alimentoMedidaCaseira->idTMCaseira = $medida_caseira;
+                $alimentoMedidaCaseira->qtde = $request['Alm-' . $medida_caseira];
+                $alimentoMedidaCaseira->tipoUnidade = 2;
+                $alimentoMedidaCaseira->save();
+            }
         }
 
         return redirect()->route('alimentos')->with('status', 'Alimento criado com sucesso!');
@@ -218,5 +223,21 @@ class AlimentoController extends Controller
     {
         Alimento::find($id)->delete();
         return redirect()->route('alimentos')->with('status', 'Alimento removido com sucesso!');
+    }
+
+    public function enable($id)
+    {
+        $alimento = Alimento::find($id);
+        $alimento->ativoAlimento = 1;
+        $alimento->save();
+        return redirect()->route('alimentos')->with('status', 'Alimento reativado!');
+    }
+
+    public function disable($id)
+    {
+        $alimento = Alimento::find($id);
+        $alimento->ativoAlimento = 0;
+        $alimento->save();
+        return redirect()->route('alimentos')->with('status', 'Alimento desabilitado!');
     }
 }

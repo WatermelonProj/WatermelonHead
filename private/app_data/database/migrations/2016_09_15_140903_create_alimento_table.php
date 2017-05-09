@@ -15,6 +15,7 @@ class CreateAlimentoTable extends Migration
     {
         Schema::create('alimento', function (Blueprint $table) {
             $table->increments('idAlimento');
+            $table->boolean('ativoAlimento');
             $table->integer('idGAlimentar')->unsigned()->nullable();
             $table->integer('idGPiramide')->unsigned()->nullable();
             $table->string('descricaoAlimento');

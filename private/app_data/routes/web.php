@@ -24,6 +24,10 @@ Route::group(['prefix' => 'alimentos'], function () {
     Route::get('/show/{id}', 'Alimento\AlimentoController@show')->name('alimentos.show')->where('id', '[0-9]+');
     Route::get('/edit/{id}', 'Alimento\AlimentoController@edit')->name('alimentos.edit')->where('id', '[0-9]+')
         ->middleware('auth');
+    Route::get('/enable/{id}', 'Alimento\AlimentoController@enable')->name('alimentos.enable')->where('id', '[0-9]+')
+        ->middleware('auth');
+    Route::get('/disable/{id}', 'Alimento\AlimentoController@disable')->name('alimentos.disable')->where('id', '[0-9]+')
+        ->middleware('auth');
     Route::post('/update/{id}', 'Alimento\AlimentoController@update')->name('alimentos.update')->where('id', '[0-9]+')
         ->middleware('auth');
     Route::get('/destroy/{id}', 'Alimento\AlimentoController@destroy')->name('alimentos.destroy')->where('id', '[0-9]+')

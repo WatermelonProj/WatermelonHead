@@ -4,6 +4,10 @@
     <div class="row">
         <div class="title_left">
             <h3>{{ $alimento->descricaoAlimento }}</h3>
+            <a href="{{ route('alimentos') }}">
+                <i class="fa fa-arrow-left"></i>
+                <button class="btn btn-link">Retornar aos Alimentos</button>
+            </a>
         </div>
         <div class="clearfix"></div>
 
@@ -63,19 +67,25 @@
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                <td>{{$nutrientes->find(3)->nomeNutriente}}</td>
-                                                <td>{{$nutrienteAlimento->where('idNutriente', 3)->first()->qtde }}</td>
-                                                <td>{{$unidade->find($nutrientes->find(3)->unidadeNutriente)->nomeUnidade}}</td>
+                                                @if($nutrienteAlimento->where('idNutriente', 3)->first())
+                                                    <td>{{$nutrientes->find(3)->nomeNutriente}}</td>
+                                                    <td>{{$nutrienteAlimento->where('idNutriente', 3)->first()->qtde }}</td>
+                                                    <td>{{$unidade->find($nutrientes->find(3)->unidadeNutriente)->nomeUnidade}}</td>
+                                                @endif
                                             </tr>
                                             <tr>
-                                                <td>{{$nutrientes->find(4)->nomeNutriente}}</td>
-                                                <td>{{$nutrienteAlimento->where('idNutriente', 4)->first()->qtde }}</td>
-                                                <td>{{$unidade->find($nutrientes->find(4)->unidadeNutriente)->nomeUnidade}}</td>
+                                                @if($nutrienteAlimento->where('idNutriente', 4)->first())
+                                                    <td>{{$nutrientes->find(4)->nomeNutriente}}</td>
+                                                    <td>{{$nutrienteAlimento->where('idNutriente', 4)->first()->qtde }}</td>
+                                                    <td>{{$unidade->find($nutrientes->find(4)->unidadeNutriente)->nomeUnidade}}</td>
+                                                @endif
                                             </tr>
                                             <tr>
-                                                <td>{{$nutrientes->find(6)->nomeNutriente}}</td>
-                                                <td>{{$nutrienteAlimento->where('idNutriente', 6)->first()->qtde }}</td>
-                                                <td>{{$unidade->find($nutrientes->find(6)->unidadeNutriente)->nomeUnidade}}</td>
+                                                @if($nutrienteAlimento->where('idNutriente', 6)->first())
+                                                    <td>{{$nutrientes->find(6)->nomeNutriente}}</td>
+                                                    <td>{{$nutrienteAlimento->where('idNutriente', 6)->first()->qtde }}</td>
+                                                    <td>{{$unidade->find($nutrientes->find(6)->unidadeNutriente)->nomeUnidade}}</td>
+                                                @endif
                                             </tr>
                                             </tbody>
                                         </table>

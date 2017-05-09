@@ -53,40 +53,83 @@
                     @endif
 
                     @if(Auth::check())
-                        <a href="#">
-                            <button class="btn btn-danger btn-sm " data-toggle="modal"
-                                    data-target="#alm-{{ $alimento->idAlimento }}">
-                                <i class="fa fa-trash" aria-hidden="true"></i> Remover
-                            </button>
-                        </a>
+                        @if($alimento->ativoAlimento)
+                            <a href="#">
+                                <button class="btn btn-danger btn-sm " data-toggle="modal"
+                                        data-target="#alm-{{ $alimento->idAlimento }}">
+                                    <i class="fa fa-minus-square" aria-hidden="true"></i> Desativar
+                                </button>
+                            </a>
 
-                        <div id="alm-{{ $alimento->idAlimento }}" class="modal fade bs-example-modal-sm" tabindex="-1"
-                             role="dialog" aria-hidden="true">
-                            <div class="modal-dialog modal-sm">
-                                <div class="modal-content">
+                            <div id="alm-{{ $alimento->idAlimento }}" class="modal fade bs-example-modal-sm"
+                                 tabindex="-1"
+                                 role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
 
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-                                        <h4 class="modal-title" id="myModalLabel2">REMOÇÃO DE ALIMENTO</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <h4>Você deseja realmente excluir este alimento?</h4>
-                                        <p>Uma vez <span style="color: red;">removido</span>, o alimento
-                                            <span style="color: red;">não poderá ser restaurado</span>.</p>
-                                        <p>Você deseja continuar?</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar
-                                        </button>
-                                        <a href="{{ route('alimentos.destroy', ['id'=>$alimento->idAlimento]) }}">
-                                            <button type="button" class="btn btn-danger">Remover</button>
-                                        </a>
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                            <h4 class="modal-title" id="myModalLabel2">DESATIVAR ALIMENTO</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h4>Você deseja desativar este alimento?</h4>
+                                            <p>É possível reativar este alimento novamente por esta mesma tela.</p>
+                                            <p>Você deseja continuar?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar
+                                            </button>
+                                            <a href="{{ route('alimentos.disable', ['id'=>$alimento->idAlimento]) }}">
+                                                <button type="button" class="btn btn-danger">Desativar</button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @else
+                            <a href="#">
+                                <button class="btn btn-success btn-sm " data-toggle="modal"
+                                        data-target="#alm-{{ $alimento->idAlimento }}">
+                                    <i class="fa fa-minus-square" aria-hidden="true"></i> Ativar
+                                </button>
+                            </a>
+
+                            <div id="alm-{{ $alimento->idAlimento }}" class="modal fade bs-example-modal-sm"
+                                 tabindex="-1"
+                                 role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
+
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                            <h4 class="modal-title" id="myModalLabel2">REATIVAR ALIMENTO</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h4>Você deseja reativar este alimento?</h4>
+                                            <p>É possível desativar este alimento novamente por esta mesma tela.</p>
+                                            <p>Você deseja continuar?</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar
+                                            </button>
+                                            <a href="{{ route('alimentos.enable', ['id'=>$alimento->idAlimento]) }}">
+                                                <button type="button" class="btn btn-success">Ativar</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    @else
+                        <a href="#">
+                            <button class="btn btn-danger btn-sm disabled">
+                                <i class="fa fa-minus-square" aria-hidden="true"></i> Desativar
+                            </button>
+                        </a>
                     @endif
                 </div>
             </td>
