@@ -16,7 +16,7 @@ class CreateReceitaTable extends Migration
         Schema::create('receita', function (Blueprint $table) {
             $table->increments('idReceita');
             $table->string('nomeReceita');
-            $table->string('preparoReceita');
+            $table->text('preparoReceita');
             $table->boolean('ativoReceita');
             $table->timestamps();
             $table->integer('idUsuario')->unsigned();

@@ -243,11 +243,12 @@ class ReceitasController extends Controller
         $receita = Receita::find($id);
         $receita->ativoReceita = 0;
         $receita->save();
+
         return redirect()->route('receitas')->with('status', 'Receita desabilitada!');
     }
 
     /**
-     * Habilita um
+     * Habilita uma receita.
      *
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
@@ -257,6 +258,17 @@ class ReceitasController extends Controller
         $receita = Receita::find($id);
         $receita->ativoReceita = 1;
         $receita->save();
+
+
+        // reativando os alimentos da receita
+        $alimentos = AlimentoReceita::where('idReceita', $id)->get();
+
+        foreach ($alimentos as $index => $alimento) {
+            $alimentoAtiva = Alimento::find($alimento->idAlimento);
+            $alimentoAtiva->ativoAlimento = 1;
+            $alimentoAtiva->save();
+        }
+
         return redirect()->route('receitas')->with('status', 'Receita habilitada!');
 
     }

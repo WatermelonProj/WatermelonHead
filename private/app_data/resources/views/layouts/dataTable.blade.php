@@ -50,11 +50,11 @@
                     <div class="x_content">
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
-                                @yield('table_head')
+                            @yield('table_head')
                             </thead>
 
                             <tbody>
-                                @yield('table_body')
+                            @yield('table_body')
                             </tbody>
                         </table>
                     </div>
@@ -74,7 +74,7 @@
 
     @if (session('status'))
         <script>
-            $(document).ready(function() {
+            $(document).ready(function () {
                 new PNotify({
                     title: "Sucesso!",
                     type: "success",

@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Alimento;
 use App\Http\Controllers\Controller;
 use App\Models\Alimento\Alimento;
 use App\Models\Alimento\AlimentoMedidaCaseira;
+use App\Models\Alimento\AlimentoReceita;
 use App\Models\Grupo\GrupoAlimentar;
 use App\Models\Grupo\GrupoPiramide;
 use App\Models\Medida\TipoMedidaCaseira;
 use App\Models\Medida\UnidadeMedida;
 use App\Models\Nutriente\Nutriente;
 use App\Models\Nutriente\NutrienteAlimento;
+use App\Models\Receita\Receita;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -225,6 +227,12 @@ class AlimentoController extends Controller
         return redirect()->route('alimentos')->with('status', 'Alimento removido com sucesso!');
     }
 
+    /**
+     * Reativa um alimento, tornando-o possível de ser utilizado nas refeições
+     *
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function enable($id)
     {
         $alimento = Alimento::find($id);
@@ -233,11 +241,28 @@ class AlimentoController extends Controller
         return redirect()->route('alimentos')->with('status', 'Alimento reativado!');
     }
 
+    /**
+     *
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function disable($id)
     {
+        // desativando o alimento
         $alimento = Alimento::find($id);
         $alimento->ativoAlimento = 0;
         $alimento->save();
+
+        // desativando as receitas que contém o alimento
+        $receitas = AlimentoReceita::where('idAlimento', $id)->get();
+
+        foreach ($receitas as $index => $receita) {
+            $receitaDesativada = Receita::find($receita->idReceita);
+            $receitaDesativada->ativoReceita = 0;
+            $receitaDesativada->save();
+        }
+
+
         return redirect()->route('alimentos')->with('status', 'Alimento desabilitado!');
     }
 }

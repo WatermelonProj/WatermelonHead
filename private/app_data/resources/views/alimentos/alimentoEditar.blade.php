@@ -94,7 +94,8 @@
                     <div id="ntr">
                         @foreach($nutrientesAlimento as $nutrienteAlimento)
                             <div class='form-group col-md-6 col-sm-6 col-xs-12'>
-                                {!! Form::label('Ntr-'.$nutrienteAlimento->idNutriente, $nutriente->where('idNutriente', $nutrienteAlimento->idNutriente)->first()->nomeNutriente, ['class'=>'control-label col-md-7 col-sm-3 col-xs-12']) !!}
+                                {!! Form::label('Ntr-'.$nutrienteAlimento->idNutriente, $nutriente->where('idNutriente', $nutrienteAlimento->idNutriente)->first()->nomeNutriente,
+                                ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                                 <div class='col-md-4 col-sm-4 col-xs-12'>
                                     {!! Form::text('Ntr-'.$nutrienteAlimento->idNutriente, $nutrienteAlimento->qtde,
                                     ['type'=>'number', 'class'=>'form-control', 'step'=>'0.01', 'data-parsley'=>'number',
@@ -117,7 +118,8 @@
                     <div id="mdcase">
                         @foreach($medidasAlimento as $medidaAlimento)
                             <div class='form-group col-md-6 col-sm-6 col-xs-12'>
-                                {!! Form::label('Alm-'.$medidaAlimento->idTMCaseira, $medidaCaseira->where('idTMCaseira', $medidaAlimento->idTMCaseira)->first()->nomeTMC, ['class'=>'control-label col-md-7 col-sm-3 col-xs-12']) !!}
+                                {!! Form::label('Alm-'.$medidaAlimento->idTMCaseira, $medidaCaseira->where('idTMCaseira', $medidaAlimento->idTMCaseira)->first()->nomeTMC,
+                                 ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
                                 <div class='col-md-4 col-sm-4 col-xs-12'>
                                     {!! Form::text('Alm-'.$medidaAlimento->idTMCaseira, $medidaAlimento->qtde,
                                     ['type'=>'number', 'class'=>'form-control', 'step'=>'0.01', 'data-parsley'=>'number',
@@ -159,7 +161,7 @@
             for (i = 0; i < nutrientes.length; i++) {
                 $('#ntr').append(
                     "<div class='form-group col-md-6 col-sm-6 col-xs-12'>" +
-                    "<label for='alimento' class='control-label col-md-7 col-sm-3 col-xs-12'>" + nutrientes[i].text + "</label>" +
+                    "<label for='alimento' class='control-label col-md-3 col-sm-3 col-xs-12'>" + nutrientes[i].text + "</label>" +
                     "<div class='col-md-4 col-sm-4 col-xs-12'>" +
                     "<input name=Ntr-" + nutrientes[i].value + " type='number' class='form-control', step='0.01', data-parsley='number'" +
                     "data-parsley-type-message='Preencha com um valor numérico', " +
@@ -178,7 +180,7 @@
             for (i = 0; i < nutrientes.length; i++) {
                 $('#mdcase').append(
                     "<div class='form-group col-md-6 col-sm-6 col-xs-12'>" +
-                    "<label for='alimento' class='control-label col-md-7 col-sm-3 col-xs-12'>" + nutrientes[i].text + "</label>" +
+                    "<label for='alimento' class='control-label col-md-3 col-sm-3 col-xs-12'>" + nutrientes[i].text + "</label>" +
                     "<div class='col-md-4 col-sm-4 col-xs-12'>" +
                     "<input name=Alm-" + nutrientes[i].value + " type='number' class='form-control', step='0.01', data-parsley='number'" +
                     "data-parsley-type-message='Preencha com um valor numérico', " +

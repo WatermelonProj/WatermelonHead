@@ -4,6 +4,15 @@ namespace App\Models\Alimento;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Models\Alimento\Alimento
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Alimento\AlimentoMedidaCaseira[] $alimentoMedidaCaseira
+ * @property-read \App\Models\Grupo\GrupoAlimentar $grupoAlimentar
+ * @property-read \App\Models\Grupo\GrupoPiramide $grupoPiramide
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Nutriente\NutrienteAlimento[] $nutrienteAlimento
+ * @mixin \Eloquent
+ */
 class Alimento extends Model
 {
     public $timestamps = false;
