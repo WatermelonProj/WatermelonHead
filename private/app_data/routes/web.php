@@ -46,6 +46,18 @@ Route::group(['prefix' => 'receitas'], function () {
     Route::get('/enable/{id}', 'Receitas\ReceitasController@enable')->name('receitas.enable')->where('id', '[0-9]+')->middleware('auth');
 });
 
+Route::group(['prefix' => 'refeicao'], function () {
+    Route::get('', 'Refeicao\RefeicaoController@index')->name('refeicao');
+    Route::get('/create', 'Refeicao\RefeicaoController@create')->name('refeicao.create')->middleware('auth');
+    Route::post('/store', 'Refeicao\RefeicaoController@store')->name('refeicao.store')->middleware('auth');
+    Route::get('/show/{id}', 'Refeicao\RefeicaoController@show')->name('refeicao.show')->where('id', '[0-9]+');
+    Route::get('/edit/{id}', 'Refeicao\RefeicaoController@edit')->name('refeicao.edit')->where('id', '[0-9]+')->middleware('auth');
+    Route::post('/update/{id}', 'Refeicao\RefeicaoController@update')->name('refeicao.update')->where('id', '[0-9]+')->middleware('auth');
+    Route::get('/destroy/{id}', 'Refeicao\RefeicaoController@destroy')->name('refeicao.destroy')->where('id', '[0-9]+')->middleware('auth');
+    Route::get('/disable/{id}', 'Refeicao\RefeicaoController@disable')->name('refeicao.disable')->where('id', '[0-9]+')->middleware('auth');
+    Route::get('/enable/{id}', 'Refeicao\RefeicaoController@enable')->name('refeicao.enable')->where('id', '[0-9]+')->middleware('auth');
+});
+
 Route::get('/', function () {
     return view('home');
 })->name('home');

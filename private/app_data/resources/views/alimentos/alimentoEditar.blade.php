@@ -103,7 +103,6 @@
                                      'data-parsley-required'=>'data-parsley-required',
                                      'data-parsley-required-message'=>'Preencha este Campo!']) !!}
                                 </div>
-                                {!! Form::label('nutriente', 'g',  ['class'=>'control-label col-md-1 col-sm-3 col-xs-12 pull-left']) !!}
                             </div>
                         @endforeach
                     </div>
@@ -167,7 +166,6 @@
                     "data-parsley-type-message='Preencha com um valor numérico', " +
                     "data-parsley-required='data-parsley-required', data-parsley-required-message='Preencha este Campo!'>" +
                     "</div>" +
-                    "<label for='alimento' class='control-label col-md-1 col-sm-3 col-xs-12 pull-left'>g</label>" +
                     "</div>"
                 );
             }

@@ -85,7 +85,14 @@
         <small>Insira as quantidades</small>
     </h2>
 
-    <div id="alm"></div>
+    <div id="alm">
+        <div class="alert alert-warning alert-dismissible fade in " role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">×</span>
+            </button>
+            <strong>Atenção!</strong> Você ainda não inseriu nenhum Alimento.
+        </div>
+    </div>
 
     <div class="clearfix"></div>
     <div class="ln_solid"></div>
@@ -95,7 +102,7 @@
 
 @section('form_scripts')
     <script>
-        $('document').ready(addAlm);
+//        $('document').ready(addAlm);
         $('#mselect').change(addAlm);
 
         {{-- adiciona dinâmicamente o campo para valores dos alimentos --}}

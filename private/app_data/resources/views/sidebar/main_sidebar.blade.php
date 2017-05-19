@@ -23,11 +23,11 @@
             </li>
 
             <li>
-                <a><i class="fa fa-spoon"></i>Cardápio <span class="fa fa-chevron-down"></span></a>
+                <a><i class="fa fa-spoon"></i>Refeição <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="#">Criar Cardápio</a></li>
+                    <li><a href="#">Criar Refeição</a></li>
                     @if(Auth::check())
-                        <li><a href="#">Definir Cardápios </a></li>
+                        <li><a href="#">Definir Refeição</a></li>
                     @endif
                 </ul>
             </li>

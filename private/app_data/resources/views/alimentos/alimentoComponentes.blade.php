@@ -37,12 +37,12 @@
                                 <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
                                      aria-labelledby="headingOne">
                                     <div class="panel-body">
-                                        <div class="jumbotron">
-                                            <p>
+                                        <div style="text-align: center;">
+                                            <span class="">
                                                 <i class="fa fa-flash fa-2x"></i> ENERGIA
                                                 = {{$nutrienteAlimento[0]['qtde']}} KCAL
                                                 = {{$nutrienteAlimento[1]['qtde']}} KJ
-                                            </p>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>

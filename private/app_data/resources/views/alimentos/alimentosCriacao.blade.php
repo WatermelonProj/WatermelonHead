@@ -91,7 +91,13 @@
                     <h2>Nutrientes
                         <small>Insira as quantidades</small>
                     </h2>
-                    <div id="ntr"></div>
+                    <div id="ntr">
+                        <div class="alert alert-warning alert-dismissible fade in" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                            </button>
+                            <strong>Atenção!</strong> Você ainda não inseriu nenhum Nutriente ao alimento.
+                        </div>
+                    </div>
 
 
                     {{--Medidas Caseiras--}}
@@ -100,7 +106,15 @@
                     <h2>Medidas Caseiras
                         <small>Insira as quantidades</small>
                     </h2>
-                    <div id="mdcase"></div>
+                    <div id="mdcase">
+                        <div id="ntr">
+                            <div class="alert alert-warning alert-dismissible fade in " role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                                </button>
+                                <strong>Atenção!</strong> Você ainda não inseriu nenhuma medida caseira.
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="clearfix"></div>
                     <div class="ln_solid"></div>
@@ -119,8 +133,8 @@
     @include('imports.parsley_script')
 
     <script>
-        $('document').ready(addNutriente);
-        $('document').ready(addMedida);
+//        $('document').ready(addNutriente);
+//        $('document').ready(addMedida);
         $('#nutrienteSelect').change(addNutriente);
         $('#medidaCaseiraSelect').change(addMedida);
 
@@ -133,11 +147,10 @@
                     "<div class='form-group col-md-6 col-sm-6 col-xs-12'>" +
                     "<label for='alimento' class='control-label col-md-3 col-sm-3 col-xs-12'>" + nutrientes[i].text + "</label>" +
                     "<div class='col-md-4 col-sm-4 col-xs-12'>" +
-                    "<input name=Ntr-" + nutrientes[i].value + " type='number' class='form-control', step='0.01', data-parsley='number'" +
+                    "<input name=Ntr-" + nutrientes[i].value + " type='number' class='form-control' , step='0.01', data-parsley='number'" +
                     "data-parsley-type-message='Preencha com um valor numérico', " +
                     "data-parsley-required='data-parsley-required', data-parsley-required-message='Preencha este Campo!'>" +
                     "</div>" +
-                    "<label for='alimento' class='control-label col-md-1 col-sm-3 col-xs-12 pull-left'>g</label>" +
                     "</div>"
                 );
             }
