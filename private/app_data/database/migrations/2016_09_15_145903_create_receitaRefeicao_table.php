@@ -15,11 +15,11 @@ class CreateReceitaRefeicaoTable extends Migration
     {
         Schema::create('receita_refeicao', function (Blueprint $table) {
             $table->integer('idReceita')->unsigned();
-            $table->integer('idCardapioRefeicao')->unsigned();
-            $table->index(['idReceita','idCardapioRefeicao']);
+            $table->integer('idRefeicao')->unsigned();
+            $table->index(['idReceita','idRefeicao']);
             $table->foreign('idReceita')->references('idReceita')->on('receita')->onDelete('cascade');
-            $table->foreign('idCardapioRefeicao')->references('idCardapioRefeicao')->on('cardapio_refeicao')->onDelete('cascade');
-            $table->timestamps();
+            $table->foreign('idRefeicao')->references('idRefeicao')->on('refeicao')
+                ->onDelete('cascade');
         });
     }
 

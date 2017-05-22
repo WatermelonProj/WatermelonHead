@@ -15,8 +15,8 @@ class ReceitaRefeicao extends Model
         return $this->belongsTo('\App\Models\Receita\Receita', 'idReceita');
     }
 
-    public function cardapioRefeicao()
+    public function refeicao()
     {
-        return $this->belongsTo('\App\Models\Cardapio\CardapioRefeicao', 'idCardapioRefeicao');
+        return $this->belongsTo('\App\Models\Receita\ReceitaRefeicao', 'idRefeicao');
     }
 }

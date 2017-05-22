@@ -25,7 +25,7 @@
             <li>
                 <a><i class="fa fa-spoon"></i>Refeição <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="#">Criar Refeição</a></li>
+                    <li><a href="{{ route('refeicao.create') }}">Criar Refeição</a></li>
                     @if(Auth::check())
                         <li><a href="#">Definir Refeição</a></li>
                     @endif

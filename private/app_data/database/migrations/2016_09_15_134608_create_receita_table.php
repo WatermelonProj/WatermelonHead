@@ -17,7 +17,7 @@ class CreateReceitaTable extends Migration
             $table->increments('idReceita');
             $table->string('nomeReceita');
             $table->text('preparoReceita');
-            $table->boolean('ativoReceita');
+            $table->boolean('ativoReceita')->default(1);
             $table->timestamps();
             $table->integer('idUsuario')->unsigned();
             $table->foreign('idUsuario')->references('id')->on("users")->onDelete('cascade');

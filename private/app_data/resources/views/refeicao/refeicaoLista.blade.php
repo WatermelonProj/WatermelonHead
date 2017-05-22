@@ -1,12 +1,12 @@
 @extends('layouts.dataTable')
 
-@section('page_title', 'Receitas <small> Lista de receitas disponíveis</small>')
+@section('page_title', 'Receitas <small> Lista de refeições disponíveis</small>')
 
 @section('buttons_top')
-    <a href="{{ route('receitas.create') }}">
+    <a href="{{ route('refeicao.create') }}">
         <button class="btn btn-primary pull-right">
             <i class="fa fa-plus" aria-hidden="true"></i>
-            Adicionar Receita
+            Adicionar Refeição
         </button>
         <div class="clearfix"></div>
     </a>
@@ -14,46 +14,42 @@
 
 @section('table_head')
     <tr>
-        <th>Id</th>
-        <th>Receita</th>
-        <th>Criada Por</th>
+        <th>Refeição</th>
         <th>Ação</th>
     </tr>
 @endsection
 
 @section('table_body')
-    @foreach($receitas as $receita)
+    @foreach($refeicoes as $refeicao)
         <tr>
-            <td>{{ $receita->idReceita }}</td>
-            <td>{{ $receita->nomeReceita }}</td>
-            <td>{{ $receita->user["name"] }}</td>
+            <td>{{ $refeicao->nomeRefeicao }}</td>
             <td>
                 <div class="btn-group">
-                    <a href="{{ route('receitas.show', ['id' => $receita->idReceita]) }}">
+                    <a href="{{ route('refeicao.show', ['id' => $refeicao->idRefeicao]) }}">
                         <button class="btn btn-primary btn-sm">
                             <i class="fa fa-folder" aria-hidden="true"></i> Detalhes
                         </button>
                     </a>
 
                     @if(Auth::check())
-                        <a href="{{ route('receitas.edit', ['id'=>$receita->idReceita]) }}">
+                        <a href="{{ route('receitas.edit', ['id'=>$refeicao->idRefeicao]) }}">
                             <button class="btn btn-warning btn-sm">
                                 <i class="fa fa-pencil-square" aria-hidden="true"></i> Editar
                             </button>
                         </a>
                     @endif
 
-                    @if((Auth::check()) && (Auth::user()->id === $receita->user['id']))
-                        @if($receita->ativoReceita == 1)
+                    @if((Auth::check()))
+                        @if($refeicao->ativoRefeicao == 1)
                             {{-- Desativa Receita --}}
                             <a href="#">
                                 <button class="btn btn-danger btn-sm " data-toggle="modal"
-                                        data-target="#rct-{{ $receita->idReceita }}">
+                                        data-target="#rct-{{ $refeicao->idRefeicao }}">
                                     <i class="fa fa-minus-square" aria-hidden="true"></i> Desativar
                                 </button>
                             </a>
 
-                            <div id="rct-{{ $receita->idReceita }}" class="modal fade bs-example-modal-sm" tabindex="-1"
+                            <div id="rct-{{ $refeicao->idRefeicao }}" class="modal fade bs-example-modal-sm" tabindex="-1"
                                  role="dialog" aria-hidden="true">
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content">
@@ -61,17 +57,17 @@
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">×</span>
                                             </button>
-                                            <h4 class="modal-title" id="myModalLabel2">DESABILITAR RECEITA</h4>
+                                            <h4 class="modal-title" id="myModalLabel2">DESABILITAR REFEIÇÃO</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <h4>Você deseja desabilitar esta receita?</h4>
+                                            <h4>Você deseja desabilitar esta refeição?</h4>
                                             <p>É possível habilitar esta receita novamente por esta mesma tela.</p>
                                             <p>Você deseja continuar?</p>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar
                                             </button>
-                                            <a href="{{ route('receitas.disable', ['id' => $receita->idReceita]) }}">
+                                            <a href="{{ route('refeicao.disable', ['id' => $refeicao->idRefeicao]) }}">
                                                 <button type="button" class="btn btn-danger">Desabilitar</button>
                                             </a>
                                         </div>
@@ -82,12 +78,12 @@
                             {{-- Ativa Receita --}}
                             <a href="#">
                                 <button class="btn btn-success btn-sm " data-toggle="modal"
-                                        data-target="#rct-{{ $receita->idReceita }}">
+                                        data-target="#rct-{{ $refeicao->idRefeicao }}">
                                     <i class="fa fa-plus-square" aria-hidden="true"></i> Ativar
                                 </button>
                             </a>
 
-                            <div id="rct-{{ $receita->idReceita }}" class="modal fade bs-example-modal-sm" tabindex="-1"
+                            <div id="rct-{{ $refeicao->idRefeicao }}" class="modal fade bs-example-modal-sm" tabindex="-1"
                                  role="dialog" aria-hidden="true">
                                 <div class="modal-dialog modal-sm">
                                     <div class="modal-content">
@@ -105,7 +101,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar
                                             </button>
-                                            <a href="{{ route('receitas.enable', ['id' => $receita->idReceita]) }}">
+                                            <a href="{{ route('receitas.enable', ['id' => $refeicao->idRefeicao]) }}">
                                                 <button type="button" class="btn btn-success">Ativar</button>
                                             </a>
                                         </div>

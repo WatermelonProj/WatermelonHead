@@ -105,6 +105,10 @@
 </div>
 
 
+
+</body>
+</html>
+
 {{--jQUery--}}
 <script src="{{ asset('theme/gentelella/vendors/jquery/dist/jquery.min.js') }}"></script>
 {{--bootstrap--}}
@@ -114,6 +118,3 @@
 
 @section('scripts')
 @show
-
-</body>
-</html>

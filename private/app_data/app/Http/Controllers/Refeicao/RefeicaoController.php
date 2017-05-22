@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Refeicao;
 
+use App\Models\Receita\Receita;
+use App\Models\Receita\ReceitaRefeicao;
+use App\Models\Refeicao\Refeicao;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +17,9 @@ class RefeicaoController extends Controller
      */
     public function index()
     {
-        //
+        $refeicoes = Refeicao::all();
+
+        return view('refeicao.refeicaoLista', compact('refeicoes'));
     }
 
     /**
@@ -24,7 +29,10 @@ class RefeicaoController extends Controller
      */
     public function create()
     {
-        return view('refeicao.refeicaoCriacao');
+        //buscando todas as receitas ativas
+        $receitas = Receita::where('ativoReceita', 1)->get();
+
+        return view('refeicao.refeicaoCriacao', compact('receitas'));
     }
 
     /**
@@ -35,7 +43,25 @@ class RefeicaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate($request, [
+            'nomeRefeicao' => 'required',
+        ]);
+
+        $refeicao = new Refeicao();
+        $refeicao->nomeRefeicao = $request->nomeRefeicao;
+        $refeicao->ativoRefeicao = 1;
+        $refeicao->save();
+
+        foreach ($request->receitas as $index => $receita) {
+            $receitaRefeicao = new ReceitaRefeicao();
+            $receitaRefeicao->idReceita = $receita;
+            $receitaRefeicao->idRefeicao = $refeicao->idRefeicao;
+            $receitaRefeicao->save();
+        }
+
+        return redirect()->route('refeicao')->with('status', 'Refeicao criada com sucesso!');
+
     }
 
     /**
@@ -57,7 +83,13 @@ class RefeicaoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $refeicao = Refeicao::find($id);
+
+        // receitas que compõem uma refeição
+        $receitas = Receita::where('ativoReceita', 1)->get();
+//        $receitaRefeicao
+        //lmebrar dop receita refeicao
+        return view('refeicao.refeicaoEditar', compact('refeicao', 'receitas'));
     }
 
     /**

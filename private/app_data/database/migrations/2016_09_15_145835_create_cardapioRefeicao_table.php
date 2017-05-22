@@ -20,7 +20,6 @@ class CreateCardapioRefeicaoTable extends Migration
             $table->index(['idCardapio','idRefeicao']);
             $table->foreign('idCardapio')->references('idCardapio')->on('cardapio')->onDelete('cascade');
             $table->foreign('idRefeicao')->references('idRefeicao')->on('refeicao')->onDelete('cascade');
-            $table->timestamps();
         });
     }
 
