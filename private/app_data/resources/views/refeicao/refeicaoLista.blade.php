@@ -1,6 +1,6 @@
 @extends('layouts.dataTable')
 
-@section('page_title', 'Receitas <small> Lista de refeições disponíveis</small>')
+@section('page_title', 'Refeição <small> Lista de refeições disponíveis</small>')
 
 @section('buttons_top')
     <a href="{{ route('refeicao.create') }}">
@@ -32,7 +32,7 @@
                     </a>
 
                     @if(Auth::check())
-                        <a href="{{ route('receitas.edit', ['id'=>$refeicao->idRefeicao]) }}">
+                        <a href="{{ route('refeicao.edit', ['id'=>$refeicao->idRefeicao]) }}">
                             <button class="btn btn-warning btn-sm">
                                 <i class="fa fa-pencil-square" aria-hidden="true"></i> Editar
                             </button>

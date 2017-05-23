@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Refeicao;
 
+use App\Http\Controllers\Controller;
 use App\Models\Receita\Receita;
 use App\Models\Receita\ReceitaRefeicao;
 use App\Models\Refeicao\Refeicao;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 class RefeicaoController extends Controller
 {
@@ -38,7 +38,7 @@ class RefeicaoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -67,7 +67,7 @@ class RefeicaoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -78,7 +78,7 @@ class RefeicaoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -87,27 +87,40 @@ class RefeicaoController extends Controller
 
         // receitas que compõem uma refeição
         $receitas = Receita::where('ativoReceita', 1)->get();
-//        $receitaRefeicao
-        //lmebrar dop receita refeicao
-        return view('refeicao.refeicaoEditar', compact('refeicao', 'receitas'));
+        $receitaRefeicao = ReceitaRefeicao::where('idRefeicao', 1)->get()->map(function ($receita) {
+            return $receita->idReceita;
+        });
+
+        return view('refeicao.refeicaoEditar', compact('refeicao', 'receitas', 'receitaRefeicao'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        $refeicao = Refeicao::find($id);
+        $refeicao->nomeRefeicao = $request->nomeRefeicao;
+
+        $receitaRefeicao = ReceitaRefeicao::where('idRefeicao', $id)->delete();
+        foreach ($request->receitas as $index => $receita) {
+            $receitaRefeicao = new ReceitaRefeicao();
+            $receitaRefeicao->idReceita = $receita;
+            $receitaRefeicao->idRefeicao = $refeicao->idRefeicao;
+            $receitaRefeicao->save();
+        }
+
+        return redirect()->route('refeicao')->with('status', 'Refeicao atualizada com sucesso!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

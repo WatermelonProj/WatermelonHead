@@ -23,15 +23,29 @@
             </li>
 
             <li>
-                <a><i class="fa fa-spoon"></i>Refeição <span class="fa fa-chevron-down"></span></a>
+                <a><i class="fa fa-spoon"></i>Cardápio e Refeição<span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="{{ route('refeicao.create') }}">Criar Refeição</a></li>
-                    @if(Auth::check())
-                        <li><a href="#">Definir Refeição</a></li>
-                    @endif
+
+                    <li><a>Refeição<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ route('refeicao') }}">Refeições</a></li>
+                            @if(Auth::check())
+                                <li><a href="{{ route('refeicao.create') }}">Criar Refeição</a></li>
+                                {{--<li><a href="#">Definir Refeição</a></li>--}}
+                            @endif
+                        </ul>
+                    </li>
+
+                    <li><a>Cardápio<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#level2_1">Fazer Cardápio</a>
+                            </li>
+                            <li><a href="#level2_2">Histórico de mudanças</a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
         </ul>
-
     </div>
 </div>
