@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AlimentoSeeder::class);
         $this->call(nutrienteAlimentoSeeder::class);
         $this->call(FaixaEtariaSeeder::class);
+        $this->call(TipoPorcaoSeeder::class);
     }
 }

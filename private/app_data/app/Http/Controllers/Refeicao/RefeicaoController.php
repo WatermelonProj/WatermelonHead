@@ -72,7 +72,14 @@ class RefeicaoController extends Controller
      */
     public function show($id)
     {
-        //
+        $refeicao = Refeicao::find($id);
+
+        // receitas que compõem uma refeição
+        $receitaRefeicao = ReceitaRefeicao::where('idRefeicao', $id)->get()->map(function ($receita) {
+            return $receita->nomeReceita; //TODO dar continuidade na amostragem de refeição
+        });
+
+        return view('refeicao.refeicaoComponentes', compact('refeicao', 'receitaRefeicao'));
     }
 
     /**
@@ -87,7 +94,7 @@ class RefeicaoController extends Controller
 
         // receitas que compõem uma refeição
         $receitas = Receita::where('ativoReceita', 1)->get();
-        $receitaRefeicao = ReceitaRefeicao::where('idRefeicao', 1)->get()->map(function ($receita) {
+        $receitaRefeicao = ReceitaRefeicao::where('idRefeicao', $id)->get()->map(function ($receita) {
             return $receita->idReceita;
         });
 
