@@ -26,12 +26,17 @@
                         <tr class="headings">
                             <th>#</th>
                             <th>Receita</th>
+                            <th>Link para Receita</th>
                         </tr>
                         </thead>
                         @foreach($receitaRefeicao as $index => $receita)
                             <tr>
                                 <td>{{ $index }}</td>
-                                <td>{{ $receita }}</td>
+                                <td>{{ $receita->nomeReceita }}</td>
+                                <td>
+                                    <a target="_blank" href="{{ route('receitas.show', ['id' => $receita->idReceita]) }}" class="links">
+                                        Ir para receita <i class="fa fa-external-link"></i></a>
+                                </td>
                             </tr>
                         @endforeach
                     </table>

@@ -102,7 +102,6 @@
 
 @section('form_scripts')
     <script>
-//        $('document').ready(addAlm);
         $('#mselect').change(addAlm);
 
         {{-- adiciona dinâmicamente o campo para valores dos alimentos --}}

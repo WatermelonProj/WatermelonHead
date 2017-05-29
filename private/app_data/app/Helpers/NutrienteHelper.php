@@ -3,7 +3,7 @@
 
 /**
  * Retorna os nutrientes de um alimentos em formato JSON
- * 
+ *
  * @param $nutrienteAlimento
  * @return string
  */
@@ -43,3 +43,4 @@ function grafoComposicao($nutrienteAlimento)
     }
     return json_encode($toJson);
 }
+

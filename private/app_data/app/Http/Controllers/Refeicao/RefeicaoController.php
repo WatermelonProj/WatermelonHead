@@ -76,7 +76,7 @@ class RefeicaoController extends Controller
 
         // receitas que compõem uma refeição
         $receitaRefeicao = ReceitaRefeicao::where('idRefeicao', $id)->get()->map(function ($receita) {
-            return $receita->nomeReceita; //TODO dar continuidade na amostragem de refeição
+            return Receita::find($receita->idReceita); //recuperando os nomes das receitas
         });
 
         return view('refeicao.refeicaoComponentes', compact('refeicao', 'receitaRefeicao'));

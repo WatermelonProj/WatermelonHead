@@ -224,7 +224,7 @@
             Morris.Donut({
                 element: 'graph_donut',
                 data: {!! grafoComposicao($alimento->nutrienteAlimento) !!},
-                colors: shuffle(['#26B99A', '#34495E', '#ACADAC', '#3498DB', '#ff99ff', '#66ffff', '#99cc00']),
+                colors: shuffle(['#26B99A', '#34495E', '#ACADAC', '#3498DB', '#ff4852', '#66ffff', '#99cc00']),
                 formatter: function (y) {
                     return y + "%";
                 },

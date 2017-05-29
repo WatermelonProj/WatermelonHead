@@ -10,6 +10,9 @@ class Refeicao extends Model
     protected $primaryKey = 'idRefeicao';
     public $timestamps = false;
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function cardapioRefeicao() {
       return $this->hasMany('App\Models\Cardapio\cardapioRefeicao', 'idRefeicao', 'idRefeicao');
     }
