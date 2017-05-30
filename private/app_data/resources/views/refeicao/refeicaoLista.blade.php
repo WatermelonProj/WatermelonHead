@@ -26,14 +26,14 @@
             <td>
                 <div class="btn-group">
                     <a href="{{ route('refeicao.show', ['id' => $refeicao->idRefeicao]) }}">
-                        <button class="btn btn-primary btn-sm">
+                        <button class="btn btn-primary btn-xs">
                             <i class="fa fa-folder" aria-hidden="true"></i> Detalhes
                         </button>
                     </a>
 
                     @if(Auth::check())
                         <a href="{{ route('refeicao.edit', ['id'=>$refeicao->idRefeicao]) }}">
-                            <button class="btn btn-warning btn-sm">
+                            <button class="btn btn-warning btn-xs">
                                 <i class="fa fa-pencil-square" aria-hidden="true"></i> Editar
                             </button>
                         </a>
@@ -43,7 +43,7 @@
                         @if($refeicao->ativoRefeicao == 1)
                             {{-- Desativa Receita --}}
                             <a href="#">
-                                <button class="btn btn-danger btn-sm " data-toggle="modal"
+                                <button class="btn btn-danger btn-xs " data-toggle="modal"
                                         data-target="#rct-{{ $refeicao->idRefeicao }}">
                                     <i class="fa fa-minus-square" aria-hidden="true"></i> Desativar
                                 </button>

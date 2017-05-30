@@ -40,13 +40,13 @@
             <td>
                 <div class="btn-group">
                     <a href="{{ route('alimentos.show', ['id'=>$alimento->idAlimento]) }}">
-                        <button class="btn btn-primary btn-sm">
+                        <button class="btn btn-primary btn-xs">
                             <i class="fa fa-folder" aria-hidden="true"></i> Detalhes
                         </button>
                     </a>
                     @if(Auth::check())
                         <a href="{{ route('alimentos.edit', ['id'=>$alimento->idAlimento]) }}">
-                            <button class="btn btn-warning btn-sm">
+                            <button class="btn btn-warning btn-xs">
                                 <i class="fa fa-pencil-square" aria-hidden="true"></i> Editar
                             </button>
                         </a>
@@ -55,7 +55,7 @@
                     @if(Auth::check())
                         @if($alimento->ativoAlimento)
                             <a href="#">
-                                <button class="btn btn-danger btn-sm " data-toggle="modal"
+                                <button class="btn btn-danger btn-xs " data-toggle="modal"
                                         data-target="#alm-{{ $alimento->idAlimento }}">
                                     <i class="fa fa-minus-square" aria-hidden="true"></i> Desativar
                                 </button>
