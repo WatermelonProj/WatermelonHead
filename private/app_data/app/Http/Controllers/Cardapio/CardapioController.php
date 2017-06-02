@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Cardapio;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Cardapio\Cardapio;
+use App\Models\Faixa_Etaria\FaixaEtaria;
+use App\Models\Refeicao\Refeicao;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CardapioController extends Controller
 {
@@ -24,7 +28,12 @@ class CardapioController extends Controller
      */
     public function create()
     {
-        //
+        // faixas etarias
+        $faixaEtaria = FaixaEtaria::all()->pluck('descricaoFaixa', 'idFEtaria');
+        //refeições
+        $refeicoes = Refeicao::all()->pluck('nomeRefeicao', 'idRefeicao');
+
+        return view('cardapio.cardapioCriacao', compact('faixaEtaria', 'refeicoes'));
     }
 
     /**
@@ -35,7 +44,10 @@ class CardapioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cardapio = new Cardapio();
+        $cardapio->idFaixaEtaria = $request->faixaEtaria;
+        $cardapio->idUsuario = Auth::user()->id;
+//        $cardapio =
     }
 
     /**

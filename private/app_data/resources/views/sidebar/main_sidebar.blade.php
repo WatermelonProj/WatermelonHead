@@ -31,14 +31,13 @@
                             <li><a href="{{ route('refeicao') }}">Refeições</a></li>
                             @if(Auth::check())
                                 <li><a href="{{ route('refeicao.create') }}">Criar Refeição</a></li>
-                                {{--<li><a href="#">Definir Refeição</a></li>--}}
                             @endif
                         </ul>
                     </li>
 
                     <li><a>Cardápio<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="#level2_1">Fazer Cardápio</a>
+                            <li><a href="{{ route('cardapio.create') }}">Agendar Cardápio</a>
                             </li>
                             <li><a href="#level2_2">Histórico de mudanças</a>
                             </li>
