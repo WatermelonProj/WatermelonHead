@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Cardapio;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cardapio\Cardapio;
+use App\Models\Cardapio\CardapioRefeicao;
 use App\Models\Faixa_Etaria\FaixaEtaria;
 use App\Models\Refeicao\Refeicao;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,21 +41,36 @@ class CardapioController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+        //salvando, data, id do Usuario, data do cardápio
         $cardapio = new Cardapio();
-        $cardapio->idFaixaEtaria = $request->faixaEtaria;
+        $cardapio->idFEtaria = $request->faixaEtaria;
         $cardapio->idUsuario = Auth::user()->id;
-//        $cardapio =
+        //data do cardapio
+        $data = explode('/', $request->data);
+//        $hora = explode(':', $request->hora);
+        $carconbDate = Carbon::create($data[2], $data[1], $data[0]);
+        $cardapio->dataUtilizacao = $carconbDate;
+        $cardapio->save();
+
+        foreach ($request->refeicoes as $index => $refeicao) {
+            $cardapioRefeicao = new CardapioRefeicao();
+            $cardapioRefeicao->idRefeicao = $refeicao;
+            $cardapioRefeicao->idCardapio = $cardapio->idCardapio;
+            $cardapioRefeicao->save();
+        }
+
+        return redirect()->route('refeicao')->with('status', 'Cardápio agendado com sucesso!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -64,7 +81,7 @@ class CardapioController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -75,8 +92,8 @@ class CardapioController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -87,7 +104,7 @@ class CardapioController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

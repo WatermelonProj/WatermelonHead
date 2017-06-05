@@ -101,6 +101,7 @@ class AlimentoController extends Controller
                 $alimentoMedidaCaseira->save();
             }
         }
+        //TODO fechar o cadastro do cardapio, adicionando o horáro
 
         return redirect()->route('alimentos')->with('status', 'Alimento criado com sucesso!');
     }

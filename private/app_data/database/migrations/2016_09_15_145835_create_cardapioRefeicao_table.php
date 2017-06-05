@@ -14,9 +14,9 @@ class CreateCardapioRefeicaoTable extends Migration
     public function up()
     {
         Schema::create('cardapio_refeicao', function (Blueprint $table) {
-            $table->increments('idCardapioRefeicao');
             $table->integer('idCardapio')->unsigned();
             $table->integer('idRefeicao')->unsigned();
+            $table->dateTime('dataUtilizacao');
             $table->index(['idCardapio','idRefeicao']);
             $table->foreign('idCardapio')->references('idCardapio')->on('cardapio')->onDelete('cascade');
             $table->foreign('idRefeicao')->references('idRefeicao')->on('refeicao')->onDelete('cascade');
