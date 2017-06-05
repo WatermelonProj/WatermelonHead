@@ -59,15 +59,15 @@ Route::group(['prefix' => 'refeicao'], function () {
 });
 
 Route::group(['prefix' => 'cardapio'], function () {
-    Route::get('', 'Refeicao\RefeicaoController@index')->name('refeicao');
-    Route::get('/create', 'Refeicao\RefeicaoController@create')->name('refeicao.create')->middleware('auth');
-    Route::post('/store', 'Refeicao\RefeicaoController@store')->name('refeicao.store')->middleware('auth');
-    Route::get('/show/{id}', 'Refeicao\RefeicaoController@show')->name('refeicao.show')->where('id', '[0-9]+');
-    Route::get('/edit/{id}', 'Refeicao\RefeicaoController@edit')->name('refeicao.edit')->where('id', '[0-9]+')->middleware('auth');
-    Route::post('/update/{id}', 'Refeicao\RefeicaoController@update')->name('refeicao.update')->where('id', '[0-9]+')->middleware('auth');
-    Route::get('/destroy/{id}', 'Refeicao\RefeicaoController@destroy')->name('refeicao.destroy')->where('id', '[0-9]+')->middleware('auth');
-    Route::get('/disable/{id}', 'Refeicao\RefeicaoController@disable')->name('refeicao.disable')->where('id', '[0-9]+')->middleware('auth');
-    Route::get('/enable/{id}', 'Refeicao\RefeicaoController@enable')->name('refeicao.enable')->where('id', '[0-9]+')->middleware('auth');
+    Route::get('', 'Cardapio\CardapioController@index')->name('cardapio');
+    Route::get('/create', 'Cardapio\CardapioController@create')->name('cardapio.create')->middleware('auth');
+    Route::post('/store', 'Cardapio\CardapioController@store')->name('cardapio.store')->middleware('auth');
+    Route::get('/show/{id}', 'Cardapio\CardapioController@show')->name('cardapio.show')->where('id', '[0-9]+');
+    Route::get('/edit/{id}', 'Cardapio\CardapioController@edit')->name('cardapio.edit')->where('id', '[0-9]+')->middleware('auth');
+    Route::post('/update/{id}', 'Cardapio\CardapioController@update')->name('cardapio.update')->where('id', '[0-9]+')->middleware('auth');
+    Route::get('/destroy/{id}', 'Cardapio\CardapioController@destroy')->name('cardapio.destroy')->where('id', '[0-9]+')->middleware('auth');
+    Route::get('/disable/{id}', 'Cardapio\CardapioController@disable')->name('cardapio.disable')->where('id', '[0-9]+')->middleware('auth');
+    Route::get('/enable/{id}', 'Cardapio\CardapioController@enable')->name('cardapio.enable')->where('id', '[0-9]+')->middleware('auth');
 });
 
 Route::get('/', function () {
