@@ -29,12 +29,6 @@
                     <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                     <span id="inputSuccess2Status" class="sr-only">(success)</span>
                 </div>
-                {{--<div class="col-md-2 xdisplay_inputx form-group has-feedback">--}}
-                {{--{!! Form::text('hora', null, ['class'=>'form-control has-feedback-left', 'id'=>'hour',--}}
-                {{--'placeholder'=>'HH:MM', 'data-inputmask' => "'mask' : '99:99'" ,'aria-describedby'=>'inputSuccess2Status']) !!}--}}
-                {{--<span class="fa fa-clock-o form-control-feedback left" aria-hidden="true"></span>--}}
-                {{--<span id="inputSuccess2Status" class="sr-only">(success)</span>--}}
-                {{--</div>--}}
             </div>
         </div>
 
@@ -82,6 +76,10 @@
         $(document).ready(function () {
             $('#single_cal1').daterangepicker({
                 format: 'DD/MM/YYYY',
+                locale: {
+                    daysOfWeek: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
+                    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                },
                 singleDatePicker: true,
                 calender_style: "picker_1"
             }, function (start, end, label) {
@@ -99,12 +97,12 @@
             $('#date').empty();
             for (i = 0; i < refeicoes.length; i++) {
                 $('#date').append(
-                    "<div class='form-group col-md-6 col-sm-6 col-xs-12'>" +
-                    "<label for='refeicao' class='control-label col-md-3 col-sm-3 col-xs-12'>" + refeicoes[i].text + "</label>" +
-                    "<div class='col-md-4 col-sm-4 col-xs-12'>" +
-                    "<input name=" + refeicoes[i].value + " type='number' class='form-control', step='0.01', data-parsley='number'"  +
-                    "data-parsley-required='data-parsley-required', data-parsley-required-message='Preencha este Campo!'>" +
-                    "</div>" +
+                    "<div class=\'form-group col-md-6 col-sm-6 col-xs-12\'>\n    " +
+                    "<label for=\'refeicao\' class=\'control-label col-md-3 col-sm-3 col-xs-12\'>" + refeicoes[i].text + "</label>\n    " +
+                    "<div class=\'col-md-4 col-sm-4 col-xs-12\'>\n        " +
+                    "<input name=" + refeicoes[i].value + " type=\'text\' class=\'form-control\'"  +
+                    " placeholder=\'HH:MM\'\n               pattern=\'[0-9][0-9]:[0-9][0-9]\' data-parsley-required data-parsley-pattern-message=\'Insira a hora no seguinte formato : Hora/Minuto(s)\'>\n    " +
+                    "</div>\n" +
                     "</div>"
                 );
             }

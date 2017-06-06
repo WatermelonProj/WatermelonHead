@@ -17,6 +17,7 @@ class CreateCardapioTable extends Migration
             $table->increments('idCardapio');
             $table->integer('idFEtaria')->unsigned();
             $table->integer('idUsuario')->unsigned();
+            $table->dateTime('dataUtilizacao');
             $table->timestamps();
             $table->foreign('idFEtaria')->references("idFEtaria")->on("faixaEtaria")->onDelete('cascade');
             $table->foreign('idUsuario')->references("id")->on("users")->onDelete('cascade');

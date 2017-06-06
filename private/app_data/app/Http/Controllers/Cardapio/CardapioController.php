@@ -20,7 +20,12 @@ class CardapioController extends Controller
      */
     public function index()
     {
-        //
+
+        // dividindo os cardapios, lactante, PRE, CMEI, Fundamental
+        $lactante = Cardapio::where('idFEtaria', 1)->get();
+        $PRE = Cardapio::where('idFEtaria', 2)->get();
+        $CMEI = Cardapio::where('idFEtaria', 3)->get();
+        $fundamental = Cardapio::where('idFEtaria', 4)->get();
     }
 
     /**
@@ -46,21 +51,23 @@ class CardapioController extends Controller
      */
     public function store(Request $request)
     {
-        //salvando, data, id do Usuario, data do cardápio
+        // salvando, data, id do Usuario, data do cardápio
         $cardapio = new Cardapio();
         $cardapio->idFEtaria = $request->faixaEtaria;
         $cardapio->idUsuario = Auth::user()->id;
-        //data do cardapio
         $data = explode('/', $request->data);
-//        $hora = explode(':', $request->hora);
-        $carconbDate = Carbon::create($data[2], $data[1], $data[0]);
-        $cardapio->dataUtilizacao = $carconbDate;
+        $cardapio->dataUtilizacao = Carbon::create($data[2], $data[1], $data[0]);
         $cardapio->save();
 
         foreach ($request->refeicoes as $index => $refeicao) {
             $cardapioRefeicao = new CardapioRefeicao();
             $cardapioRefeicao->idRefeicao = $refeicao;
             $cardapioRefeicao->idCardapio = $cardapio->idCardapio;
+
+            // data do cardapio
+            $hora = explode(':', $request[$refeicao]);
+            $carconbDate = Carbon::create($data[2], $data[1], $data[0], $hora[0], $hora[1]);
+            $cardapioRefeicao->dataUtilizacao = $carconbDate;
             $cardapioRefeicao->save();
         }
 

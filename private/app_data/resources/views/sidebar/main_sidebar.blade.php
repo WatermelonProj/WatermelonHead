@@ -37,9 +37,17 @@
 
                     <li><a>Cardápio<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{{ route('cardapio.create') }}">Agendar Cardápio</a>
+                            <li>
+                                <a href="{{ route('cardapio.create') }}">Agendar Cardápio</a>
                             </li>
-                            <li><a href="#level2_2">Histórico de mudanças</a>
+                            <li>
+                                <a href="#">Vizualisar Cardápios</a>
+                            </li>
+                            <li>
+                                <a href="#">Histórico de mudanças</a>
+                            </li>
+                            <li>
+                                <a href="#">Histórico de mudanças</a>
                             </li>
                         </ul>
                     </li>
