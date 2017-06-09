@@ -22,10 +22,24 @@ class CardapioController extends Controller
     {
 
         // dividindo os cardapios, lactante, PRE, CMEI, Fundamental
-        $lactante = Cardapio::where('idFEtaria', 1)->get();
-        $PRE = Cardapio::where('idFEtaria', 2)->get();
-        $CMEI = Cardapio::where('idFEtaria', 3)->get();
-        $fundamental = Cardapio::where('idFEtaria', 4)->get();
+        $cardapios = [];
+        $faixa = new FaixaEtaria();
+
+        if(Cardapio::where('idFEtaria', 1)->get()) {
+            array_push($cardapios, Cardapio::where('idFEtaria', 1)->get());
+        }
+        if(Cardapio::where('idFEtaria', 2)->get()) {
+            array_push($cardapios, Cardapio::where('idFEtaria', 2)->get());
+        }
+        if(Cardapio::where('idFEtaria', 3)->get()) {
+            array_push($cardapios, Cardapio::where('idFEtaria', 3)->get());
+        }
+        if(Cardapio::where('idFEtaria', 4)->get()) {
+            array_push($cardapios, Cardapio::where('idFEtaria', 4)->get());
+        }
+
+
+        return view('cardapio.cardapioLista', compact('cardapios', 'faixa'));
     }
 
     /**
@@ -71,7 +85,7 @@ class CardapioController extends Controller
             $cardapioRefeicao->save();
         }
 
-        return redirect()->route('refeicao')->with('status', 'Cardápio agendado com sucesso!');
+        return redirect()->route('cardapio')->with('status', 'Cardápio agendado com sucesso!');
     }
 
     /**

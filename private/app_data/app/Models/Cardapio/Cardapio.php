@@ -10,8 +10,8 @@ class Cardapio extends Model
     protected $primaryKey = 'idCardapio';
     public $timestamps = true;
 
-    public function cardapioReceicao() {
-      return $this->hasMany('App\Models\Cardapio\CardapioReceicao', 'idCardapio', 'idCardapio');
+    public function cardapioRefeicao() {
+      return $this->hasMany('App\Models\Cardapio\CardapioRefeicao', 'idCardapio', 'idCardapio');
     }
 
     public function faixaEtaria() {

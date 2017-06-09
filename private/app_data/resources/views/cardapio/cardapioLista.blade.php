@@ -1,127 +1,72 @@
-@extends('layouts.dataTable')
+@extends('layouts.app')
 
-@section('page_title', 'Receitas <small> Lista de receitas disponíveis</small>')
-
-@section('buttons_top')
-    <a href="{{ route('receitas.create') }}">
-        <button class="btn btn-primary pull-right">
-            <i class="fa fa-plus" aria-hidden="true"></i>
-            Adicionar Receita
-        </button>
-        <div class="clearfix"></div>
-    </a>
-@endsection
-
-@section('table_head')
-    <tr>
-        <th>Id</th>
-        <th>Receita</th>
-        <th>Criada Por</th>
-        <th>Ação</th>
-    </tr>
-@endsection
-
-@section('table_body')
-    @foreach($receitas as $receita)
-        <tr>
-            <td>{{ $receita->idReceita }}</td>
-            <td>{{ $receita->nomeReceita }}</td>
-            <td>{{ $receita->user["name"] }}</td>
-            <td>
-                <div class="btn-group">
-                    <a href="{{ route('receitas.show', ['id' => $receita->idReceita]) }}">
-                        <button class="btn btn-primary btn-xs">
-                            <i class="fa fa-folder" aria-hidden="true"></i> Detalhes
-                        </button>
-                    </a>
-
-                    @if(Auth::check())
-                        <a href="{{ route('receitas.edit', ['id'=>$receita->idReceita]) }}">
-                            <button class="btn btn-warning btn-xs">
-                                <i class="fa fa-pencil-square" aria-hidden="true"></i> Editar
-                            </button>
-                        </a>
-                    @endif
-
-                    @if((Auth::check()) && (Auth::user()->id === $receita->user['id']))
-                        @if($receita->ativoReceita == 1)
-                            {{-- Desativa Receita --}}
-                            <a href="#">
-                                <button class="btn btn-danger btn-xs " data-toggle="modal"
-                                        data-target="#rct-{{ $receita->idReceita }}">
-                                    <i class="fa fa-minus-square" aria-hidden="true"></i> Desativar
-                                </button>
-                            </a>
-
-                            <div id="rct-{{ $receita->idReceita }}" class="modal fade bs-example-modal-sm" tabindex="-1"
-                                 role="dialog" aria-hidden="true">
-                                <div class="modal-dialog modal-sm">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                            </button>
-                                            <h4 class="modal-title" id="myModalLabel2">DESABILITAR RECEITA</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <h4>Você deseja desabilitar esta receita?</h4>
-                                            <p>É possível habilitar esta receita novamente por esta mesma tela.</p>
-                                            <p>Você deseja continuar?</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar
-                                            </button>
-                                            <a href="{{ route('receitas.disable', ['id' => $receita->idReceita]) }}">
-                                                <button type="button" class="btn btn-danger">Desabilitar</button>
-                                            </a>
-                                        </div>
-                                    </div>
+@section('content')
+    <div class="row">
+        {{--Percorrendo as faixas etárias--}}
+        @foreach($cardapios as $index => $cardapioFE)
+            <div class="col-md-4" style="min-height: 600px;">
+                <div class="x_panel">
+                    <div class="x_title">
+                        {{--Descrição da Faixa Etaria--}}
+                        <h2>{{ $faixa::find($cardapioFE->first()['idFEtaria'])['descricaoFaixa'] }}
+                        </h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                   aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Settings 1</a>
+                                    </li>
+                                    <li><a href="#">Settings 2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        {{--percorrendo os cardapios das faixas etárias--}}
+                        @foreach($cardapioFE as $cardapio)
+                            <article class="media event">
+                                {{--Data do cardápio--}}
+                                <a class="pull-left date">
+                                    <p class="month">{{ toCarbon($cardapio->dataUtilizacao)->formatLocalized('%b') }}</p>
+                                    <p class="day">{{ toCarbon($cardapio->dataUtilizacao)->day }}</p>
+                                </a>
+                                {{--Refeições do cardápio--}}
+                                <div class="media-body">
+                                    <table class="table">
+                                        <thead>
+                                        <th>Refeição</th>
+                                        <th>Horário</th>
+                                        </thead>
+                                        @foreach($cardapio->cardapioRefeicao as $refeicao)
+                                            <tr>
+                                                <td>
+                                                    <a target="_blank" class="title pull-left"
+                                                       href="{{ route('refeicao.show', ['id' => $refeicao->idRefeicao]) }}">
+                                                        {{$refeicao->refeicao->nomeRefeicao}}
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <p class="pull-left ">
+                                                        Horário: {{ toCarbon($refeicao->dataUtilizacao)->toTimeString() }}</p>
+                                                    <br>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
                                 </div>
-                            </div>
-                        @else
-                            {{-- Ativa Receita --}}
-                            <a href="#">
-                                <button class="btn btn-success btn-sm " data-toggle="modal"
-                                        data-target="#rct-{{ $receita->idReceita }}">
-                                    <i class="fa fa-plus-square" aria-hidden="true"></i> Ativar
-                                </button>
-                            </a>
-
-                            <div id="rct-{{ $receita->idReceita }}" class="modal fade bs-example-modal-sm" tabindex="-1"
-                                 role="dialog" aria-hidden="true">
-                                <div class="modal-dialog modal-sm">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">×</span>
-                                            </button>
-                                            <h4 class="modal-title" id="myModalLabel2">HABILITAR RECEITA</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <h4>Você deseja reativar esta receita?</h4>
-                                            <p>É possível desativar esta receita novamente por esta mesma tela.</p>
-                                            <p>Você deseja continuar?</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar
-                                            </button>
-                                            <a href="{{ route('receitas.enable', ['id' => $receita->idReceita]) }}">
-                                                <button type="button" class="btn btn-success">Ativar</button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endif
-                    @else
-                        <a href="#">
-                            <button class="btn btn-danger btn-sm disabled">
-                                <i class="fa fa-minus-square" aria-hidden="true"></i> Desativar
-                            </button>
-                        </a>
-                    @endif
+                            </article>
+                            <div class="clearfix"></div>
+                        @endforeach
+                    </div>
                 </div>
-            </td>
-        </tr>
-    @endforeach
+            </div>
+        @endforeach
+    </div>
 @endsection
