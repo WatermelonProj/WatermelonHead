@@ -132,6 +132,6 @@ class RefeicaoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Wtodo ao destruir uma refeição remove-las também do cardápio
     }
 }

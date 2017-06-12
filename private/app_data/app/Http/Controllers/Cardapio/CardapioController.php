@@ -20,26 +20,39 @@ class CardapioController extends Controller
      */
     public function index()
     {
-
         // dividindo os cardapios, lactante, PRE, CMEI, Fundamental
         $cardapios = [];
         $faixa = new FaixaEtaria();
+        $dataAtual = Carbon::Now();
 
-        if(Cardapio::where('idFEtaria', 1)->get()) {
-            array_push($cardapios, Cardapio::where('idFEtaria', 1)->get());
+        if (Cardapio::where('idFEtaria', 1)->get()) {
+            array_push($cardapios, Cardapio::where('idFEtaria', 1)->whereMonth('dataUtilizacao', '=', $dataAtual->month)
+                ->whereDay('dataUtilizacao', '>=', $dataAtual->day)->orderBy('dataUtilizacao', 'asc')->get());
         }
-        if(Cardapio::where('idFEtaria', 2)->get()) {
-            array_push($cardapios, Cardapio::where('idFEtaria', 2)->get());
+        if (Cardapio::where('idFEtaria', 2)->get()) {
+            array_push($cardapios, Cardapio::where('idFEtaria', 2)->whereMonth('dataUtilizacao', '=', $dataAtual->month)
+                ->whereDay('dataUtilizacao', '>=', $dataAtual->day)->orderBy('dataUtilizacao', 'asc')->get());
         }
-        if(Cardapio::where('idFEtaria', 3)->get()) {
-            array_push($cardapios, Cardapio::where('idFEtaria', 3)->get());
+        if (Cardapio::where('idFEtaria', 3)->get()) {
+            array_push($cardapios, Cardapio::where('idFEtaria', 3)->whereMonth('dataUtilizacao', '=', $dataAtual->month)
+                ->whereDay('dataUtilizacao', '>=', $dataAtual->day)->orderBy('dataUtilizacao', 'asc')->get());
         }
-        if(Cardapio::where('idFEtaria', 4)->get()) {
-            array_push($cardapios, Cardapio::where('idFEtaria', 4)->get());
+        if (Cardapio::where('idFEtaria', 4)->get()) {
+            array_push($cardapios, Cardapio::where('idFEtaria', 4)->whereMonth('dataUtilizacao', '=', $dataAtual->month)
+                ->whereDay('dataUtilizacao', '>=', $dataAtual->day)->orderBy('dataUtilizacao', 'asc')->get());
         }
 
 
         return view('cardapio.cardapioLista', compact('cardapios', 'faixa'));
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function all()
+    {
+        $cardapios = Cardapio::all();
+        return view('cardapio.cardapioListaTodos', compact('cardapios'));
     }
 
     /**
@@ -107,7 +120,20 @@ class CardapioController extends Controller
      */
     public function edit($id)
     {
-        //
+        // recuperando o cardapio
+        $cardapio = Cardapio::find($id);
+        $cardapioRefeicoes = CardapioRefeicao::where('idCardapio', $id)->get();
+
+        // faixas etarias
+        $faixaEtaria = FaixaEtaria::all()->pluck('descricaoFaixa', 'idFEtaria');
+        //refeições
+        $refeicoes = Refeicao::all()->pluck('nomeRefeicao', 'idRefeicao');
+        $refeicoesContidas = $cardapio->cardapioRefeicao->map(function ($item) {
+            return $item->idRefeicao;
+        })->toArray();
+
+        return view('cardapio.cardapioEditar', compact('cardapio', 'cardapioRefeicoes', 'refeicoes',
+            'faixaEtaria', 'refeicoesContidas'));
     }
 
     /**

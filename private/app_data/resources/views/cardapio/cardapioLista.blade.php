@@ -4,26 +4,22 @@
     <div class="row">
         {{--Percorrendo as faixas etárias--}}
         @foreach($cardapios as $index => $cardapioFE)
-            <div class="col-md-4" style="min-height: 600px;">
+            {{-- Ó AS GAMBI--}}
+            @if($index > 2)
+                <div class="clearfix"></div>
+            @endif
+            <div class="col-md-4 pull-left">
                 <div class="x_panel">
                     <div class="x_title">
                         {{--Descrição da Faixa Etaria--}}
                         <h2>{{ $faixa::find($cardapioFE->first()['idFEtaria'])['descricaoFaixa'] }}
                         </h2>
                         <ul class="nav navbar-right panel_toolbox">
-                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            <li>
+                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                   aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Settings 1</a>
-                                    </li>
-                                    <li><a href="#">Settings 2</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            <li>
+                                <a class="close-link"><i class="fa fa-close"></i></a>
                             </li>
                         </ul>
                         <div class="clearfix"></div>
@@ -43,6 +39,13 @@
                                         <thead>
                                         <th>Refeição</th>
                                         <th>Horário</th>
+                                        <th>
+                                            <a href="{{ route('cardapio.edit', ['id' => $cardapio->idCardapio]) }}">
+                                                <button class="btn btn-warning btn-xs">
+                                                    <i class="fa fa-pencil-square" aria-hidden="true"></i> Editar
+                                                </button>
+                                            </a>
+                                        </th>
                                         </thead>
                                         @foreach($cardapio->cardapioRefeicao as $refeicao)
                                             <tr>
@@ -69,4 +72,24 @@
             </div>
         @endforeach
     </div>
+@endsection
+
+@section('scripts')
+    @if (session('status'))
+        <script>
+            $(document).ready(function () {
+                new PNotify({
+                    title: "Sucesso!",
+                    type: "success",
+                    text: "{!! session('status') !!}",
+                    nonblock: {
+                        nonblock: true
+                    },
+                    styling: 'bootstrap3',
+                    hide: true
+                });
+
+            });
+        </script>
+    @endif
 @endsection

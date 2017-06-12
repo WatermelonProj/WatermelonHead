@@ -57,7 +57,9 @@
             };
         }();
 
-        $('#datatable').dataTable();
+        $('#datatable').dataTable({
+            format:    'DD-MM-YYYY'
+        });
         $('#datatable-keytable').DataTable({
             keys: true
         });

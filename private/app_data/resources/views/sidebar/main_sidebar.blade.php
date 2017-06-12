@@ -41,10 +41,10 @@
                                 <a href="{{ route('cardapio.create') }}">Agendar Cardápio</a>
                             </li>
                             <li>
-                                <a href="{{ route('cardapio') }}">Vizualisar Cardápios</a>
+                                <a href="{{ route('cardapio') }}">Vizualisar Cardápio Semanal</a>
                             </li>
                             <li>
-                                <a href="#">Histórico de mudanças</a>
+                                <a href="{{ route('cardapio.all') }}">Histórico de Cardápios</a>
                             </li>
                             <li>
                                 <a href="#">Histórico de mudanças</a>
