@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Refeicao;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cardapio\CardapioRefeicao;
 use App\Models\Receita\Receita;
 use App\Models\Receita\ReceitaRefeicao;
 use App\Models\Refeicao\Refeicao;
@@ -130,8 +131,17 @@ class RefeicaoController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function disable($id)
     {
-        // Wtodo ao destruir uma refeição remove-las também do cardápio
+        $refeicao = Refeicao::find($id);
+        $refeicao->ativoRefeicao = 0;
+        $refeicao->save();
+    }
+
+    public function enable($id)
+    {
+        $refeicao = Refeicao::find($id);
+        $refeicao->ativoRefeicao = 1;
+        $refeicao->save();
     }
 }

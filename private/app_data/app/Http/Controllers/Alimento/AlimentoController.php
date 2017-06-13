@@ -262,7 +262,6 @@ class AlimentoController extends Controller
             $receitaDesativada->save();
         }
 
-
         return redirect()->route('alimentos')->with('status', 'Alimento desabilitado!');
     }
 }

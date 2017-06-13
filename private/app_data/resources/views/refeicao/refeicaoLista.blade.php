@@ -41,7 +41,6 @@
 
                     @if((Auth::check()))
                         @if($refeicao->ativoRefeicao == 1)
-                            {{-- Desativa Receita --}}
                             <a href="#">
                                 <button class="btn btn-danger btn-xs " data-toggle="modal"
                                         data-target="#rct-{{ $refeicao->idRefeicao }}">
@@ -101,7 +100,7 @@
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar
                                             </button>
-                                            <a href="{{ route('receitas.enable', ['id' => $refeicao->idRefeicao]) }}">
+                                            <a href="{{ route('refeicao.enable', ['id' => $refeicao->idRefeicao]) }}">
                                                 <button type="button" class="btn btn-success">Ativar</button>
                                             </a>
                                         </div>
