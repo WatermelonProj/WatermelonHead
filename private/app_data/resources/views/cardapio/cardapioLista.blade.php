@@ -5,8 +5,10 @@
         {{--Percorrendo as faixas etárias--}}
         @foreach($cardapios as $index => $cardapioFE)
             {{-- Ó AS GAMBI--}}
-            @if($index > 2)
+            <?php $count = 0 ?>
+            @if($count == 3)
                 <div class="clearfix"></div>
+                <?php $count = 0 ?>
             @endif
             <div class="col-md-4 pull-left">
                 <div class="x_panel">
@@ -70,6 +72,7 @@
                     </div>
                 </div>
             </div>
+            <?php $count++; ?>
         @endforeach
     </div>
 @endsection

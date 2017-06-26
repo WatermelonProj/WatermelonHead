@@ -17,12 +17,14 @@ class FaixaEtaria extends Model
 
     public function nutrientesPorFaixa()
     {
-        return $this->hasMany('App\Models\Nutrientes\NutrientePorFaixa', 'idFEtaria');
+        return $this->hasMany('App\Models\Nutriente\NutrientesPorFaixa', 'idFEtaria');
     }
 
     public function receitaPorcao()
     {
         return $this->hasMany('App\Models\Porcao\TipoPorcao', 'idFEtaria');
     }
+
+
 
 }

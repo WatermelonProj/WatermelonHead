@@ -25,23 +25,14 @@ class CardapioController extends Controller
         $faixa = new FaixaEtaria();
         $dataAtual = Carbon::Now();
 
-        if (Cardapio::where('idFEtaria', 1)->get()) {
-            array_push($cardapios, Cardapio::where('idFEtaria', 1)->whereMonth('dataUtilizacao', '=', $dataAtual->month)
-                ->whereDay('dataUtilizacao', '>=', $dataAtual->day)->orderBy('dataUtilizacao', 'asc')->get());
+        foreach (FaixaEtaria::get() as $index => $faixaEtaria) {
+            $item = Cardapio::where('idFEtaria', $faixaEtaria->idFEtaria)
+                ->whereMonth('dataUtilizacao', '=', $dataAtual->month)
+                ->whereDay('dataUtilizacao', '>=', $dataAtual->day)->orderBy('dataUtilizacao', 'asc')->get();
+            if (sizeof($item) > 0) {
+                array_push($cardapios, $item);
+            }
         }
-        if (Cardapio::where('idFEtaria', 2)->get()) {
-            array_push($cardapios, Cardapio::where('idFEtaria', 2)->whereMonth('dataUtilizacao', '=', $dataAtual->month)
-                ->whereDay('dataUtilizacao', '>=', $dataAtual->day)->orderBy('dataUtilizacao', 'asc')->get());
-        }
-        if (Cardapio::where('idFEtaria', 3)->get()) {
-            array_push($cardapios, Cardapio::where('idFEtaria', 3)->whereMonth('dataUtilizacao', '=', $dataAtual->month)
-                ->whereDay('dataUtilizacao', '>=', $dataAtual->day)->orderBy('dataUtilizacao', 'asc')->get());
-        }
-        if (Cardapio::where('idFEtaria', 4)->get()) {
-            array_push($cardapios, Cardapio::where('idFEtaria', 4)->whereMonth('dataUtilizacao', '=', $dataAtual->month)
-                ->whereDay('dataUtilizacao', '>=', $dataAtual->day)->orderBy('dataUtilizacao', 'asc')->get());
-        }
-
 
         return view('cardapio.cardapioLista', compact('cardapios', 'faixa'));
     }

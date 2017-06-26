@@ -24,4 +24,5 @@ class Cardapio extends Model
     {
         return $this->belongsTo('App\User', 'idUsuario', 'id');
     }
+
 }
