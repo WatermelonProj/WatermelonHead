@@ -47,7 +47,7 @@
                                 <a href="{{ route('cardapio.all') }}">Histórico de Cardápios</a>
                             </li>
                             <li>
-                                <a href="#">Histórico de mudanças</a>
+                                <a href="#">Relatórios mensais</a>
                             </li>
                         </ul>
                     </li>

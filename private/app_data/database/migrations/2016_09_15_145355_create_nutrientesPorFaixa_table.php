@@ -21,7 +21,7 @@ class CreateNutrientesPorFaixaTable extends Migration
             $table->index(['idFEtaria','idNutriente']);
             $table->foreign('idFEtaria')->references('idFEtaria')->on('faixaEtaria')->onDelete('cascade');
             $table->foreign('idNutriente')->references('idNutriente')->on('nutriente')->onDelete('cascade');
-            $table->timestamps();
+//            $table->timestamps();
         });
     }
 

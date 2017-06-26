@@ -158,4 +158,12 @@ class CardapioController extends Controller
     {
         //
     }
+
+    /**
+     * Realiza a Soma total
+     */
+    public function total()
+    {
+
+    }
 }

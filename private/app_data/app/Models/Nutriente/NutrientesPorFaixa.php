@@ -8,7 +8,7 @@ class NutrientesPorFaixa extends Model
 {
     protected $table = 'nutrientesPorFaixa';
     // protected $primaryKey = 'idNutriente';
-    public $timestamps = false;
+//    public $timestamps = false;
 
     public function nutriente()
     {
