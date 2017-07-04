@@ -157,6 +157,6 @@ class CardapioController extends Controller
      */
     public function total()
     {
-        Receita::first()->getNutrientes();
+        dump(Cardapio::first()->getTotalNutrientes());
     }
 }

@@ -2,13 +2,14 @@
 
 namespace App\Models\Receita;
 
+use App\Models\Nutriente\Nutriente;
 use Illuminate\Database\Eloquent\Model;
 
 class Receita extends Model
 {
+    public $timestamps = true;
     protected $table = 'receita';
     protected $primaryKey = 'idReceita';
-    public $timestamps = true;
 
     public function alimentoReceita()
     {
@@ -25,26 +26,39 @@ class Receita extends Model
         return $this->hasMany('\App\Models\Receita\ReceitaRefeicao', 'idReceita');
     }
 
+    public function receitaPorcao()
+    {
+        return $this->hasMany('\App\Models\Porcao\ReceitaPorcao', 'idReceita');
+    }
+
     /**
      * Retorna os nutrientes contidos na receita atual
      */
-    public function getNutrientes()
+    public function getNutrientes($idFEtaria)
     {
-        $quantidadeNutrientes = [];
+        $quantidadeNutrientes = Nutriente::all()->pluck('0', 'idNutriente');
+
+        $porcao = $this->receitaPorcao->where('idFEtaria', $idFEtaria)->first()->qtde;
 
         // P/ cada alimento da receita
         foreach ($this->alimentoReceita as $index => $alimentoReceita) {
             foreach ($alimentoReceita->alimento->nutrienteAlimento as $nutrienteAlimento) {
                 // realiza a soma dos nutrientes e retorna uma array com a quantidade de nutrientes, sendo o indice o id do nutriente
-                if (!array_key_exists($nutrienteAlimento->idNutriente, $quantidadeNutrientes)) {
-                    $quantidadeNutrientes[$nutrienteAlimento->idNutriente] = 0;
-                }
-
                 $quantidadeNutrientes[$nutrienteAlimento->idNutriente] +=
-                    $alimentoReceita->qtde * ($nutrienteAlimento->qtde/100);
+                    ($alimentoReceita->qtde * ($nutrienteAlimento->qtde / 100)) / $porcao;
             }
         }
 
         return $quantidadeNutrientes;
+    }
+
+    /**
+     * Retorna a quantidade de porcao de acordo com o id da faixa etaria fornecida
+     *
+     * @param $idFEtaria
+     */
+    public function getPorcao($idFEtaria)
+    {
+        return $this->receitaPorcao->where('idFEtaria', $idFEtaria)->first()->qtde;
     }
 }

@@ -10,13 +10,19 @@ class ReceitaRefeicao extends Model
     // protected $primaryKey = 'idNutriente';
     public $timestamps = false;
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function receita()
     {
         return $this->belongsTo('\App\Models\Receita\Receita', 'idReceita');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function refeicao()
     {
-        return $this->belongsTo('\App\Models\Receita\ReceitaRefeicao', 'idRefeicao');
+        return $this->belongsTo('\App\Models\Refeicao\Refeicao', 'idRefeicao');
     }
 }

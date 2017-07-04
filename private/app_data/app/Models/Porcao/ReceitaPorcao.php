@@ -18,4 +18,9 @@ class ReceitaPorcao extends Model
     {
         return $this->belongsTo('App\Models\Faixa_Etaria\FaixaEtaria', 'idFEtaria');
     }
+
+    public function receita()
+    {
+        return $this->belongsTo('App\Models\Receita\Receita');
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models\Cardapio;
 
+use App\Models\Nutriente\Nutriente;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -45,10 +46,18 @@ class Cardapio extends Model
         return $this->belongsTo('App\User', 'idUsuario', 'id');
     }
 
+    // TODO testar se os valores das somas dos nutrientes diários estão corretas, realizar testes com cardapio com mais de uma refeicao
     public function getTotalNutrientes()
     {
+        $somaNutrientesDiarios = Nutriente::all()->pluck(0, 'idNutriente');
         //recuperando topdas as refeições que compões o cardapio
-        dump('metodfo');
+        foreach ($this->cardapioRefeicao as $cardapioRefeicao) {
+            $nutrientes = $cardapioRefeicao->refeicao->getSomaNutrientes($this->idFEtaria);
+            foreach ($somaNutrientesDiarios as $index => $somaNutrientesDiario) {
+                $somaNutrientesDiarios[$index] += $nutrientes[$index];
+            }
+        }
+        return $somaNutrientesDiarios;
     }
 
 }
