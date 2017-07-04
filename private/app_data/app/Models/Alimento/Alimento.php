@@ -12,6 +12,18 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \App\Models\Grupo\GrupoPiramide $grupoPiramide
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Nutriente\NutrienteAlimento[] $nutrienteAlimento
  * @mixin \Eloquent
+ * @property int $idAlimento
+ * @property bool $ativoAlimento
+ * @property int $idGAlimentar
+ * @property int $idGPiramide
+ * @property string $descricaoAlimento
+ * @property int $idTACO
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Alimento\Alimento whereAtivoAlimento($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Alimento\Alimento whereDescricaoAlimento($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Alimento\Alimento whereIdAlimento($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Alimento\Alimento whereIdGAlimentar($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Alimento\Alimento whereIdGPiramide($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Alimento\Alimento whereIdTACO($value)
  */
 class Alimento extends Model
 {

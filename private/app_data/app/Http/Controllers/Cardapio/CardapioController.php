@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Cardapio;
 
 use App\Http\Controllers\Controller;
+use App\Models\Alimento\AlimentoReceita;
 use App\Models\Cardapio\Cardapio;
 use App\Models\Cardapio\CardapioRefeicao;
 use App\Models\Faixa_Etaria\FaixaEtaria;
+use App\Models\Receita\Receita;
 use App\Models\Refeicao\Refeicao;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -155,6 +157,6 @@ class CardapioController extends Controller
      */
     public function total()
     {
-
+        Receita::first()->getNutrientes();
     }
 }

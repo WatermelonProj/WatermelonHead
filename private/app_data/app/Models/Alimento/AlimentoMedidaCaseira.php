@@ -11,6 +11,14 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \App\Models\Medida\TipoMedidaCaseira $tipoMedidaCaseira
  * @property-read \App\Models\Medida\UnidadeMedida $unidadeMedida
  * @mixin \Eloquent
+ * @property int $idAlimento
+ * @property int $idTMCaseira
+ * @property int $tipoUnidade
+ * @property float $qtde
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Alimento\AlimentoMedidaCaseira whereIdAlimento($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Alimento\AlimentoMedidaCaseira whereIdTMCaseira($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Alimento\AlimentoMedidaCaseira whereQtde($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Alimento\AlimentoMedidaCaseira whereTipoUnidade($value)
  */
 class AlimentoMedidaCaseira extends Model
 {
