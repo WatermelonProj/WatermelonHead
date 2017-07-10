@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('links')
+    @include('imports.pnotify_links')
+@endsection
+
 @section('content')
     <div class="row">
         {{--Percorrendo as faixas etárias--}}
@@ -78,6 +82,7 @@
 @endsection
 
 @section('scripts')
+    @include('imports.pnotify_script')
     @if (session('status'))
         <script>
             $(document).ready(function () {

@@ -7,7 +7,7 @@
 @endsection
 
 @section('form_section')
-    {!! Form::open(['route'=>'cardapio.store', 'class'=>'form-horizontal form-label-left', 'id'=> 'cadastro-form',
+    {!! Form::open(['route'=>['cardapio.update', 'id' => $cardapio->idCardapio], 'class'=>'form-horizontal form-label-left', 'id'=> 'cadastro-form',
      'data-parsley-validate', 'files' => 'true']) !!}
 
     {{--Faixa Etaria--}}

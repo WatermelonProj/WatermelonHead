@@ -133,9 +133,12 @@ class RefeicaoController extends Controller
      */
     public function disable($id)
     {
+        // todo ao desativar uma refeição, desativa-la tbm no cardapio e na criação
         $refeicao = Refeicao::find($id);
         $refeicao->ativoRefeicao = 0;
         $refeicao->save();
+        return redirect()->route('refeicao')->with('status', 'Refeicao desativada com sucesso!');
+
     }
 
     public function enable($id)
@@ -143,5 +146,6 @@ class RefeicaoController extends Controller
         $refeicao = Refeicao::find($id);
         $refeicao->ativoRefeicao = 1;
         $refeicao->save();
+        return redirect()->route('refeicao')->with('status', 'Refeicao ativada com sucesso!');
     }
 }

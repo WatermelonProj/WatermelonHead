@@ -44,9 +44,9 @@ class Cardapio extends Model
     public function usuario()
     {
         return $this->belongsTo('App\User', 'idUsuario', 'id');
+
     }
 
-    // TODO testar se os valores das somas dos nutrientes diários estão corretas, realizar testes com cardapio com mais de uma refeicao
     public function getTotalNutrientes()
     {
         $somaNutrientesDiarios = Nutriente::all()->pluck(0, 'idNutriente');

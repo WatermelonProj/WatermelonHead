@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Cardapio;
 
 use App\Http\Controllers\Controller;
-use App\Models\Alimento\AlimentoReceita;
 use App\Models\Cardapio\Cardapio;
 use App\Models\Cardapio\CardapioRefeicao;
 use App\Models\Faixa_Etaria\FaixaEtaria;
-use App\Models\Receita\Receita;
 use App\Models\Refeicao\Refeicao;
 use Carbon\Carbon;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -71,6 +70,7 @@ class CardapioController extends Controller
      */
     public function store(Request $request)
     {
+        //todo ao agendar novo cardapio verificar se ja existe algum no mesmo dia, se sim confirmar a sobrescrição
         // salvando, data, id do Usuario, data do cardápio
         $cardapio = new Cardapio();
         $cardapio->idFEtaria = $request->faixaEtaria;
@@ -138,7 +138,28 @@ class CardapioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $cardapio = Cardapio::find($id);
+        $cardapio->idFEtaria = $request->faixaEtaria;
+        $data = explode('/', $request->data);
+        $cardapio->dataUtilizacao = Carbon::create($data[2], $data[1], $data[0]);
+        $cardapio->save();
+
+        DB::table('cardapio_refeicao')->where('idCardapio', $cardapio->idCardapio)->delete();
+
+        foreach ($request->refeicoes as $index => $refeicao) {
+            $cardapioRefeicao = new CardapioRefeicao();
+            $cardapioRefeicao->idRefeicao = $refeicao;
+            $cardapioRefeicao->idCardapio = $cardapio->idCardapio;
+
+            // data do cardapio
+            $hora = explode(':', $request[$refeicao]);
+            $carconbDate = Carbon::create($data[2], $data[1], $data[0], $hora[0], $hora[1]);
+            $cardapioRefeicao->dataUtilizacao = $carconbDate;
+            $cardapioRefeicao->save();
+        }
+
+        return redirect()->route('cardapio')->with('status', 'Cardápio atualizado com sucesso!');
+
     }
 
     /**
@@ -157,6 +178,6 @@ class CardapioController extends Controller
      */
     public function total()
     {
-        dump(Cardapio::first()->getTotalNutrientes());
+        dump(Cardapio::find(6)->getTotalNutrientes());
     }
 }
