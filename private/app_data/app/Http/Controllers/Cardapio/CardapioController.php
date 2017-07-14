@@ -174,10 +174,25 @@ class CardapioController extends Controller
     }
 
     /**
-     * Realiza a Soma total
+     * Leva a tela que permite o usuário escolher a faixaEtaria para a
+     * geração de relatório
      */
-    public function total()
+    public function FaixaEtariaMensal()
     {
-        dump(Cardapio::find(6)->getTotalNutrientes());
+        $faixasEtarias = FaixaEtaria::pluck('descricaoFaixa', 'idFEtaria');
+        return view('cardapio.cardapioSelecionarFEtaria', compact('faixasEtarias'));
+    }
+
+    /**
+     * Realiza a Soma total
+     * todo continuar a geração de relatório, e ver uma alternativa pra não precisar enviar por metodo post
+     */
+    public function total(Request $request)
+    {
+        // retornando somente os dias do mês atual
+        $cardapios = Cardapio::CardapioMesAtual()->where('idFEtaria', $request->faixaEtaria)
+            ->orderBy('dataUtilizacao', 'asc')->get();
+
+        return view('cardapio.cardapioResumoMensal', compact('cardapios'));
     }
 }

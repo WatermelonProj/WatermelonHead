@@ -3,6 +3,7 @@
 namespace App\Models\Cardapio;
 
 use App\Models\Nutriente\Nutriente;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -31,6 +32,9 @@ class Cardapio extends Model
     protected $primaryKey = 'idCardapio';
     public $timestamps = true;
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function cardapioRefeicao()
     {
         return $this->hasMany('App\Models\Cardapio\CardapioRefeicao', 'idCardapio', 'idCardapio');
@@ -47,6 +51,9 @@ class Cardapio extends Model
 
     }
 
+    /**
+     * @return \Illuminate\Support\Collection
+     */
     public function getTotalNutrientes()
     {
         $somaNutrientesDiarios = Nutriente::all()->pluck(0, 'idNutriente');
@@ -60,4 +67,14 @@ class Cardapio extends Model
         return $somaNutrientesDiarios;
     }
 
+    /**
+     * Retorna o mês atual do cardapio
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopeCardapioMesAtual($query)
+    {
+        return $query->whereMonth('dataUtilizacao', Carbon::now()->month);
+    }
 }

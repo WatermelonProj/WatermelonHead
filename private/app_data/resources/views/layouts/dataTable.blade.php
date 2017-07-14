@@ -48,7 +48,7 @@
 
                     {{--Tabela--}}
                     <div class="x_content">
-                        <table id="datatable" class="table table-striped table-bordered">
+                        <table id="datatable" class="table table-bordered @yield('table_class')">
                             <thead>
                             @yield('table_head')
                             </thead>

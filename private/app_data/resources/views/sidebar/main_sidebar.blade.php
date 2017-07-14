@@ -47,7 +47,7 @@
                                 <a href="{{ route('cardapio.all') }}">Histórico de Cardápios</a>
                             </li>
                             <li>
-                                <a href="{{ route('cardapio.total') }}">Relatórios mensais</a>
+                                <a href="{{ route('cardapio.FEtaria') }}">Relatórios mensais</a>
                             </li>
                         </ul>
                     </li>

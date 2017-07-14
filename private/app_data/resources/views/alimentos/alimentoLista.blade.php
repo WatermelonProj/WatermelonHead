@@ -14,6 +14,8 @@
 
 @endsection
 
+@section('table_class', 'table-striped')
+
 @section('table_head')
     <tr>
         <th>Id</th>

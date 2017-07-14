@@ -61,6 +61,7 @@ Route::group(['prefix' => 'refeicao'], function () {
 Route::group(['prefix' => 'cardapio'], function () {
     Route::get('', 'Cardapio\CardapioController@index')->name('cardapio');
     Route::get('/all', 'Cardapio\CardapioController@all')->name('cardapio.all');
+    Route::get('/relatorio', 'Cardapio\CardapioController@FaixaEtariaMensal')->name('cardapio.FEtaria');
     Route::get('/total', 'Cardapio\CardapioController@total')->name('cardapio.total');
     Route::get('/create', 'Cardapio\CardapioController@create')->name('cardapio.create')->middleware('auth');
     Route::post('/store', 'Cardapio\CardapioController@store')->name('cardapio.store')->middleware('auth');
