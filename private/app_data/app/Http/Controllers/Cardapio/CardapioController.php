@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cardapio\Cardapio;
 use App\Models\Cardapio\CardapioRefeicao;
 use App\Models\Faixa_Etaria\FaixaEtaria;
+use App\Models\Nutriente\Nutriente;
 use App\Models\Refeicao\Refeicao;
 use Carbon\Carbon;
 use DB;
@@ -185,14 +186,13 @@ class CardapioController extends Controller
 
     /**
      * Realiza a Soma total
-     * todo continuar a geração de relatório, e ver uma alternativa pra não precisar enviar por metodo post
      */
     public function total(Request $request)
     {
         // retornando somente os dias do mês atual
         $cardapios = Cardapio::CardapioMesAtual()->where('idFEtaria', $request->faixaEtaria)
             ->orderBy('dataUtilizacao', 'asc')->get();
-
-        return view('cardapio.cardapioResumoMensal', compact('cardapios'));
+        $nutriente = new Nutriente();
+        return view('cardapio.cardapioResumoMensal', compact('cardapios', 'nutriente'));
     }
 }

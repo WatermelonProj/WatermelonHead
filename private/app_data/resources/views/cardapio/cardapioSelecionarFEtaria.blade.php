@@ -34,7 +34,7 @@
                     <br>
                     {{--Form--}}
                     {!! Form::open(['route' => 'cardapio.total', 'class'=>'form-horizontal form-label-left',
-                    'id'=> 'cadastro-form', 'data-parsley-validate']) !!}
+                    'cadastro-form', 'data-parsley-validate']) !!}
 
                     <div class="form-group ">
                         {!! Form::label('faixaEtaria', 'Faixa Etaria', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
