@@ -56,20 +56,20 @@
                         {{--Faz a verificação se o usuário está logado--}}
                         @if(Auth::check())
                             <li class="">
-                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                                <a href="javascript:" class="user-profile dropdown-toggle" data-toggle="dropdown"
                                    aria-expanded="false">
                                     <img src="{{ asset('img/icone.svg') }}" alt="">{{ Auth::user()->name }}
                                     <span class=" fa fa-angle-down"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu pull-right">
-                                    <li><a href="javascript:;"> Profile</a></li>
+                                    <li><a href="javascript:"> Profile</a></li>
                                     <li>
-                                        <a href="javascript:;">
+                                        <a href="javascript:">
                                             <span class="badge bg-red pull-right">50%</span>
                                             <span>Settings</span>
                                         </a>
                                     </li>
-                                    <li><a href="javascript:;">Help</a></li>
+                                    <li><a href="javascript:">Help</a></li>
                                     {{--<li><button href="{{ Auth::logout() }}"><i class="fa fa-sign-out pull-right"></i> Log Out</button></li>--}}
                                     <li>
                                         <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -113,6 +113,11 @@
 <script src="{{ asset('theme/gentelella/vendors/jquery/dist/jquery.min.js') }}"></script>
 {{--bootstrap--}}
 <script src="{{ asset('theme/gentelella/vendors/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+
+{{--bootstrap-progressbar --}}
+<script src="{{asset('theme/gentelella/vendors/nprogress/nprogress.js')}}"></script>
+<script src="{{asset('theme/gentelella/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js')}}"></script>
+
 {{--theme scripts--}}
 <script src="{{asset('theme/gentelella/build/js/custom.min.js')}}"></script>
 

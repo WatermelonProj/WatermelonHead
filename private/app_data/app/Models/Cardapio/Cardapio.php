@@ -73,8 +73,8 @@ class Cardapio extends Model
      * @param $query
      * @return mixed
      */
-    public function scopeCardapioMesAtual($query)
+    public function scopeCardapioMensal($query, $mes)
     {
-        return $query->whereMonth('dataUtilizacao', Carbon::now()->month);
+        return $query->whereMonth('dataUtilizacao', $mes)->whereYear('dataUtilizacao', Carbon::now()->year);
     }
 }

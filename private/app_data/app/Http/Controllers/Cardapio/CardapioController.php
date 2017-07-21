@@ -7,6 +7,7 @@ use App\Models\Cardapio\Cardapio;
 use App\Models\Cardapio\CardapioRefeicao;
 use App\Models\Faixa_Etaria\FaixaEtaria;
 use App\Models\Nutriente\Nutriente;
+use App\Models\Nutriente\NutrientesPorFaixa;
 use App\Models\Refeicao\Refeicao;
 use Carbon\Carbon;
 use DB;
@@ -181,7 +182,8 @@ class CardapioController extends Controller
     public function FaixaEtariaMensal()
     {
         $faixasEtarias = FaixaEtaria::pluck('descricaoFaixa', 'idFEtaria');
-        return view('cardapio.cardapioSelecionarFEtaria', compact('faixasEtarias'));
+        $mesAtual = Carbon::now()->month;
+        return view('cardapio.cardapioSelecionarFEtaria', compact('faixasEtarias', 'mesAtual'));
     }
 
     /**
@@ -189,10 +191,15 @@ class CardapioController extends Controller
      */
     public function total(Request $request)
     {
-        // retornando somente os dias do mês atual
-        $cardapios = Cardapio::CardapioMesAtual()->where('idFEtaria', $request->faixaEtaria)
+        // retornando somente os dias do mês solicitado
+        $cardapios = Cardapio::CardapioMensal($request->mes)->where('idFEtaria', $request->faixaEtaria)
             ->orderBy('dataUtilizacao', 'asc')->get();
+
+        //retornando as quantidades minimas
+        $nutrientesPorFaixa = NutrientesPorFaixa::where('idFetaria', $request->faixaEtaria)->get();
+        $nutrientesPorFaixa = array_pluck($nutrientesPorFaixa, 'qtdeMin', 'idNutriente');
+
         $nutriente = new Nutriente();
-        return view('cardapio.cardapioResumoMensal', compact('cardapios', 'nutriente'));
+        return view('cardapio.cardapioResumoMensal', compact('cardapios', 'nutriente', 'nutrientesPorFaixa'));
     }
 }
