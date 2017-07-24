@@ -120,6 +120,7 @@
             </div>
         </div>
 
+        {{-- todo lembrar sempre de utilizar o comando php artisan storage:link para linkar o diretorio onde salvam as imagens dos alimentos--}}
         {{--Verifica se existe imagem relacionada ao alimento--}}
         @if((File::exists("storage/receitas/{$receita->idReceita}.png") xor File::exists("storage/receitas/{$receita->idReceita}.jpg")))
             <div class="col-md-4 col-sm-4 col-xs-12">

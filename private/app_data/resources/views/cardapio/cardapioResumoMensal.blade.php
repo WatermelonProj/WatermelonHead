@@ -17,6 +17,7 @@
 @section('table_body')
     @foreach($cardapios as $index => $cardapio)
         <?php $nutrientes = $cardapio->getTotalNutrientes() ?>
+        {{ dump($nutrientes) }}
         <tr>
             <td>{{ toCarbon($cardapio->dataUtilizacao)->format('d/m/y') }}</td>
             <td>
@@ -39,12 +40,16 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="progress ">
-                                            <div class="progress-bar progress-bar-warning" data-transitiongoal="25"></div>
+                                            <div class="progress-bar progress-bar-warning" data-transitiongoal="100"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <span>Mínimo Diário = {{ $nutrientesPorFaixa[1] * 5 . "KCAL" }} </span>
-                                        <span>% exigida = {{ $nutrientesPorFaixa[1] . "KCAL" }} </span>
+                                        <span>Mínimo Diário = {{ $nutrientesPorFaixa[1] * 5 . "KCAL" }} </span><br>
+                                        <span>% Exigida = {{ $nutrientesPorFaixa[1] . "KCAL" }} </span><br>
+                                        <?php $qtd = $nutrientes[1] * 100 / $nutrientesPorFaixa[1] * 5; ?>
+                                        {{ dump($nutrientes[1] * 100) }}
+                                        {{ dump($nutrientesPorFaixa[1] * 5) }}
+                                        <span>% Atingida = {{ $qtd }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -80,7 +85,9 @@
                                             </div>
                                             <span>
                                                 Mínimo Diário = {{ $nutrientesPorFaixa[3] * 5}}
-                                            </span>
+                                            </span><br>
+                                            <span>% Exigida = {{ $nutrientesPorFaixa[3] }} </span><br>
+                                            <span>% Atingida = {{ ($nutrientes[3] * 100) / ($nutrientesPorFaixa[3] * 5) }}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -93,7 +100,9 @@
                                             </div>
                                             <span>
                                                 Mínimo Diário = {{ $nutrientesPorFaixa[4] * 5}}
-                                            </span>
+                                            </span><br>
+                                            <span>% Exigida = {{ $nutrientesPorFaixa[4] }} </span><br>
+                                            <span>% Atingida = {{ $nutrientes[4] * 100 / $nutrientesPorFaixa[4] * 5 }}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -106,7 +115,9 @@
                                             </div>
                                             <span>
                                                 Mínimo Diário = {{ $nutrientesPorFaixa[6] * 5}}
-                                            </span>
+                                            </span><br>
+                                            <span>% Exigida = {{ $nutrientesPorFaixa[6] }} </span><br>
+                                            <span>% Atingida = {{ $nutrientes[6] * 100 / $nutrientesPorFaixa[6] * 5 }}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -119,7 +130,9 @@
                                             </div>
                                             <span>
                                                 Mínimo Diário = {{ $nutrientesPorFaixa[7] * 5}}
-                                            </span>
+                                            </span><br>
+                                            <span>% Exigida = {{ $nutrientesPorFaixa[7] }} </span><br>
+                                            <span>% Atingida = {{ $nutrientes[7]* 100 / $nutrientesPorFaixa[6] * 5  }}</span>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -158,7 +171,9 @@
                                             </div>
                                             <span>
                                                 Mínimo Diário = {{ $nutrientesPorFaixa[9] * 5}}
-                                            </span>
+                                            </span><br>
+                                            <span>% Exigida = {{ $nutrientesPorFaixa[9] }} </span><br>
+                                            <span>% Atingida = {{ $nutrientes[9] * 100 / $nutrientesPorFaixa[9] * 5 }}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -171,7 +186,9 @@
                                             </div>
                                             <span>
                                                 Mínimo Diário = {{ $nutrientesPorFaixa[10] * 5}}
-                                            </span>
+                                            </span><br>
+                                            <span>% Exigida = {{ $nutrientesPorFaixa[10] }} </span><br>
+                                            <span>% Atingida = {{ $nutrientes[10] * 100 / $nutrientesPorFaixa[10] * 5 }}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -184,7 +201,9 @@
                                             </div>
                                             <span>
                                                 Mínimo Diário = {{ $nutrientesPorFaixa[11] * 5}}
-                                            </span>
+                                            </span><br>
+                                            <span>% Exigida = {{ $nutrientesPorFaixa[11] }} </span><br>
+                                            <span>% Atingida = {{ $nutrientes[11] * 100 / $nutrientesPorFaixa[11] * 5 }}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -197,7 +216,9 @@
                                             </div>
                                             <span>
                                                 Mínimo Diário = {{ $nutrientesPorFaixa[13] * 5}}
-                                            </span>
+                                            </span><br>
+                                            <span>% Exigida = {{ $nutrientesPorFaixa[13] }} </span><br>
+                                            <span>% Atingida = {{ $nutrientes[13] * 100 / $nutrientesPorFaixa[13] * 5 }}</span>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -235,7 +256,9 @@
                                             </div>
                                             <span>
                                                 Mínimo Diário = {{ $nutrientesPorFaixa[18] * 5}}
-                                            </span>
+                                            </span><br>
+                                            <span>% Exigida = {{ $nutrientesPorFaixa[18] }} </span><br>
+                                            <span>% Atingida = {{ $nutrientes[18] * 100 / $nutrientesPorFaixa[18] * 5 }}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -248,7 +271,9 @@
                                             </div>
                                             <span>
                                                 Mínimo Diário = {{ $nutrientesPorFaixa[25] * 5}}
-                                            </span>
+                                            </span><br>
+                                            <span>% Exigida = {{ $nutrientesPorFaixa[25] }} </span><br>
+                                            <span>% Atingida = {{ $nutrientes[25] * 100 / $nutrientesPorFaixa[25] * 5 }}</span>
                                         </td>
                                     </tr>
                                     </tbody>

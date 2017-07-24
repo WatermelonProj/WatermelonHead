@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(FaixaEtariaSeeder::class);
         $this->call(TipoPorcaoSeeder::class);
         $this->call(tipoMedidaCaseiraSeeder::class);
+        $this->call(NutrientesPorFaixaSeeder::class);
     }
 }
