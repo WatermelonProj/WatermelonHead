@@ -49,6 +49,9 @@
                             <li>
                                 <a href="{{ route('cardapio.FEtaria') }}">Relatórios mensais</a>
                             </li>
+                            <li>
+                                <a href="{{ route('cardapio.FEtariaSemanal') }}">Relatórios mensais</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>

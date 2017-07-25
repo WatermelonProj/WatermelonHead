@@ -186,6 +186,13 @@ class CardapioController extends Controller
         return view('cardapio.cardapioSelecionarFEtaria', compact('faixasEtarias', 'mesAtual'));
     }
 
+    public function FaixaEtariaSemanal()
+    {
+        $faixasEtarias = FaixaEtaria::pluck('descricaoFaixa', 'idFEtaria');
+        $mesAtual = Carbon::now()->month;
+        return view('cardapio.cardapioSemanalSelecionarFEtaria', compact('faixasEtarias', 'mesAtual'));
+    }
+
     /**
      * Realiza a Soma total
      */
@@ -201,5 +208,17 @@ class CardapioController extends Controller
 
         $nutriente = new Nutriente();
         return view('cardapio.cardapioResumoMensal', compact('cardapios', 'nutriente', 'nutrientesPorFaixa'));
+    }
+
+    public function totalSemanal(Request $request)
+    {
+        // Pegando o primeiro dia do mês e ja inserindo na array, indexando o tamanho da primeira semana
+        $semanas = [];
+
+        //todo finalizar o relatorio mensal
+//        $inicioDoMes = Cardapio::whereMonth('dataUtilizacao', $request->mes)->whereDay('dataUtilizacao', 1);
+//        Carbon::create(Carbon::now()->year, $request->mes, 1);
+//        $semanas[$inicioDoMes]
+
     }
 }

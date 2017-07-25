@@ -62,7 +62,9 @@ Route::group(['prefix' => 'cardapio'], function () {
     Route::get('', 'Cardapio\CardapioController@index')->name('cardapio');
     Route::get('/all', 'Cardapio\CardapioController@all')->name('cardapio.all');
     Route::get('/relatorio', 'Cardapio\CardapioController@FaixaEtariaMensal')->name('cardapio.FEtaria');
+    Route::get('/relatorio_semanal', 'Cardapio\CardapioController@FaixaEtariaSemanal')->name('cardapio.FEtariaSemanal');
     Route::post('/total', 'Cardapio\CardapioController@total')->name('cardapio.total');
+    Route::post('/total_semanal', 'Cardapio\CardapioController@totalSemanal')->name('cardapio.totalSemanal');
     Route::get('/create', 'Cardapio\CardapioController@create')->name('cardapio.create')->middleware('auth');
     Route::post('/store', 'Cardapio\CardapioController@store')->name('cardapio.store')->middleware('auth');
     Route::get('/show/{id}', 'Cardapio\CardapioController@show')->name('cardapio.show')->where('id', '[0-9]+');

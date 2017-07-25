@@ -4,7 +4,8 @@
 
 @section('links')
     <!-- bootstrap-progressbar -->
-    <link href="{{asset('theme/gentelella/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet">
+    <link href="{{asset('theme/gentelella/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css')}}"
+          rel="stylesheet">
 @endsection
 
 @section('table_title', "DD/MM/YYYY")
@@ -13,6 +14,8 @@
     <th>DIA</th>
     <th>Quantia Diaria</th>
 @endsection
+
+{{--todo QUando der, se der, replanejar esta view--}}
 
 @section('table_body')
     @foreach($cardapios as $index => $cardapio)
@@ -38,17 +41,20 @@
                                                  ENERGIA = {{$nutrientes[1]}} KCAL
                                             </span>
                                     </div>
+                                    <?php $qtd = ($nutrientes[1] * 100) / ($nutrientesPorFaixa[1] * 5);
+                                          $progressColor = $qtd < 20 ? 'progress-bar-danger' : 'progress-bar-success';
+                                    ?>
                                     <div class="col-md-4">
                                         <div class="progress ">
-                                            <div class="progress-bar progress-bar-warning" data-transitiongoal="100"></div>
+                                            <div class="progress-bar {{ $progressColor }}"
+                                                 data-transitiongoal="{{ $qtd }}">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <span>Mínimo Diário = {{ $nutrientesPorFaixa[1] * 5 . "KCAL" }} </span><br>
-                                        <span>% Exigida = {{ $nutrientesPorFaixa[1] . "KCAL" }} </span><br>
-                                        <?php $qtd = $nutrientes[1] * 100 / $nutrientesPorFaixa[1] * 5; ?>
-                                        {{ dump($nutrientes[1] * 100) }}
-                                        {{ dump($nutrientesPorFaixa[1] * 5) }}
+                                        <span>Mínimo Diário (100%) = {{ $nutrientesPorFaixa[1] * 5 . "KCAL" }} </span><br>
+                                        <span>% Exigida (20%) = {{ $nutrientesPorFaixa[1] . "KCAL" }} </span><br>
+                                        {{--total em % atingido--}}
                                         <span>% Atingida = {{ $qtd }}</span>
                                     </div>
                                 </div>
@@ -80,14 +86,18 @@
                                         <td>{{$nutrientes[3]}}</td>
                                         <td>g</td>
                                         <td>
+                                            <?php $qtd = ($nutrientes[3] * 100) / ($nutrientesPorFaixa[3] * 5);
+                                            $progressColor = $qtd < 20 ? 'progress-bar-danger' : 'progress-bar-success';
+                                            ?>
                                             <div class="progress ">
-                                                <div class="progress-bar progress-bar-warning" data-transitiongoal="25"></div>
+                                                <div class="progress-bar {{ $progressColor }}"
+                                                     data-transitiongoal="{{ $qtd }}"></div>
                                             </div>
                                             <span>
-                                                Mínimo Diário = {{ $nutrientesPorFaixa[3] * 5}}
+                                                Mínimo Diário (100%) = {{ $nutrientesPorFaixa[3] * 5}}
                                             </span><br>
-                                            <span>% Exigida = {{ $nutrientesPorFaixa[3] }} </span><br>
-                                            <span>% Atingida = {{ ($nutrientes[3] * 100) / ($nutrientesPorFaixa[3] * 5) }}</span>
+                                            <span>% Exigida (20%) = {{ $nutrientesPorFaixa[3] }} </span><br>
+                                            <span>% Atingida = {{ $qtd }}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -95,14 +105,18 @@
                                         <td>{{$nutrientes[4]}}</td>
                                         <td>g</td>
                                         <td>
+                                            <?php $qtd = ($nutrientes[4] * 100) / ($nutrientesPorFaixa[4] * 5);
+                                            $progressColor = $qtd < 20 ? 'progress-bar-danger' : 'progress-bar-success';
+                                            ?>
                                             <div class="progress ">
-                                                <div class="progress-bar progress-bar-danger" data-transitiongoal="15"></div>
+                                                <div class="progress-bar {{ $progressColor }}"
+                                                     data-transitiongoal="{{ $qtd }}"></div>
                                             </div>
                                             <span>
-                                                Mínimo Diário = {{ $nutrientesPorFaixa[4] * 5}}
+                                                Mínimo Diário (100%) = {{ $nutrientesPorFaixa[4] * 5}}
                                             </span><br>
-                                            <span>% Exigida = {{ $nutrientesPorFaixa[4] }} </span><br>
-                                            <span>% Atingida = {{ $nutrientes[4] * 100 / $nutrientesPorFaixa[4] * 5 }}</span>
+                                            <span>% Exigida (20%) = {{ $nutrientesPorFaixa[4] }} </span><br>
+                                            <span>% Atingida = {{ $qtd }}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -110,14 +124,18 @@
                                         <td>{{$nutrientes[6]}}</td>
                                         <td>g</td>
                                         <td>
+                                            <?php $qtd = ($nutrientes[6] * 100) / ($nutrientesPorFaixa[6] * 5);
+                                            $progressColor = $qtd < 20 ? 'progress-bar-danger' : 'progress-bar-success';
+                                            ?>
                                             <div class="progress ">
-                                                <div class="progress-bar progress-bar-success" data-transitiongoal="50"></div>
+                                                <div class="progress-bar {{ $progressColor }}"
+                                                     data-transitiongoal="{{ $qtd }}"></div>
                                             </div>
                                             <span>
-                                                Mínimo Diário = {{ $nutrientesPorFaixa[6] * 5}}
+                                                Mínimo Diário (100%) = {{ $nutrientesPorFaixa[6] * 5}}
                                             </span><br>
-                                            <span>% Exigida = {{ $nutrientesPorFaixa[6] }} </span><br>
-                                            <span>% Atingida = {{ $nutrientes[6] * 100 / $nutrientesPorFaixa[6] * 5 }}</span>
+                                            <span>% Exigida (20%) = {{ $nutrientesPorFaixa[6] }} </span><br>
+                                            <span>% Atingida = {{ $qtd }}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -125,14 +143,18 @@
                                         <td>{{$nutrientes[7]}}</td>
                                         <td>g</td>
                                         <td>
+                                            <?php $qtd = ($nutrientes[7] * 100) / ($nutrientesPorFaixa[7] * 5);
+                                            $progressColor = $qtd < 20 ? 'progress-bar-danger' : 'progress-bar-success';
+                                            ?>
                                             <div class="progress ">
-                                                <div class="progress-bar progress-bar-danger" data-transitiongoal="7"></div>
+                                                <div class="progress-bar {{ $progressColor }}"
+                                                     data-transitiongoal="{{ $qtd }}"></div>
                                             </div>
                                             <span>
-                                                Mínimo Diário = {{ $nutrientesPorFaixa[7] * 5}}
+                                                Mínimo Diário (100%) = {{ $nutrientesPorFaixa[7] * 5}}
                                             </span><br>
-                                            <span>% Exigida = {{ $nutrientesPorFaixa[7] }} </span><br>
-                                            <span>% Atingida = {{ $nutrientes[7]* 100 / $nutrientesPorFaixa[6] * 5  }}</span>
+                                            <span>% Exigida (20%) = {{ $nutrientesPorFaixa[7] }} </span><br>
+                                            <span>% Atingida = {{ $qtd }}</span>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -166,14 +188,18 @@
                                         <td>{{$nutrientes[9]}}</td>
                                         <td>mg</td>
                                         <td>
+                                            <?php $qtd = ($nutrientes[9] * 100) / ($nutrientesPorFaixa[9] * 5);
+                                            $progressColor = $qtd < 20 ? 'progress-bar-danger' : 'progress-bar-success';
+                                            ?>
                                             <div class="progress ">
-                                                <div class="progress-bar progress-bar-danger" data-transitiongoal="25"></div>
+                                                <div class="progress-bar {{ $progressColor }}"
+                                                     data-transitiongoal="{{ $qtd }}"></div>
                                             </div>
                                             <span>
-                                                Mínimo Diário = {{ $nutrientesPorFaixa[9] * 5}}
+                                                Mínimo Diário (100%) = {{ $nutrientesPorFaixa[9] * 5}}
                                             </span><br>
-                                            <span>% Exigida = {{ $nutrientesPorFaixa[9] }} </span><br>
-                                            <span>% Atingida = {{ $nutrientes[9] * 100 / $nutrientesPorFaixa[9] * 5 }}</span>
+                                            <span>% Exigida (20%) = {{ $nutrientesPorFaixa[9] }} </span><br>
+                                            <span>% Atingida = {{ $qtd }}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -181,14 +207,18 @@
                                         <td>{{$nutrientes[10]}}</td>
                                         <td>mg</td>
                                         <td>
+                                            <?php $qtd = ($nutrientes[10] * 100) / ($nutrientesPorFaixa[10] * 5);
+                                            $progressColor = $qtd < 20 ? 'progress-bar-danger' : 'progress-bar-success';
+                                            ?>
                                             <div class="progress ">
-                                                <div class="progress-bar progress-bar-danger" data-transitiongoal="25"></div>
+                                                <div class="progress-bar {{ $progressColor }}"
+                                                     data-transitiongoal="{{ $qtd }}"></div>
                                             </div>
                                             <span>
-                                                Mínimo Diário = {{ $nutrientesPorFaixa[10] * 5}}
+                                                Mínimo Diário (100%) = {{ $nutrientesPorFaixa[10] * 5}}
                                             </span><br>
-                                            <span>% Exigida = {{ $nutrientesPorFaixa[10] }} </span><br>
-                                            <span>% Atingida = {{ $nutrientes[10] * 100 / $nutrientesPorFaixa[10] * 5 }}</span>
+                                            <span>% Exigida (20%) = {{ $nutrientesPorFaixa[10] }} </span><br>
+                                            <span>% Atingida = {{ $qtd }}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -196,14 +226,18 @@
                                         <td>{{$nutrientes[11]}}</td>
                                         <td>mg</td>
                                         <td>
+                                            <?php $qtd = ($nutrientes[11] * 100) / ($nutrientesPorFaixa[11] * 5);
+                                            $progressColor = $qtd < 20 ? 'progress-bar-danger' : 'progress-bar-success';
+                                            ?>
                                             <div class="progress ">
-                                                <div class="progress-bar progress-bar-danger" data-transitiongoal="25"></div>
+                                                <div class="progress-bar {{ $progressColor }}"
+                                                     data-transitiongoal="{{ $qtd }}"></div>
                                             </div>
                                             <span>
-                                                Mínimo Diário = {{ $nutrientesPorFaixa[11] * 5}}
+                                                Mínimo Diário (100%) = {{ $nutrientesPorFaixa[11] * 5}}
                                             </span><br>
-                                            <span>% Exigida = {{ $nutrientesPorFaixa[11] }} </span><br>
-                                            <span>% Atingida = {{ $nutrientes[11] * 100 / $nutrientesPorFaixa[11] * 5 }}</span>
+                                            <span>% Exigida (20%) = {{ $nutrientesPorFaixa[11] }} </span><br>
+                                            <span>% Atingida = {{ $qtd }}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -211,14 +245,18 @@
                                         <td>{{$nutrientes[13]}}</td>
                                         <td>mg</td>
                                         <td>
+                                            <?php $qtd = ($nutrientes[13] * 100) / ($nutrientesPorFaixa[13] * 5);
+                                            $progressColor = $qtd < 20 ? 'progress-bar-danger' : 'progress-bar-success';
+                                            ?>
                                             <div class="progress ">
-                                                <div class="progress-bar progress-bar-danger" data-transitiongoal="25"></div>
+                                                <div class="progress-bar {{ $progressColor }}"
+                                                     data-transitiongoal="{{ $qtd }}"></div>
                                             </div>
                                             <span>
-                                                Mínimo Diário = {{ $nutrientesPorFaixa[13] * 5}}
+                                                Mínimo Diário (100%) = {{ $nutrientesPorFaixa[13] * 5}}
                                             </span><br>
-                                            <span>% Exigida = {{ $nutrientesPorFaixa[13] }} </span><br>
-                                            <span>% Atingida = {{ $nutrientes[13] * 100 / $nutrientesPorFaixa[13] * 5 }}</span>
+                                            <span>% Exigida (20%) = {{ $nutrientesPorFaixa[13] }} </span><br>
+                                            <span>% Atingida = {{ $qtd }}</span>
                                         </td>
                                     </tr>
                                     </tbody>
@@ -251,14 +289,18 @@
                                         <td>{{$nutrientes[18]}}</td>
                                         <td>µg</td>
                                         <td>
+                                            <?php $qtd = ($nutrientes[18] * 100) / ($nutrientesPorFaixa[18] * 5);
+                                            $progressColor = $qtd < 20 ? 'progress-bar-danger' : 'progress-bar-success';
+                                            ?>
                                             <div class="progress ">
-                                                <div class="progress-bar progress-bar-danger" data-transitiongoal="25"></div>
+                                                <div class="progress-bar {{ $progressColor }}"
+                                                     data-transitiongoal="{{ $qtd }}"></div>
                                             </div>
                                             <span>
-                                                Mínimo Diário = {{ $nutrientesPorFaixa[18] * 5}}
+                                                Mínimo Diário (100%) = {{ $nutrientesPorFaixa[18] * 5}}
                                             </span><br>
-                                            <span>% Exigida = {{ $nutrientesPorFaixa[18] }} </span><br>
-                                            <span>% Atingida = {{ $nutrientes[18] * 100 / $nutrientesPorFaixa[18] * 5 }}</span>
+                                            <span>% Exigida (20%) = {{ $nutrientesPorFaixa[18] }} </span><br>
+                                            <span>% Atingida = {{ $qtd }}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -266,14 +308,18 @@
                                         <td>{{$nutrientes[25]}}</td>
                                         <td>mg</td>
                                         <td>
+                                            <?php $qtd = ($nutrientes[25] * 100) / ($nutrientesPorFaixa[25] * 5);
+                                            $progressColor = $qtd < 20 ? 'progress-bar-danger' : 'progress-bar-success';
+                                            ?>
                                             <div class="progress ">
-                                                <div class="progress-bar progress-bar-danger" data-transitiongoal="25"></div>
+                                                <div class="progress-bar {{ $progressColor }}"
+                                                     data-transitiongoal="{{ $qtd }}"></div>
                                             </div>
                                             <span>
-                                                Mínimo Diário = {{ $nutrientesPorFaixa[25] * 5}}
+                                                Mínimo Diário (100%) = {{ $nutrientesPorFaixa[25] * 5}}
                                             </span><br>
-                                            <span>% Exigida = {{ $nutrientesPorFaixa[25] }} </span><br>
-                                            <span>% Atingida = {{ $nutrientes[25] * 100 / $nutrientesPorFaixa[25] * 5 }}</span>
+                                            <span>% Exigida (20%) = {{ $nutrientesPorFaixa[25] }} </span><br>
+                                            <span>% Atingida = {{ $qtd }}</span>
                                         </td>
                                     </tr>
                                     </tbody>
