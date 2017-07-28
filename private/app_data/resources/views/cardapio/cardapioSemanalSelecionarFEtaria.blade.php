@@ -45,11 +45,14 @@
 
                     <div class="form-group ">
                         {!! Form::label('mes', 'Mês', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
-                        <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="col-md-2 col-sm-6 col-xs-12">
                             {!! Form::select('mes', ['1' => 'Janeiro', '2' => 'Fevereiro', '3' => 'Março',
                             '4' => 'Abril', '5' => 'Maio', '6' => 'Junho', '7' => 'Julho', '8' => 'Agosto',
                             '9' => 'Setembro',  '10' => 'Outubro', '11' => 'Novembro', '12' => 'Dezembro'],
                              $mesAtual, ['class'=>'form-control']) !!}
+                        </div>
+                        <div class="col-md-2 col-sm-6 col-xs-12">
+                            {!! Form::number('ano', \Carbon\Carbon::now()->year, ['class' => 'form-control', 'placeholder' => 'ano']) !!}
                         </div>
                     </div>
 

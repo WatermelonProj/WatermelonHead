@@ -212,8 +212,39 @@ class CardapioController extends Controller
 
     public function totalSemanal(Request $request)
     {
-        // Pegando o primeiro dia do mês e ja inserindo na array, indexando o tamanho da primeira semana
-        $semanas = [];
+        // definindo o inicio e fim do mês
+        $dia = Carbon::create($request->ano, $request->mes, 1);
+
+        //se ja começa no domingo ou sabado, pula para segunda
+        if ($dia->dayOfWeek == Carbon::SUNDAY) {
+            $dia->addDay(1);
+        } elseif ($dia->dayOfWeek == Carbon::SATURDAY) {
+            $dia->addDay(2);
+        }
+
+        // enquanto não fechar o mês continuar, caso seja o fim dem uma semana adicionar outro indice na array de somas
+        $count = 1;
+        $semanas = ['semana-1'];
+        $dias = [];
+        while (!$dia->isNextMonth()) {
+            dump($count);
+            // acabou uma semana
+            if ($dia->isWeekend()){
+                $semanas["semanas-{$count}"] = $dias;
+                $dias = [];
+                $count++;
+            }
+
+            $cardapio = Cardapio::whereDay('dataUtilizacao', $dia)->where('idFEtaria', $request->faixaEtaria)
+                ->get();
+            if ($cardapio != null) {
+                array_push($dias, $cardapio);
+            }
+            $dia->addDay(1);
+        }
+
+        dump($dia);
+        dump($semanas);
 
         //todo finalizar o relatorio mensal
 //        $inicioDoMes = Cardapio::whereMonth('dataUtilizacao', $request->mes)->whereDay('dataUtilizacao', 1);
