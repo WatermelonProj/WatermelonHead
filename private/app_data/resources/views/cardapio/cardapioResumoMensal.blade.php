@@ -143,6 +143,9 @@
                                         <td>{{$nutrientes[7]}}</td>
                                         <td>g</td>
                                         <td>
+                                            @if($nutrientesPorFaixa[7] == 0)
+                                                <p>NA</p>
+                                            @else
                                             <?php $qtd = ($nutrientes[7] * 100) / ($nutrientesPorFaixa[7] * 5);
                                             $progressColor = $qtd < 20 ? 'progress-bar-danger' : 'progress-bar-success';
                                             ?>
@@ -155,6 +158,7 @@
                                             </span><br>
                                             <span>% Exigida (20%) = {{ $nutrientesPorFaixa[7] }} </span><br>
                                             <span>% Atingida = {{ $qtd }}</span>
+                                            @endif
                                         </td>
                                     </tr>
                                     </tbody>
