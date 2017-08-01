@@ -229,7 +229,13 @@ class CardapioController extends Controller
         // definindo o inicio e fim do mês
         $diaAtual = Carbon::create($request->ano, $request->mes, 1);
 
-        $somaNutrientesDiarios = Nutriente::all()->pluck(0, 'idNutriente');
+        $somaNutrientesDiarios = Nutriente::all()->pluck(0, 'idNutriente')->toArray();
+
+        //retornando as quantidades minimas
+        $nutrientesPorFaixa = NutrientesPorFaixa::where('idFetaria', $request->faixaEtaria)->get();
+        $nutrientesPorFaixa = array_pluck($nutrientesPorFaixa, 'qtdeMin', 'idNutriente');
+
+        $nutriente = new Nutriente();
 
         //se ja começa no domingo ou sabado, pula para segunda
         if ($diaAtual->dayOfWeek == Carbon::SUNDAY) {
@@ -239,25 +245,35 @@ class CardapioController extends Controller
         }
 
         // enquanto não fechar o mês continuar, caso seja o fim dem uma semana adicionar outro indice na array de somas
-        $semanas = ['semana-1' => clone $somaNutrientesDiarios, 'semana-2' => clone $somaNutrientesDiarios,
-            'semana-3' => clone $somaNutrientesDiarios, 'semana-4' => clone $somaNutrientesDiarios,
-            'semana-5' => clone $somaNutrientesDiarios, 'semana-6' => clone $somaNutrientesDiarios];
+        $semanas =
+                ['Semana 1' =>  $somaNutrientesDiarios, 'Semana 2' =>  $somaNutrientesDiarios,
+                'Semana 3' =>  $somaNutrientesDiarios, 'Semana 4' =>  $somaNutrientesDiarios,
+                'Semana 5' =>  $somaNutrientesDiarios, 'Semana 6' =>  $somaNutrientesDiarios];
+        $cardapios = [];
 
         while (!$diaAtual->isNextMonth()) {
             // acabou uma semana, adicionar dois dias para voltar a segunda feira
             $cardapio = Cardapio::whereDay('dataUtilizacao', $diaAtual->day)
                 ->where('idFEtaria', $request->faixaEtaria)->first();
             if ($cardapio != null) {
+                array_push($cardapios, $cardapio);
                 $totalNutrientes = $cardapio->getTotalNutrientes()->toArray();
                 foreach ($totalNutrientes as $index => $totalNutriente) {
-                    $semanas["semana-{$diaAtual->weekOfMonth}"][$index] += $totalNutriente;
+                    $semanas["Semana {$diaAtual->weekOfMonth}"][$index] += $totalNutriente;
                 }
                 unset($totalNutrientes);
-                echo '====';
             }
             $diaAtual->addDay(1);
         }
 
-        //todo finalizar a view do resumo semanal!!!!
+
+        // removendo as semandas nulas
+        foreach ($semanas as $index => $semana) {
+            if ($semana[1] == null)
+                unset($semanas[$index]);
+        }
+
+        return view('cardapio.cardapioResumoSemanal', compact('semanas', 'cardapios',
+            'nutrientesPorFaixa', 'nutriente'));
     }
 }
