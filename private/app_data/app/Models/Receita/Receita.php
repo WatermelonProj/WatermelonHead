@@ -44,8 +44,12 @@ class Receita extends Model
         foreach ($this->alimentoReceita as $index => $alimentoReceita) {
             foreach ($alimentoReceita->alimento->nutrienteAlimento as $nutrienteAlimento) {
                 // realiza a soma dos nutrientes e retorna uma array com a quantidade de nutrientes, sendo o indice o id do nutriente
-                $quantidadeNutrientes[$nutrienteAlimento->idNutriente] +=
-                    ($alimentoReceita->qtde * ($nutrienteAlimento->qtde / 100)) / $porcao;
+                if ($porcao != 0) {
+                    $quantidadeNutrientes[$nutrienteAlimento->idNutriente] +=
+                        ($alimentoReceita->qtde * ($nutrienteAlimento->qtde / 100)) / $porcao;
+                } else {
+                    $quantidadeNutrientes[$nutrienteAlimento->idNutriente] = 0;
+                }
             }
         }
 

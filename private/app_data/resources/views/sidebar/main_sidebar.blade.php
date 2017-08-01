@@ -50,7 +50,7 @@
                                 <a href="{{ route('cardapio.FEtaria') }}">Relatórios mensais</a>
                             </li>
                             <li>
-                                <a href="{{ route('cardapio.FEtariaSemanal') }}">Relatórios mensais</a>
+                                <a href="{{ route('cardapio.FEtariaSemanal') }}">Relatórios Semanais</a>
                             </li>
                         </ul>
                     </li>

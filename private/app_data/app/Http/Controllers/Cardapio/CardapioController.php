@@ -72,12 +72,20 @@ class CardapioController extends Controller
      */
     public function store(Request $request)
     {
-        //todo ao agendar novo cardapio verificar se ja existe algum no mesmo dia, se sim confirmar a sobrescrição
+        //arrumando a data em vetores
+        $data = explode('/', $request->data);
+
+        // se o cardápio ja existe sobrescreve ele
+        $verificaCardapio = Cardapio::whereYear('dataUtilizacao', $data[2])->whereMonth('dataUtilizacao', $data[1])
+            ->whereDay('dataUtilizacao', $data[0])->where('idFetaria', $request->faixaEtaria);
+        if ($verificaCardapio != null) {
+            $verificaCardapio->delete();
+        }
+
         // salvando, data, id do Usuario, data do cardápio
         $cardapio = new Cardapio();
         $cardapio->idFEtaria = $request->faixaEtaria;
         $cardapio->idUsuario = Auth::user()->id;
-        $data = explode('/', $request->data);
         $cardapio->dataUtilizacao = Carbon::create($data[2], $data[1], $data[0]);
         $cardapio->save();
 
@@ -181,6 +189,7 @@ class CardapioController extends Controller
      */
     public function FaixaEtariaMensal()
     {
+        // todo verificar o pq não esta pegando os dados de 0-6 meses
         $faixasEtarias = FaixaEtaria::pluck('descricaoFaixa', 'idFEtaria');
         $mesAtual = Carbon::now()->month;
         return view('cardapio.cardapioSelecionarFEtaria', compact('faixasEtarias', 'mesAtual'));
@@ -210,46 +219,45 @@ class CardapioController extends Controller
         return view('cardapio.cardapioResumoMensal', compact('cardapios', 'nutriente', 'nutrientesPorFaixa'));
     }
 
+    /**
+     * Retorna o total semnal de acordo com o mês e o ano fornecidos
+     *
+     * @param Request $request
+     */
     public function totalSemanal(Request $request)
     {
         // definindo o inicio e fim do mês
-        $dia = Carbon::create($request->ano, $request->mes, 1);
+        $diaAtual = Carbon::create($request->ano, $request->mes, 1);
+
+        $somaNutrientesDiarios = Nutriente::all()->pluck(0, 'idNutriente');
 
         //se ja começa no domingo ou sabado, pula para segunda
-        if ($dia->dayOfWeek == Carbon::SUNDAY) {
-            $dia->addDay(1);
-        } elseif ($dia->dayOfWeek == Carbon::SATURDAY) {
-            $dia->addDay(2);
+        if ($diaAtual->dayOfWeek == Carbon::SUNDAY) {
+            $diaAtual->addDay(1);
+        } elseif ($diaAtual->dayOfWeek == Carbon::SATURDAY) {
+            $diaAtual->addDay(2);
         }
 
         // enquanto não fechar o mês continuar, caso seja o fim dem uma semana adicionar outro indice na array de somas
-        $count = 1;
-        $semanas = ['semana-1'];
-        $dias = [];
-        while (!$dia->isNextMonth()) {
-            dump($count);
-            // acabou uma semana
-            if ($dia->isWeekend()){
-                $semanas["semanas-{$count}"] = $dias;
-                $dias = [];
-                $count++;
-            }
+        $semanas = ['semana-1' => clone $somaNutrientesDiarios, 'semana-2' => clone $somaNutrientesDiarios,
+            'semana-3' => clone $somaNutrientesDiarios, 'semana-4' => clone $somaNutrientesDiarios,
+            'semana-5' => clone $somaNutrientesDiarios, 'semana-6' => clone $somaNutrientesDiarios];
 
-            $cardapio = Cardapio::whereDay('dataUtilizacao', $dia)->where('idFEtaria', $request->faixaEtaria)
-                ->get();
+        while (!$diaAtual->isNextMonth()) {
+            // acabou uma semana, adicionar dois dias para voltar a segunda feira
+            $cardapio = Cardapio::whereDay('dataUtilizacao', $diaAtual->day)
+                ->where('idFEtaria', $request->faixaEtaria)->first();
             if ($cardapio != null) {
-                array_push($dias, $cardapio);
+                $totalNutrientes = $cardapio->getTotalNutrientes()->toArray();
+                foreach ($totalNutrientes as $index => $totalNutriente) {
+                    $semanas["semana-{$diaAtual->weekOfMonth}"][$index] += $totalNutriente;
+                }
+                unset($totalNutrientes);
+                echo '====';
             }
-            $dia->addDay(1);
+            $diaAtual->addDay(1);
         }
 
-        dump($dia);
-        dump($semanas);
-
-        //todo finalizar o relatorio mensal
-//        $inicioDoMes = Cardapio::whereMonth('dataUtilizacao', $request->mes)->whereDay('dataUtilizacao', 1);
-//        Carbon::create(Carbon::now()->year, $request->mes, 1);
-//        $semanas[$inicioDoMes]
-
+        //todo finalizar a view do resumo semanal!!!!
     }
 }
