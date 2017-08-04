@@ -189,7 +189,9 @@ class CardapioController extends Controller
      */
     public function FaixaEtariaMensal()
     {
-        // todo verificar o pq não esta pegando os dados de 0-6 meses
+        /* todo verificar o pq não esta pegando os dados de 0-6 meses
+         --> não está pegando pois as qtdes minimas não estão cadastradas ainda!! CADASTRAR! */
+
         $faixasEtarias = FaixaEtaria::pluck('descricaoFaixa', 'idFEtaria');
         $mesAtual = Carbon::now()->month;
         return view('cardapio.cardapioSelecionarFEtaria', compact('faixasEtarias', 'mesAtual'));
@@ -235,7 +237,7 @@ class CardapioController extends Controller
         $nutrientesPorFaixa = NutrientesPorFaixa::where('idFetaria', $request->faixaEtaria)->get();
         $nutrientesPorFaixa = array_pluck($nutrientesPorFaixa, 'qtdeMin', 'idNutriente');
 
-        $nutriente = new Nutriente();
+        $nutrientes = new Nutriente();
 
         //se ja começa no domingo ou sabado, pula para segunda
         if ($diaAtual->dayOfWeek == Carbon::SUNDAY) {
@@ -273,7 +275,8 @@ class CardapioController extends Controller
                 unset($semanas[$index]);
         }
 
+//        dump($nutrientesPorFaixa);
         return view('cardapio.cardapioResumoSemanal', compact('semanas', 'cardapios',
-            'nutrientesPorFaixa', 'nutriente'));
+            'nutrientesPorFaixa', 'nutrientes'));
     }
 }

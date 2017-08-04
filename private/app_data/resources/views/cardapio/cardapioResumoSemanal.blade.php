@@ -17,98 +17,60 @@
 
 @section('table_body')
     @foreach($semanas as $index => $semana)
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>Nutriente</th>
-                <th>Quantidade</th>
-                <th>Unidade</th>
-                <th>Quantidades</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>Proteína</td>
-                <td>{{$nutrientes[3]}}</td>
-                <td>g</td>
-                <td>
-                    <?php $qtd = ($nutrientes[3] * 100) / ($nutrientesPorFaixa[3] * 5);
-                    $progressColor = $qtd < 20 ? 'progress-bar-danger' : 'progress-bar-success';
-                    ?>
-                    <div class="progress ">
-                        <div class="progress-bar {{ $progressColor }}"
-                             data-transitiongoal="{{ $qtd }}"></div>
-                    </div>
-                    <span>
-                                                Mínimo Diário (100%) = {{ $nutrientesPorFaixa[3] * 5}}
-                                            </span><br>
-                    <span>% Exigida (20%) = {{ $nutrientesPorFaixa[3] }} </span><br>
-                    <span>% Atingida = {{ $qtd }}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>Lipídeos</td>
-                <td>{{$nutrientes[4]}}</td>
-                <td>g</td>
-                <td>
-                    <?php $qtd = ($nutrientes[4] * 100) / ($nutrientesPorFaixa[4] * 5);
-                    $progressColor = $qtd < 20 ? 'progress-bar-danger' : 'progress-bar-success';
-                    ?>
-                    <div class="progress ">
-                        <div class="progress-bar {{ $progressColor }}"
-                             data-transitiongoal="{{ $qtd }}"></div>
-                    </div>
-                    <span>
-                                                Mínimo Diário (100%) = {{ $nutrientesPorFaixa[4] * 5}}
-                                            </span><br>
-                    <span>% Exigida (20%) = {{ $nutrientesPorFaixa[4] }} </span><br>
-                    <span>% Atingida = {{ $qtd }}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>Carboidrato</td>
-                <td>{{$nutrientes[6]}}</td>
-                <td>g</td>
-                <td>
-                    <?php $qtd = ($nutrientes[6] * 100) / ($nutrientesPorFaixa[6] * 5);
-                    $progressColor = $qtd < 20 ? 'progress-bar-danger' : 'progress-bar-success';
-                    ?>
-                    <div class="progress ">
-                        <div class="progress-bar {{ $progressColor }}"
-                             data-transitiongoal="{{ $qtd }}"></div>
-                    </div>
-                    <span>
-                                                Mínimo Diário (100%) = {{ $nutrientesPorFaixa[6] * 5}}
-                                            </span><br>
-                    <span>% Exigida (20%) = {{ $nutrientesPorFaixa[6] }} </span><br>
-                    <span>% Atingida = {{ $qtd }}</span>
-                </td>
-            </tr>
-            <tr>
-                <td>Fibra</td>
-                <td>{{$nutrientes[7]}}</td>
-                <td>g</td>
-                <td>
-                    @if($nutrientesPorFaixa[7] == 0)
-                        <p>NA</p>
-                    @else
-                        <?php $qtd = ($nutrientes[7] * 100) / ($nutrientesPorFaixa[7] * 5);
-                        $progressColor = $qtd < 20 ? 'progress-bar-danger' : 'progress-bar-success';
-                        ?>
-                        <div class="progress ">
-                            <div class="progress-bar {{ $progressColor }}"
-                                 data-transitiongoal="{{ $qtd }}"></div>
-                        </div>
-                        <span>
-                                                Mínimo Diário (100%) = {{ $nutrientesPorFaixa[7] * 5}}
-                                            </span><br>
-                        <span>% Exigida (20%) = {{ $nutrientesPorFaixa[7] }} </span><br>
-                        <span>% Atingida = {{ $qtd }}</span>
+        <td>{{ $index }}</td>
+        <td>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Nutriente</th>
+                    <th>Quantidade</th>
+                    <th>Unidade</th>
+                    <th>Quantidades</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($semana as $i => $nutrienteSemana)
+                    @if(in_array($i, array(1, 3, 4, 6, 7, 9, 10, 11, 13, 18, 25)))
+                    <tr>
+                        <td>
+                            {{ $nutrientes->find($i)->nomeNutriente}}
+                        </td>
+                        <td>
+                            {{ $nutrienteSemana }}
+                        </td>
+                        <td>
+                            {{ $nutrientes->find($i)->unidadeMedida->siglaUnidade }}
+                        </td>
+                        <td>
+                            @if($nutrientesPorFaixa[$i] != 0)
+                                <?php $qtd = ($nutrienteSemana * 100) / (($nutrientesPorFaixa[$i] * 5) * 5);
+                                $progressColor = $qtd < 20 ? 'progress-bar-danger' : 'progress-bar-success';
+                                ?>
+                                <div class="progress ">
+                                    <div class="progress-bar {{ $progressColor }}"
+                                         data-transitiongoal="{{ $qtd }}"></div>
+                                </div>
+                                    <span>
+                                        Mínimo Semanal (100%) = {{ ($nutrientesPorFaixa[$i] * 5) * 5}}
+                                    </span><br>
+                                    <span>
+                                        % Exigida (20%) = {{ ($nutrientesPorFaixa[$i]) * 5 }}
+                                    </span><br>
+                                    <span>
+                                        % Atingida = {{ $qtd }}
+                                    </span>
+                            @else
+                                <span>
+                                    ---
+                                </span>
+                            @endif
+                        </td>
+                    </tr>
                     @endif
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                @endforeach
+                </tbody>
+            </table>
+        </td>
     @endforeach
 @endsection
 
